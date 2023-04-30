@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('price', models.IntegerField(default=0)),
                 ('description', models.CharField(blank=True, default='', max_length=250, null=True)),
                 ('image', models.ImageField(upload_to='uploads/products/')),
-                ('category', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='store.category')),
+                ('category', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='webstore.category')),
             ],
         ),
         migrations.CreateModel(
@@ -52,8 +52,8 @@ class Migration(migrations.Migration):
                 ('phone', models.CharField(blank=True, default='', max_length=50)),
                 ('date', models.DateField(default=datetime.datetime.today)),
                 ('status', models.BooleanField(default=False)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.customer')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.products')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webstore.customer')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webstore.products')),
             ],
         ),
     ]
