@@ -1,2 +1,7 @@
 py manage.py makemigrations
 py manage.py migrate
+
+admin
+-  swastik
+password
+-  2369
