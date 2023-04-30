@@ -1,2 +1,4 @@
 py manage.py makemigrations
 py manage.py migrate
+
+last updated by suvankar saha
