@@ -3,5 +3,6 @@ py manage.py migrate
 
 admin
 -  swastik
+-  Aneesh (Django administration)
 password
--  2369
+-  2369 (same for Aneesh as well)
