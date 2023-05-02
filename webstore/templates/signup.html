@@ -1,105 +1,64 @@
 
 
-sc
 
-<!--
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
--->
 {% extends 'base.html' %}
 
-
 {% block content %}
-<section class="bg-white">
-    <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
-      <section
-        class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
-      >
-        <img
-          alt="Night"
-          src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-          class="absolute inset-0 h-full w-full object-cover opacity-80"
-        />
-  
-        <div class="hidden lg:relative lg:block lg:p-12">
-          <a class="block text-white" href="/">
-            <span class="sr-only">Home</span>
 
-          </a>
-  
-          <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-            Welcome to Squid 🦑
-          </h2>
-  
-          <p class="mt-4 leading-relaxed text-white/90">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
-            dolorum aliquam, quibusdam aperiam voluptatum.
-          </p>
+<!-- JavaScript function to check if passwords match -->
+<script>
+    function checkPasswordMatch() {
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("repeat_password");
+
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+        } else {
+            confirmPassword.setCustomValidity("");
+        }
+    }
+</script>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Sign up</h2>
+            <form action="/signup" method="POST" onsubmit="checkPasswordMatch()">
+                {% csrf_token %}
+                <!-- username -->
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" name="username" id="username" class="form-control form-control-sm"
+                        required>
+                </div>
+
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="email" class="form-control form-control-sm"
+                        required>
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="password" class="form-control form-control-sm"
+                        required>
+                </div>
+
+                <!-- repeat password -->
+                <div class="form-group">
+                    <label for="">Repeat Password</label>
+                    <input type="password" name="repeat_password" id="repeat_password" class="form-control form-control-sm"
+                        oninput="checkPasswordMatch()" required>
+                </div>
+
+                <!-- submit button -->
+                <input type="submit" value="Sign up" class="btn btn-primary btn-sm">
+            </form>
         </div>
-      </section>
-  
-      <main
-        aria-label="Main"
-        class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
-      >
-        <div class="max-w-xl lg:max-w-3xl">
-          <div class="relative -mt-16 block lg:hidden">
-            <a
-              class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-              href="/"
-            >
-              <span class="sr-only">Home</span>
-
-            </a>
-  
-            <h1
-              class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
-            >
-              Welcome to Squid 🦑
-            </h1>
-  
-            <p class="mt-4 leading-relaxed text-gray-500">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              nam dolorum aliquam, quibusdam aperiam voluptatum.
-            </p>
-          </div>
-         
-                
-
-          <form action="/signup" method="POST" class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-6">
-            {% csrf_token %}
- 
-            <div class="col-span-1 sm:col-span-3">
-              <label for="FirstName" class="block text-sm font-medium text-gray-700"> First Name </label>
-              <input type="text" id="FirstName" name="firstname" value="{{values.first_name}}" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-            </div>
-            <div class="col-span-1 sm:col-span-3">
-              <label for="LastName" class="block text-sm font-medium text-gray-700"> Last Name </label>
-              <input type="text" id="LastName" name="lastname" value="{{values.last_name}}" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-            </div>
-            <div class="col-span-1 sm:col-span-6">
-              <label for="Email" class="block text-sm font-medium text-gray-700"> Email </label>
-              <input required type="email" name="email" id="" value="{{values.email}}" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-            </div>
-            <div class="col-span-1 sm:col-span-6">
-              <label for="Phone" class="block text-sm font-medium text-gray-700 sm:mr-2"> Phone </label>
-              <input required type="phone" name="phone" id="" value="{{values.phone}}" class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-            </div>
-            <div class="col-span-1 sm:col-span-6">
-              <button type="submit" class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md"> Sign Up </button>
-            </div>
-            {% if error%}
-            <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4 col-span-1 sm:col-span-3">
-              <p class="mt-2 text-sm text-red-700"> {{error}} </p>
-            </div>
-            {% endif %}
-          </form>
-          
-        </div>
-      </main>
     </div>
-  </section>
-  
+</div>
+
 {% endblock %}
+
