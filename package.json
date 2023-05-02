@@ -1,0 +1,20 @@
+{
+  "name": "ecommercedjango",
+  "version": "1.0.0",
+  "description": "This is an E-Commerce website project in Django which is currently in-progress. Stay tuned for more updates :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "flowbite": "^1.6.5"
+  }
+}
