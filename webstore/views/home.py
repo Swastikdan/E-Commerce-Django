@@ -2,6 +2,10 @@ from django.shortcuts import render , redirect , HttpResponseRedirect
 from webstore.models.product import Products
 from webstore.models.category import Category
 from django.views import View
+from django.contrib.auth.hashers import  check_password
+from webstore.models.customer import Customer
+from django.views import  View
+from webstore.models.product import Products
 
 
 # Create your views here.
@@ -57,4 +61,35 @@ def webstore(request):
     print('you are : ', request.session.get('email'))
     return render(request, 'index.html', data)
 
+class ProductView(View):
+    def get(self, request):
+        product_id = request.GET.get('id')
+        if product_id:
+            product = Products.objects.get(id=product_id)
+            return render(request, 'product.html', {'product': product})
+        else:
+            return redirect('homepage')
+
+    def post(self, request):
+        product = request.POST.get('product')
+        remove = request.POST.get('remove')
+        cart = request.session.get('cart')
+        if cart:
+            quantity = cart.get(product)
+            if quantity:
+                if remove:
+                    if quantity <= 1:
+                        cart.pop(product)
+                    else:
+                        cart[product] = quantity - 1
+                else:
+                    cart[product] = quantity + 1
+            else:
+                cart[product] = 1
+        else:
+            cart = {}
+            cart[product] = 1
+
+        request.session['cart'] = cart
+        return HttpResponseRedirect(request.path + "?id=" + product)
 
