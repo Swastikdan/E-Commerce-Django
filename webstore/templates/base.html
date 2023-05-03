@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="{% static '/output.css' %}">
-  <link rel="shortcut icon" href="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png?updatedAt=1682967866551" type="image/x-icon">
+  <link rel="shortcut icon" href="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png" type="image/x-icon">
 
   <title>Shop Vibe</title>
   <script>
@@ -22,6 +22,7 @@
         document.documentElement.classList.remove('dark')
     }
 </script>
+<script async src="{% static '/darkmode.js' %}"></script>
 <style>
   /* @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap'); */
 
@@ -117,17 +118,18 @@
           <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Browse Products<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
           <!-- Dropdown menu -->
           <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-            {% for category in categories %}
+            
               <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                 <li>
                   <a href="/webstore" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All Products </a>
                 </li>
+                {% for category in categories %}
                 <li>
                   <a href="/?category={{category.id}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{category.name}}</a>
                 </li>
-
+ {% endfor %}
               </ul>
-              {% endfor %}
+             
           </div>
       </li>
         <li>
@@ -174,7 +176,7 @@
   
   {% block content %}{% endblock %}
 
-  <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+  <footer class="sticky   z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
@@ -193,7 +195,7 @@
     </ul>
 </footer>
 
-<script src="{% static '/darkmode.js' %}"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 
