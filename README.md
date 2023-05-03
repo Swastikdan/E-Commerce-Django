@@ -20,10 +20,11 @@ This is an E-Commerce website project in Django which is currently in-progress. 
   npx tailwindcss init 
 ```
 
-* Add Flowbite
+* Add Flowbite and Tailwindcss Forms
 
 ```
-npm install fowbite
+  npm install fowbite
+  npm install @tailwindcss/forms
 ```
 * Run this in terminal
 ```
