@@ -25,6 +25,7 @@ This is an E-Commerce website project in Django which is currently in-progress. 
 ```
   npm install fowbite
   npm install @tailwindcss/forms
+  npm install @tailwindcss/aspect-ratio
 ```
 * Run this in terminal
 ```
