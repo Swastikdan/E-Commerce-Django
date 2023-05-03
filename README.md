@@ -23,7 +23,7 @@ This is an E-Commerce website project in Django which is currently in-progress. 
 * Add Flowbite
 
 ```
-npm install fowbite
+npm install flowbite
 ```
 * Run this in terminal
 ```
