@@ -12,18 +12,20 @@ This is an E-Commerce website project in Django which is currently in-progress. 
   ```
 
 # TailwindCss CLI
-- Add Tailwindcss Postcss 
-  ```
-npm install -D tailwindcss
-npx tailwindcss init
+
+* Add Tailwindcss Postcss 
+
 ```
-- Add Flowbite
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init 
+```
+
+* Add Flowbite
 
 ```
 npm install fowbite
-
 ```
-- Run this in terminal
+* Run this in terminal
+```
 npx tailwindcss -i ./tailwind.css -o ./webstore/static/output.css --watch
-
 ```
