@@ -1,94 +1,71 @@
-{% extends 'base.html' %} 
-{% load cart %} 
-{% load custom_filter %} 
+{% extends 'base.html' %}
+{% load cart %}
+{% load custom_filter %}
 {% block content %}
-
-<div
-  class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4"
->
-  <div class="flex justify-center items-center lg:flex-row flex-col gap-8">
-
-    <!-- Product Details -->
-    <div class="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-      <p
-        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600"
-      >
-        Category: {{ product.category.name }}
-      </p>
-      <h2
-        class="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4"
-      >
-        {{ product.name }}
-      </h2>
-
-      <div class="flex flex-row justify-between mt-5">
-        <img
-          class="hidden dark:block"
-          src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail4-svg1dark.svg"
-          alt="stars"
-        />
+<div class="min-w-screen min-h-screen bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative">
+  <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+      <div class="md:flex items-center -mx-10">
+          <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+              <div class="relative">
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full relative z-10" >
+                  <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+              </div>
+          </div>
+          <div class="w-full md:w-1/2 px-10">
+              <div class="mb-10">
+                <span class="pb-2">Category: {{ product.category.name }}</span>
+                  <h1 class="font-bold uppercase text-2xl mb-5">{{ product.name }}</h1>
+                  <p class="text-sm">{{ product.description }}</p>
+              </div>
+              <div>
+                  <div class="inline-block align-bottom mr-5">
+                      <span class="text-2xl leading-none align-baseline">$</span>
+                      <span class="font-bold text-5xl leading-none align-baseline">{{ product.price }}</span>
+                  
+                  </div>
+                  <div class="inline-block align-bottom">
+                    <div class="card-footer p-0 grid grid-cols-12">
+                      {% if product|is_in_cart:request.session.cart %}
+                      <div class="col-span-12 flex items-center space-x-2">
+                        <form action="/#{{product.id}}" method="post" class="flex items-center ">
+                          {% csrf_token %}
+                          <input hidden type="text" name='product' value='{{product.id}}'>
+                          <input hidden type="text" name='remove' value='True'>
+                          <button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-l hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
+                            -
+                          </button>
+                        </form>
+                        <div class="flex-1 flex py-2 justify-center items-center bg-gray-700 text-white ">
+                          {{product|cart_quantity:request.session.cart}} in Cart
+                        </div>
+                        <form action="/#{{product.id}}" method="post" class="flex items-center ">
+                          {% csrf_token %}
+                          <input hidden type="text" name='product' value='{{product.id}}'>
+                          <button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-r hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
+                            +
+                          </button>
+                        </form>
+                      </div>
+                      
+                      {% else %}
+                      <div class="col-span-12 hover:scale-105">
+                        <form action="/#{{product.id}}" method="post">
+                          {% csrf_token %}
+                          <input hidden type="text" name='product' value='{{product.id}}'>
+                          <button type="submit" class="bg-gray-700 text-white py-2 px-3 w-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-md">
+                            Add To Cart
+                          </button>
+                        </form>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </div>
+              </div>
+          </div>
       </div>
-
-      <p class="font-normal text-base leading-6 text-gray-600 mt-7">
-        {{ product.description }}
-      </p>
-      <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6">
-        Price: ${{ product.price }}
-      </p>
-
-
-      <!-- Cart Functionality -->
-      <div class="card-footer p-0 grid grid-cols-12 mt-10">
-        {% if product|is_in_cart:request.session.cart %}
-        <div class="col-span-12 flex items-center space-x-2">
-            <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
-                {% csrf_token %}
-                <input hidden type="text" name='product' value='{{product.id}}'>
-                <input hidden type="text" name='remove' value='True'>
-                <button type="submit" class="bg-gray-700 text-white py-2 px-3  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-lg transform transition-all hover:scale-105">
-                    -
-                </button>
-            </form>
-            <div class="flex-1 flex py-2 justify-center items-center bg-gray-700 text-white rounded-lg">
-                {{product|cart_quantity:request.session.cart}} in Cart
-            </div>
-            <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
-                {% csrf_token %}
-                <input hidden type="text" name='product' value='{{product.id}}'>
-                <button type="submit" class="bg-gray-700 text-white py-2 px-3  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-lg transform transition-all hover:scale-105">
-                    +
-                </button>
-            </form>
-        </div>
-        
-        {% else %}
-        <div class="col-span-12 hover:scale-105">
-            <form action="{{ request.path }}?id={{product.id}}" method="POST">
-                {% csrf_token %}
-                <input hidden type="text" name='product' value='{{product.id}}'>
-                <button type="submit" class="bg-gray-700 text-white py-2 px-3 w-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-md">
-                    Add To Cart
-                </button>
-            </form>
-        </div>
-        {% endif %}
-    </div>
-    </div>
-
-    <!-- Preview Images Div For larger Screen-->
-
-    <div
-      class="w-full sm:w-96 md:w-8/12 lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4"
-    >
-      <div class="max-w-md mx-auto">
-        <img
-          class="w-full h-auto rounded-3xl transform transition-all hover:scale-105"
-          src="{{ product.image.url }}"
-          alt="{{ product.name }}"
-        />
-      </div>
-    </div>
   </div>
 </div>
-
 {% endblock %}
+
+
+
