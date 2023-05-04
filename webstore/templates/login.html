@@ -31,7 +31,7 @@
         </div>
 
         <div class="mt-8">
-          <form action="/login/" method="POST">
+          <form action="/login" method="POST">
             {% csrf_token %} {% if error %}
             <div class="bg-red-500 text-gray-100 p-2 rounded-md" role="alert">
               {{ error }}
