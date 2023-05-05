@@ -1,0 +1,90 @@
+{% extends 'base.html' %} 
+{% block content %} 
+
+
+<section class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="container mx-auto px-4  py-16">
+
+      <h1 class="text-4xl pt-10 pl-10 pr-10 dark:text-gray-100  font-bold ">Privacy Policy</h1>
+      <div class="p-10 ">
+        <h2 class="text-2xl font-semibold mb-4">1. Introduction</h2>
+        <p class="mb-4">
+          This Privacy Policy describes how we collect, use, and disclose your personal information when you use our website.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">2. Information Collection</h2>
+        <p class="mb-4">
+          We collect personal information such as your name, email address, and other relevant data when you register or interact with our website.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">3. Information Use</h2>
+        <p class="mb-4">
+          We use the collected information to provide and improve our services, personalize your experience, and communicate with you about updates and promotions.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">4. Information Sharing</h2>
+        <p class="mb-4">
+          We do not sell or share your personal information with third parties, except when necessary to provide our services or when required by law.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">5. Security</h2>
+        <p class="mb-4">
+          We take appropriate measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">6. Cookies</h2>
+        <p class="mb-4">
+          We use cookies to improve your browsing experience and to analyze our website traffic. You can manage your cookie preferences in your browser settings.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">7. Changes to This Privacy Policy</h2>
+        <p class="mb-4">
+          We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+        </p>
+  
+        <h2 class="text-2xl font-semibold mb-4">8. Contact Us</h2>
+        <p class="mb-4">
+          If you have any questions or concerns about this Privacy Policy, please contact us at [email@example.com](mailto:email@example.com).
+        </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Toggle dark mode
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
+    }
+  </script>
+  <title>About Us</title>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <div class="container mx-auto px-4 py-16">
+    <button class="bg-indigo-600 text-white px-4 py-2 rounded mb-8" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <h1 class="text-4xl font-bold mb-8">About Us</h1>
+    <div class="bg-white dark:bg-gray-800 shadow-md rounded p-8">
+      <p class="mb-4">
+        We are a team of passionate individuals dedicated to providing the best services and solutions for our clients. Our expertise spans across multiple industries, including web development, design, and digital marketing.
+      </p>
+      <p class="mb-4">
+        Our mission is to empower businesses and individuals by delivering innovative and user-friendly products that help them succeed in the digital world. We are committed to excellence, and we strive to exceed our clients' expectations in every project we undertake.
+      </p>
+      <p class="mb-4">
+        We believe in fostering a culture of collaboration, innovation, and continuous learning. Our team members are encouraged to share their ideas and expertise, and we invest in their professional development to ensure that we remain at the forefront of our industry.
+      </p>
+      <p class="mb-4">
+        If you have any questions or would like to learn more about our services, please don't hesitate to contact us. We look forward to working with you and helping you achieve your goals.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
