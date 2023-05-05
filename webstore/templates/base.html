@@ -47,7 +47,7 @@
     </head>
     <body class="font-maven">
         <!-- Top navigation -->
-        <nav class="bg-white border-b  border-gray-200 dark:border-gray-600 dark:bg-gray-900 sticky w-full top-0 left-0 z-20 ">
+        <nav class="bg-white border-b mb-10  border-gray-200 dark:border-gray-600 dark:bg-gray-900  w-full top-0 left-0 z-20 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" class="flex items-center">
                     <svg xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -216,7 +216,7 @@
                             <!-- Dropdown menu -->
                             <div id="dropdownDelay2"
                                  class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 overflow-y-auto"
                                     aria-labelledby="dropdownDelayButton2">
                                     <li>
                                         <a href="/webstore"
@@ -269,7 +269,7 @@
             </div>
         </nav>
         {% block content %}{% endblock %}
-        <footer class="sticky   z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+        <footer class="sticky mt-20  z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
             </span>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
