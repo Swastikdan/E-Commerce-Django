@@ -34,17 +34,17 @@
 								{% csrf_token %}
 								<input hidden type="text" name='product' value='{{product.id}}'>
 								<input hidden type="text" name='remove' value='True'>
-								<button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-l hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
+								<button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
 									-
 								</button>
 							</form>
-							<div class="flex-1 flex py-2 justify-center items-center bg-gray-700 text-white ">
+							<div class="flex-1 flex py-2 justify-center items-center bg-gray-700 text-white rounded-md ">
 								{{product|cart_quantity:request.session.cart}} in Cart
 							</div>
 							<form action="/#{{product.id}}" method="post" class="flex items-center ">
 								{% csrf_token %}
 								<input hidden type="text" name='product' value='{{product.id}}'>
-								<button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-r hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
+								<button type="submit" class="bg-gray-700 text-white py-2 px-3 rounded-r hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-md">
 									+
 								</button>
 							</form>

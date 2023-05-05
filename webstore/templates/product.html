@@ -2,32 +2,38 @@
 {% load cart %}
 {% load custom_filter %}
 {% block content %}
-<div class="min-w-screen min-h-screen bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative">
-  <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+
+  <!-- <div class="w-full max-w-screen-xl min-h-screen bg-white  p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
       <div class="md:flex items-center -mx-10">
           <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
               <div class="relative rounded-md">
-                <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-10"></div>
+                <div class="border-4 border-yellow-200 absolute -top-5 -bottom-5 -left-5 -right-5  z-10 rounded-md"></div>
                   <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full relative rounded-md " >
-                
+                  <span class="absolute right-0 top-0 p-5 uppercase tracking-wider text-white"><a href="#" class="inline-block rounded-lg bg-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </a></span>
               </div>
           </div>
-          <div class="w-full md:w-1/2 px-10 ">
+          <div class="w-full md:w-1/2 px-16 ">
               <div class="mb-10">
-                <span class="pb-2">Category: {{ product.category.name }}</span>
-                  <h1 class="font-bold uppercase text-2xl mb-5">{{ product.name }}</h1>
+                <span class="">Category: {{ product.category.name }}</span>
+                  <h1 class="font-bold uppercase text-2xl mt-2 mb-5">{{ product.name }}</h1>
+                  <span class="mb-3">Details</span><br>
                   <p class="text-sm">{{ product.description }}</p>
               </div>
               <div>
-                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ">
-                  <div class="inline-block align-bottom mr-5">
-                      <span class="text-2xl leading-none align-baseline">$</span>
-                      <span class="font-bold text-5xl leading-none align-baseline">{{ product.price }}</span>
+                <div class="flex flex-col md:flex-row items-start md:items-center  gap-4 ">
+                  <div class="inline-block align-bottom mr-5 space-x-2">
+                      <span class="text-2xl leading-none align-baseline">₹</span>
+                      <span class="font-bold text-3xl leading-none align-baseline">{{ product.price }}</span>
                   
                   </div>
                 
-     <!-- Cart Functionality -->
-     <div class="card-footer p-0 grid grid-cols-12  w-full md:w-2/3 ">
+  
+  
+     <div class="card-footer p-0 grid grid-cols-12  w-2/3 md:w-2/5 ">
       {% if product|is_in_cart:request.session.cart %}
       <div class="col-span-12 flex items-center space-x-2">
           <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
@@ -39,7 +45,7 @@
               </button>
           </form>
           <div class="flex-1 px-10 flex py-2 justify-center items-center bg-gray-700 text-white rounded-lg">
-              {{product|cart_quantity:request.session.cart}} in Cart
+              {{product|cart_quantity:request.session.cart}} 
           </div>
           <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
               {% csrf_token %}
@@ -63,14 +69,86 @@
       {% endif %}
   
                   </div>
+
                 </div>
               </div>
           </div>
       </div>
-  </div>
-</div>
-
-
+  </div> -->
+<div class="dark:bg-gray-950 br-gray-100 text-black dark:text-gray-200">
+  <div class="w-full max-w-screen-xl min-h-screen p-10 lg:p-20 mx-auto  relative md:text-left">
+    <div class="md:flex items-center -mx-10">
+      <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+        <div class="relative rounded-md">
+          <div class="border-4 border-gray-950 dark:border-white absolute -top-3 -bottom-3 -left-3 -right-3   rounded-md"></div>
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full relative rounded-md hover:opacity-90 " >
+          <span class="absolute right-0 top-0 p-5 uppercase tracking-wider ">
+            <a href="#" class="inline-block rounded-full bg-gray-200 p-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </a>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 px-16 ">
+        <div class="mb-10">
+          <span class="">Category: {{ product.category.name }}</span>
+          <h1 class="font-bold uppercase text-2xl mt-2 mb-5">{{ product.name }}</h1>
+          <span class="mb-3">Details</span><br>
+          <p class="text-sm">{{ product.description }}</p>
+        </div>
+        <div>
+          <div class="flex flex-col md:flex-row items-start md:items-center  gap-4 ">
+            <div class="inline-block align-bottom mr-5 space-x-2">
+              <span class="text-2xl leading-none align-baseline">₹</span>
+              <span class="font-bold text-3xl leading-none align-baseline">{{ product.price }}</span>
+            </div>
+            <div class="card-footer p-0 grid grid-cols-12  w-2/3 md:w-2/5 text-white ">
+              {% if product|is_in_cart:request.session.cart %}
+              <div class="col-span-12 flex items-center space-x-2">
+                  <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
+                      {% csrf_token %}
+                      <input hidden type="text" name='product' value='{{product.id}}'>
+                      <input hidden type="text" name='remove' value='True'>
+                      <button type="submit" class="bg-gray-700  py-2 px-5  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-lg transform transition-all hover:scale-105">
+                          -
+                      </button>
+                  </form>
+                  <div class="flex-1 px-10 flex py-2 justify-center items-center bg-gray-700  rounded-lg">
+                      {{product|cart_quantity:request.session.cart}} 
+                  </div>
+                  <form action="{{ request.path }}?id={{product.id}}" method="post" class="flex items-center ">
+                      {% csrf_token %}
+                      <input hidden type="text" name='product' value='{{product.id}}'>
+                      <button type="submit" class="bg-gray-700 py-2 px-5  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-lg transform transition-all hover:scale-105">
+                          +
+                      </button>
+                  </form>
+              </div>
+              
+              {% else %}
+              <div class="col-span-12 hover:scale-105">
+                  <form action="{{ request.path }}?id={{product.id}}" method="POST">
+                      {% csrf_token %}
+                      <input hidden type="text" name='product' value='{{product.id}}'>
+                      <button type="submit" class="bg-gray-700  py-2 px-3 w-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-md">
+                          Add To Cart
+                      </button>
+                  </form>
+              </div>
+              {% endif %}
+          
+                          </div>
+        
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+        </div>
 
 
 {% endblock %}
