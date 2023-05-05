@@ -3,126 +3,53 @@
 {% block content %}
 {% load cart %}
 {% load custom_filter %}
-<div class="container mx-auto px-4 min-h-screen">
-    <div class="border rounded p-4 m-4">
-        <h1 class="text-4xl font-bold mb-4">Your Orders</h1>
-        <hr class="my-4">
-        <div class="overflow-x-auto">
-            <table class="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-2 text-left">Sno.</th>
-                        <th class="px-4 py-2 text-left">Image</th>
-                        <th class="px-4 py-2 text-left">Product</th>
-                        <th class="px-4 py-2 text-left">Date</th>
-                        <th class="px-4 py-2 text-left">Price</th>
-                        <th class="px-4 py-2 text-left">Quantity</th>
-                        <th class="px-4 py-2 text-left">Total</th>
-                        <th class="px-4 py-2 text-left">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                    <tr class="mx-auto items-center">  
-                        <td class="border px-4 py-2">{{ forloop.counter }}</td>
-                        <td class="border px-4 py-2 items-center "><img class="h-16 w-16 object-cover rounded" src="{{ order.product.image.url }}" alt=""></td>
-                        <td class="border px-4 py-2">{{ order.product.name }}</td>
-                        <td class="border px-4 py-2">{{ order.date }}</td>
-                        <td class="border px-4 py-2">{{ order.price|currency }}</td>
-                        <td class="border px-4 py-2">{{ order.quantity }}</td>
-                        <td class="border px-4 py-2">{{ order.quantity|multiply:order.price|currency }}</td>
-                        {% if order.status %}
-                        <td class="border px-4 py-2"><span class="inline-block bg-green-500 text-white py-1 px-2 rounded">Completed</span></td>
-                        {% else %}
-                        <td class="border px-4 py-2"><span class="inline-block bg-yellow-500 text-white py-1 px-2 rounded">Pending</span></td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-    <div class="flex justify-start item-start space-y-2 flex-col">
-        <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Order #13432</h1>
-        <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">21st Mart 2021 at 10:34 PM</p>
-    </div> 
-    <div class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+<div class="pb-14 pt-5 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto min-h-screen  dark:bg-gray-800 bg-gray-50">
+        <h1 class="text-4xl font-bold dark:text-gray-400 text-gray-800">Your Orders</h1>
+    <div class=" flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
         <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-            <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-                <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
-                <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
-                    <div class="pb-4 md:pb-8 w-full md:w-40">
-                        <img class="w-full hidden md:block" src="https://i.ibb.co/84qQR4p/Rectangle-10.png" alt="dress" />
-                        <img class="w-full md:hidden" src="https://i.ibb.co/L039qbN/Rectangle-10.png" alt="dress" />
-                    </div>
-                    <div class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
-                        <div class="w-full flex flex-col justify-start items-start space-y-8">
-                            <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">Premium Quaility Dress</h3>
-                            <div class="flex justify-start items-start flex-col space-y-2">
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Style: </span> Italic Minimal Design</p>
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Size: </span> Small</p>
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Color: </span> Light Blue</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between space-x-8 items-start w-full">
-                            <p class="text-base dark:text-white xl:text-lg leading-6">$36.00 <span class="text-red-300 line-through"> $45.00</span></p>
-                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">01</p>
-                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">$36.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6 md:mt-0 flex justify-start flex-col md:flex-row items-start md:items-center space-y-4 md:space-x-6 xl:space-x-8 w-full">
-                    <div class="w-full md:w-40">
-                        <img class="w-full hidden md:block" src="https://i.ibb.co/s6snNx0/Rectangle-17.png" alt="dress" />
-                        <img class="w-full md:hidden" src="https://i.ibb.co/BwYWJbJ/Rectangle-10.png" alt="dress" />
-                    </div>
-                    <div class="flex justify-between items-start w-full flex-col md:flex-row space-y-4 md:space-y-0">
-                        <div class="w-full flex flex-col justify-start items-start space-y-8">
-                            <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">High Quaility Italic Dress</h3>
-                            <div class="flex justify-start items-start flex-col space-y-2">
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Style: </span> Italic Minimal Design</p>
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Size: </span> Small</p>
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Color: </span> Light Blue</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between space-x-8 items-start w-full">
-                            <p class="text-base dark:text-white xl:text-lg leading-6">$20.00 <span class="text-red-300 line-through"> $30.00</span></p>
-                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">01</p>
-                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">$20.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-                <div class="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
-                    <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Summary</h3>
-                    <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
-                        <div class="flex justify-between w-full">
-                            <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
-                            <p class="text-base dark:text-gray-300 leading-4 text-gray-600">$56.00</p>
-                        </div>
-                        <div class="flex justify-between items-center w-full">
-                            <p class="text-base dark:text-white leading-4 text-gray-800">Discount <span class="bg-gray-200 p-1 text-xs font-medium dark:bg-white dark:text-gray-800 leading-3 text-gray-800">STUDENT</span></p>
-                            <p class="text-base dark:text-gray-300 leading-4 text-gray-600">-$28.00 (50%)</p>
-                        </div>
-                        <div class="flex justify-between items-center w-full">
-                            <p class="text-base dark:text-white leading-4 text-gray-800">Shipping</p>
-                            <p class="text-base dark:text-gray-300 leading-4 text-gray-600">$8.00</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center w-full">
-                        <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
-                        <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">$36.00</p>
-                    </div>
-                </div>
+            <div class="flex flex-col justify-start items-start px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+                {% if orders %}
+                {% for order in orders %}
+                <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full border border-spacing-2 rounded-xl ">
+                    <div class="pb-4 md:pb-8 w-full max-w-xl rounded-xl md:w-40 items-start mx-auto">
+                        <img class="w-full p-5 rounded-xl  md:h-full block  " src="{{ order.product.image.url }}" alt="" />
 
+                    </div>
+                    <div class="  md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ">
+                        <div class="w-full flex flex-col justify-start items-start space-y-8 p-5">
+                            <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{{ order.product.name }}</h3>
+                            <div class="flex justify-start items-start flex-col space-y-2">
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Date: </span> {{ order.date }}</p>
+                                {% if order.status %}
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Address: </span> {{ order.address }}</p>
+                                {% else %}
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Address: </span> Not Found</p>
+                                {% endif %}
+                                {% if order.status %}
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> Completed</p>
+                                {% else %}
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> Pending</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="flex justify-between space-x-8 items-start w-full p-5">
+                            <p class="text-base dark:text-white xl:text-lg leading-6 flex flex-col text-center"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> {{ order.price|currency }} </p>
+                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">{{ order.quantity }}</p>
+                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">{{ order.quantity|multiply:order.price|currency }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                    <tr>
+                        <p class="text-center">No orders placed.</p>
+                    </tr>
+                {% endif %}
             </div>
+
         </div>
 
     </div>
 </div>
-
+</div>
 {% endblock %}
