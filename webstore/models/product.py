@@ -21,4 +21,4 @@ class Products(models.Model):
         if category_id:
             return Products.objects.filter (category=category_id)
         else:
-            return Products.get_all_products()
+            return Products.get_all_products();
