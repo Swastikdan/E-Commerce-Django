@@ -1,3 +1,6 @@
+# The Order class represents an order made by a customer for a product, with attributes such as
+# quantity, price, address, phone, date, and status, and methods for placing an order and retrieving
+# orders by customer.
 from django.db import models
 from .product import Products
 from .customer import Customer

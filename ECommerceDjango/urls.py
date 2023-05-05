@@ -1,3 +1,4 @@
+# This code is defining the URL patterns for a Django web application.
 from django.contrib import admin
 from django.urls import path  , include
 from django.conf.urls.static import static

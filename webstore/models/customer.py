@@ -1,3 +1,6 @@
+# This is a Django model class for a customer with attributes such as first name, last name, phone,
+# email, and password, along with methods to register a customer, get a customer by email, and check
+# if a customer already exists.
 from django.db import models
 
 class Customer(models.Model):

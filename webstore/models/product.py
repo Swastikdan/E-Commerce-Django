@@ -1,3 +1,5 @@
+# This is a Django model class for Products with methods to retrieve products by ID, retrieve all
+# products, and retrieve all products by category ID.
 from django.db import models
 from .category import Category
 class Products(models.Model):
@@ -19,4 +21,4 @@ class Products(models.Model):
         if category_id:
             return Products.objects.filter (category=category_id)
         else:
-            return Products.get_all_products();
+            return Products.get_all_products()

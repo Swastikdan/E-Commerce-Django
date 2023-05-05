@@ -1,3 +1,5 @@
+# The Category class defines a model for categories with a name field and a static method to retrieve
+# all categories.
 from django.db import models
 
 class Category(models.Model):

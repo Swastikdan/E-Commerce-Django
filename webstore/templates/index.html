@@ -5,9 +5,15 @@
 {% load cart %}
 {% load custom_filter %}
 <!-- body -->
+
+
+
 <div class="container-fluid mt-3 min-h-screen mx-auto items-center max-w-screen-xl">
+	
+	
 	{% comment %} Fix the grid system here {% endcomment %}
         <div id='products' class="mt-6 relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center px-5">
+		
             {% for product in products %}
             <div class="relative flex w-full max-w-xs flex-col overflow-hidden rounded-md border border-gray-100 bg-white shadow-md" id="{{product.id}}">
                 {% comment %} <a class="relative mx-3 mt-3 flex h-96 overflow-hidden rounded-xl" href="#">

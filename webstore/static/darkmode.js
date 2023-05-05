@@ -1,3 +1,8 @@
+/* This code is responsible for toggling between a light and dark color theme on a webpage. It first
+retrieves the icons for the theme toggle button and checks if the user has previously set a color
+theme preference. If a preference has been set, it updates the webpage to reflect that preference.
+If not, it checks the user's system preferences to determine whether to use a light or dark theme by
+default. */
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 

@@ -1,3 +1,6 @@
+# This is a Python code that defines the URL patterns for a Django web application. It imports
+# necessary modules such as `admin` and `path` from Django, and various views from the application's
+# `views` module. It also imports the `auth_middleware` from the `middlewares` module.
 from django.contrib import admin
 from django.urls import path
 from .views.home import Index , webstore , ProductView
