@@ -6,3 +6,60 @@ admin
 -  Aneesh (Django administration)
 password
 -  2369 (same for Aneesh as well)
+Based on the provided Django models, here is the corresponding SQL code for creating the tables in the database:
+
+1. `category` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS category (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(50) NOT NULL
+);
+```
+
+2. `customer` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS customer (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+```
+
+3. `products` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(60) NOT NULL,
+    price INTEGER NOT NULL DEFAULT 0,
+    category_id INTEGER NOT NULL,
+    description VARCHAR(250) DEFAULT '' NULL,
+    image VARCHAR(100) NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category (id)
+);
+```
+
+4. `orders` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_id INTEGER NOT NULL,
+    customer_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL DEFAULT 1,
+    price INTEGER NOT NULL,
+    address VARCHAR(50) NOT NULL DEFAULT '',
+    phone VARCHAR(50) NOT NULL DEFAULT '',
+    date DATE NOT NULL DEFAULT CURRENT_DATE,
+    status BOOLEAN NOT NULL DEFAULT 0,
+    FOREIGN KEY (product_id) REFERENCES products (id),
+    FOREIGN KEY (customer_id) REFERENCES customer (id)
+);
+```
+
+These SQL statements create the necessary tables for the e-commerce project based on the provided Django models. Keep in mind that Django automatically creates and manages these tables when you run migrations, but you can use this SQL code as a reference or if you need to create the tables manually in a database management tool.
