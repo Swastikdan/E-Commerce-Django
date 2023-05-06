@@ -11,3 +11,6 @@ class Licensing(TemplateView):
 
 class Contact(TemplateView):
     template_name = "contact.html"
+
+class Service(TemplateView):
+    template_name = "services.html"
