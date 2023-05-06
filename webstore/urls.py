@@ -10,7 +10,7 @@ from .views.cart import Cart
 from .views.checkout import CheckOut
 from .views.orders import OrderView
 from .middlewares.auth import  auth_middleware
-from .views.static_pages import About, PrivacyPolicy, Licensing, Contact
+from .views.static_pages import About, PrivacyPolicy, Licensing, Contact, Service
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
@@ -27,5 +27,7 @@ urlpatterns = [
     path('privacy-policy', PrivacyPolicy.as_view(), name='privacy_policy'),
     path('licensing', Licensing.as_view(), name='licensing'),
     path('contact', Contact.as_view(), name='contact'),
+    path('services', Service.as_view(), name='services')
+
 
 ]
