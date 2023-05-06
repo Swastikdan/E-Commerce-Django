@@ -35,7 +35,7 @@ pip install -r requirements.txt
    ```
    npm install -D tailwindcss postcss autoprefixer
    npx tailwindcss init -p
-   npm install fowbite
+   npm install flowbite
    npm install @tailwindcss/forms
    npm install @tailwindcss/aspect-ratio
    ```
