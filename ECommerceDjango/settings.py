@@ -25,9 +25,9 @@ SECRET_KEY = '-95t%=#4o3@l-(-%ok9*h%n3!0(sdchjn%+_$5#umaj-!3bg*7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','localhost']
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://.vercel.app', 'https://.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
 
 
 APPEND_SLASH=False 
