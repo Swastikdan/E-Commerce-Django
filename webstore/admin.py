@@ -11,7 +11,7 @@ from .models.product import Products
 from .models.category import Category
 from .models.customer import Customer
 from .models.orders import Order
-
+from .models.contact import Contact
 # AdminProduct class, inherits from Django's admin.ModelAdmin class
 # Customizes the display of the Product model in the admin panel
 class AdminProduct(admin.ModelAdmin):
@@ -28,4 +28,5 @@ admin.site.register(Products, AdminProduct)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Customer)
 admin.site.register(Order)
+admin.site.register(Contact)
 

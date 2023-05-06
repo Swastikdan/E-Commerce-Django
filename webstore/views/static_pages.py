@@ -9,8 +9,7 @@ class PrivacyPolicy(TemplateView):
 class Licensing(TemplateView):
     template_name = "licensing.html"
 
-class Contact(TemplateView):
-    template_name = "contact.html"
+
 
 class Service(TemplateView):
     template_name = "services.html"

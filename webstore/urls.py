@@ -3,14 +3,9 @@
 # `views` module. It also imports the `auth_middleware` from the `middlewares` module.
 from django.contrib import admin
 from django.urls import path
-from .views.home import Index , webstore , ProductView
-from .views.signup import Signup
-from .views.login import Login , logout
-from .views.cart import Cart
-from .views.checkout import CheckOut
-from .views.orders import OrderView
-from .middlewares.auth import  auth_middleware
-from .views.static_pages import About, PrivacyPolicy, Licensing, Contact, Service
+from .views import Index, webstore, ProductView, Signup, Login, logout, Cart, CheckOut, OrderView, About, PrivacyPolicy, Licensing, Service, ContactView
+
+from .middlewares.auth import auth_middleware
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
@@ -26,8 +21,7 @@ urlpatterns = [
     path('about', About.as_view(), name='about'),
     path('privacy-policy', PrivacyPolicy.as_view(), name='privacy_policy'),
     path('licensing', Licensing.as_view(), name='licensing'),
-    path('contact', Contact.as_view(), name='contact'),
-    path('services', Service.as_view(), name='services')
-
+    path('services', Service.as_view(), name='services'),
+    path('contact', ContactView.as_view(), name='contact'), 
 
 ]
