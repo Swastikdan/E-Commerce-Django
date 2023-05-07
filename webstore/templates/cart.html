@@ -85,31 +85,31 @@
       <div class="relative w-full max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
+          <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-200 " data-modal-hide="authentication-modal">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
             <span class="sr-only">Close modal</span>
           </button>
 
-          <section class="rounded-xl">
+          <section class="rounded-xl bg-gray-100 dark:bg-gray-700 ">
             <h1 class="sr-only">Checkout</h1>
-            <div class="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2 rounded-xl">
-              <div class="bg-gray-50 py-12 md:py-24">
-                <div class="mx-auto max-w-lg space-y-8 px-4 lg:px-8">
-                  <div>
-                    <p class="text-2xl font-medium tracking-tight text-gray-900">{{products|total_cart_price:request.session.cart|currency}}  </p>
-                    <p class="mt-1 text-sm text-gray-600"> For the purchase of </p>
+            <div class="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2 rounded-xl bg-gray-100 dark:bg-gray-700 ">
+              <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700 py-12 md:py-24  ">
+                <div class="mx-auto max-w-lg space-y-8 px-4 lg:px-8 ">
+                  <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700  py-2">
+                    <p class="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-200 ">{{products|total_cart_price:request.session.cart|currency}}  </p>
+                    <p class="mt-1 text-sm text-gray-600  dark:text-gray-200"> For the purchase of </p>
                   </div>
                   <div>
                     <div class="flow-root">
-                      <ul class="-my-4 divide-y divide-gray-100">
+                      <ul class="-my-4 divide-y divide-gray-100 ">
                         {% for product in products %} 
                         <li class="flex items-center gap-4 py-4">
                           <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}" class="h-16 w-16 rounded object-cover" />
                           <div>
-                            <h3 class="text-sm text-gray-900"> {{product.name}} </h3>
-                            <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                            <h3 class="text-sm text-gray-900 dark:text-gray-200"> {{product.name}} </h3>
+                            <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 dark:text-gray-300">
                               <div>
                                 <dt class="inline">Category:</dt>
                                 <dd class="inline">{{ product.category.name }}</dd>
@@ -124,35 +124,35 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white py-12 md:py-24">
+              <div class="bg-gray-100 dark:bg-gray-800 py-12 md:py-24">
                 <div class="mx-auto max-w-lg px-4 lg:px-8">
-                  <legend class="block text-sm font-medium text-gray-700 pb-5"> Billing Address </legend>
+                  <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200 pb-5"> Billing Address </legend>
                   <form action="/check-out" method="POST" class="grid grid-cols-6 gap-4"> {% csrf_token %} <div class="col-span-3">
-                      <label for="FirstName" class="block text-xs font-medium text-gray-700"> First Name </label>
+                      <label for="FirstName" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> First Name </label>
                       <input type="text" id="FirstName" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
                     </div>
                     <div class="col-span-3">
-                      <label for="LastName" class="block text-xs font-medium text-gray-700"> Last Name </label>
+                      <label for="LastName" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Last Name </label>
                       <input type="text" id="LastName" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
                     </div>
                     <div class="col-span-6">
-                      <label for="Phone" class="block text-xs font-medium text-gray-700"> Phone </label>
+                      <label for="Phone" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Phone </label>
                       <input type="tel" name="phone" id="" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
                     </div>
                     <div class="col-span-6">
-                      <label for="Adress" class="block text-xs font-medium text-gray-700"> Adress </label>
+                      <label for="Adress" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Adress </label>
                       <textarea name="address" id="" cols="30" rows="2" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required></textarea>
                     </div>
                     <fieldset class="col-span-6">
                       <div class="flex text-center space-x-3">
-                        <legend class="block text-sm font-medium text-gray-700"> Card Details </legend>
+                        <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200"> Card Details </legend>
                         <button data-tooltip-target="tooltip-default" type="button" class="">
-                          <svg aria-hidden="true" width="15" height="15" class="mx-auto mb-4 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <svg aria-hidden="true" width="15" height="15" class="mx-auto mb-4 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                           </svg>
                         </button>
                       </div>
-                      <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"> Fake Credit Card Number <div class="tooltip-arrow" data-popper-arrow></div>
+                      <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white  dark:text-gray-200 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"> Fake Credit Card Number <div class="tooltip-arrow" data-popper-arrow></div>
                       </div>
                       <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
                         <div>
@@ -172,7 +172,7 @@
                       </div>
                     </fieldset>
                     <fieldset class="col-span-6">
-                      <legend class="block text-sm font-medium text-gray-700"> Country </legend>
+                      <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200"> Country </legend>
                       <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
                         <div>
                           <label for="Country" class="sr-only">Country</label>

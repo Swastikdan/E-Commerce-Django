@@ -1,11 +1,9 @@
-py manage.py makemigrations
-py manage.py migrate
+
 
 admin
--  swastik
--  Aneesh (Django administration)
+-  webstore
 password
--  2369 (same for Aneesh as well)
+-  12345
 Based on the provided Django models, here is the corresponding SQL code for creating the tables in the database:
 
 1. `category` table:
