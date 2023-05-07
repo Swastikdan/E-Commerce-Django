@@ -3,10 +3,10 @@
 {% load cart %} 
 {% load custom_filter %}
 
-<div class="bg-white py-6 sm:py-8 lg:py-12 min-h-screen">
+<div class="bg-white py-6 sm:py-8 lg:py-12 min-h-screen dark:bg-gray-900">
   <div class="mx-auto max-w-screen-lg px-4 md:px-8">
     <div class="mb-6 sm:mb-10 lg:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl"> Your Cart </h2>
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl dark:text-white"> Your Cart </h2>
     </div>
     {% if products %}
     <div class="mb-6 flex flex-col gap-4 sm:mb-8 md:gap-6"> 
@@ -17,11 +17,11 @@
         </a>
         <div class="flex flex-1 flex-col justify-between py-4">
           <div>
-            <a href="/product/?id={{product.id}}" class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">{{product.name}}</a>
-            <span class="block text-gray-500">{{ product.category.name }}</span>
+            <a href="/product/?id={{product.id}}" class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl dark:text-white">{{product.name}}</a>
+            <span class="block text-gray-500 dark:text-white">{{ product.category.name }}</span>
           </div>
           <div>
-            <span class="mb-1 block font-bold text-gray-800 md:text-lg">{{product.price|currency}}</span>
+            <span class="mb-1 block font-bold text-gray-800 md:text-lg dark:text-white">{{product.price|currency}}</span>
             <span class="flex items-center gap-1 text-sm text-gray-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -32,41 +32,41 @@
           <div class="flex flex-col items-start gap-2"> {% if product|is_in_cart:request.session.cart %} <div class="flex flex-1 items-center justify-end gap-2">
               <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
                 <input type="hidden" name="remove" value="True" />
-                <input type="submit" value="-" class="text-4xl text-black" />
+                <input type="submit" value="-" class="text-4xl text-black dark:text-white" />
               </form>
               <div>
                 <label for="Line2Qty" class="sr-only"> Quantity </label>
-                <input type="text" id="disabled-input" aria-label="disabled input" disabled value="{{ product | cart_quantity:request.session.cart }}" id="Line2Qty" class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-md text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                <input type="text" id="disabled-input" aria-label="disabled input" disabled value="{{ product | cart_quantity:request.session.cart }}" id="Line2Qty" class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-md text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none dark:bg-gray-600 dark:text-gray-300" />
               </div>
               <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
-                <input type="submit" value="+" class="text-4xl text-black" />
+                <input type="submit" value="+" class="text-4xl text-black dark:text-white" />
               </form>
             </div> {% endif %} </div>
           <div class="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
-            <span class="block font-bold text-gray-800 md:text-lg">{{product|price_total:request.session.cart|currency}}</span>
+            <span class="block font-bold text-gray-800 md:text-lg dark:text-white">{{product|price_total:request.session.cart|currency}}</span>
           </div>
         </div>
       </div>
       <!-- product - end --> {% endfor %} </div>
     <!-- totals - start -->
     <div class="flex flex-col items-end gap-4">
-      <div class="w-full rounded-lg bg-gray-100 p-4 sm:max-w-xs">
+      <div class="w-full rounded-lg bg-gray-100 p-4 sm:max-w-xs dark:bg-gray-800">
         <div class="space-y-1">
           <div class="flex justify-between gap-4 text-gray-500">
-            <span>Subtotal</span>
-            <span>{{products|total_cart_price:request.session.cart|currency}}</span>
+            <span class="dark:text-white">Subtotal</span>
+            <span class="dark:text-white">{{products|total_cart_price:request.session.cart|currency}}</span>
           </div>
           <div class="flex justify-between gap-4 text-gray-500">
-            <span>Shipping(Free)</span>
-            <span class="line-through">RS 60</span>
+            <span class="dark:text-white">Shipping(Free)</span>
+            <span class="line-through dark:text-white">RS 60</span>
           </div>
         </div>
         <div class="mt-4 border-t pt-4">
           <div class="flex items-start justify-between gap-4 text-gray-800">
-            <span class="text-lg font-bold">Total</span>
+            <span class="text-lg font-bold dark:text-white">Total</span>
             <span class="flex flex-col items-end">
-              <span class="text-lg font-bold">{{products|total_cart_price:request.session.cart}} INR</span>
-              <span class="text-sm text-gray-500">including GST</span>
+              <span class="text-lg font-bold dark:text-white">{{products|total_cart_price:request.session.cart}} INR</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400">including GST</span>
             </span>
           </div>
         </div>
@@ -76,7 +76,7 @@
       </div>
     </div>
     {% else %}
-        <p class="text-center">Oh no! Your cart is emptier than a cat's promise to stop knocking things off the table. <br> Let's fill it up with some goodies! 🐾
+        <p class="text-center dark:text-white">Oh no! Your cart is emptier than a cat's promise to stop knocking things off the table. <br> Let's fill it up with some goodies! 🐾
           </p>
         {% endif %}
     <!-- totals - end -->
