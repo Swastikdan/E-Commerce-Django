@@ -19,19 +19,19 @@
                         <div class="w-full flex flex-col justify-start items-start space-y-8 p-5">
                             <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{{ order.product.name }}</h3>
                             <div class="flex justify-start items-start flex-col space-y-2">
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Date: </span> {{ order.date }}</p>                             
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Address: </span> {{ order.address }}</p>
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Date: </span> {{ order.date }}</p>                             
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Address: </span> {{ order.address }}</p>
                                 {% if order.status %}
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> Completed</p>
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Completed</p>
                                 {% else %}
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> Pending</p>
+                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Pending</p>
                                 {% endif %}
                             </div>
                         </div>
                         <div class="flex justify-between space-x-8 items-start w-full p-5">
-                            <p class="text-base dark:text-white xl:text-lg leading-6 flex flex-col text-center"><span class="dark:text-gray-400 text-gray-300">Order Status: </span> {{ order.price|currency }} </p>
-                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">{{ order.quantity }}</p>
-                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">{{ order.quantity|multiply:order.price|currency }}</p>
+                            <p class="text-base dark:text-white xl:text-lg leading-6 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Price </span> <br> {{ order.price|currency }} </p>
+                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Quantity </span> <br>{{ order.quantity }}</p>
+                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Total Price </span> <br>{{ order.quantity|multiply:order.price|currency }}</p>
                         </div>
                     </div>
                 </div>

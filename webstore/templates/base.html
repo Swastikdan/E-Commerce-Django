@@ -2,7 +2,7 @@
 {% load custom_filter %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -13,18 +13,9 @@
               href="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png"
               type="image/x-icon">
         <title>Shop Vibe</title>
-        <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-        </script>
-        
-        <style>
-  /* @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap'); */
 
+         
+<style>
 @font-face {
   font-family: 'Maven Pro';
 
@@ -49,10 +40,10 @@
         <!-- Top navigation -->
         <nav class="bg-white border-b   border-gray-200 dark:border-gray-600 dark:bg-gray-900  w-full top-0 left-0 z-20 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="/" class="flex items-center">
+                <a href="/" class="flex items-center ">
                     <svg xmlns:xlink="http://www.w3.org/1999/xlink"
                          xmlns="http://www.w3.org/2000/svg"
-                         class="css-ze2te4 css-qd6ojx mr-3 "
+                         class="css-ze2te4 css-qd6ojx mr-3 hidden md:flex "
                          viewBox="0 0 99.99999999999999 101.16792050837127"
                          width="50"
                          height="50">
@@ -92,7 +83,7 @@
                         </path>
                         </g>
                     </svg>
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Shop Vibe</span>
+                    <span class="self-center text-xl md:text-2xl font-semibold whitespace-nowrap dark:text-white">Shop Vibe</span>
                 </a>
                 <div class="flex items-center space-x-3 md:order-2">
                     <li class="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600 ">
@@ -131,8 +122,8 @@
                                 aria-expanded="false"
                                 data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full"
-                                 src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                            <img class="w-10 h-10 rounded-full "
+                                 src="https://i.ibb.co/Kzb3zK0/index.png"
                                  alt="user photo">
                         </button>
                         <!-- Dropdown menu -->
@@ -270,7 +261,7 @@
         </nav>
         {% block content %}{% endblock %}
         <footer class="sticky   z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© <span class="px-1" id="year"></span><a href="/" class="hover:underline px-2">Shop Vibe™</a>. All Rights Reserved.
             </span>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
@@ -287,8 +278,28 @@
                     <a href="faq" class="mr-4 hover:underline md:mr-6">Faq</a>
                 </li>
             </ul>
-        </footer>
-        <script async src="{% static '/darkmode.js' %}"></script>
+        </footer> 
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearElement = document.getElementById("year");
+            const currentYear = new Date().getFullYear();
+            yearElement.innerText = currentYear;
+          });
+          
+
+    </script>
+    <script>
+        window.addEventListener("load", function() {
+          if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        });
+        </script>
+        
+        <script  src="{% static '/darkmode.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     </body>
 </html>
