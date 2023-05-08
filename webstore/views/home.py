@@ -23,7 +23,7 @@ from django.contrib.auth.hashers import check_password
 from webstore.models.customer import Customer
 from django.views import View
 from webstore.models.product import Products
-
+from django.shortcuts import render
 # Index View class that handles the main page and cart updates
 class Index(View):
 
@@ -116,3 +116,9 @@ class ProductView(View):
         request.session['cart'] = cart
         return HttpResponseRedirect(request.path + "?id=" + product)
 
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)

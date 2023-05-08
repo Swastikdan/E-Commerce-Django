@@ -3,7 +3,9 @@
 # `views` module. It also imports the `auth_middleware` from the `middlewares` module.
 from django.contrib import admin
 from django.urls import path
-from .views import Index, webstore, ProductView, Signup, Login, logout, Cart, CheckOut, OrderView, About, PrivacyPolicy, Licensing, Service, ContactView ,faq
+from .views import Index, webstore, ProductView, Signup, Login, logout, Cart, CheckOut, OrderView, About, PrivacyPolicy, Licensing, Service, ContactView ,faq ,custom_404 ,custom_500
+from django.urls import path
+
 
 from .middlewares.auth import auth_middleware
 
@@ -26,3 +28,6 @@ urlpatterns = [
     path('faq', faq.as_view(), name='faq'), 
 
 ]
+handler404 = custom_404
+handler500 = custom_500
+

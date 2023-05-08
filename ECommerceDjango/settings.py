@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-95t%=#4o3@l-(-%ok9*h%n3!0(sdchjn%+_$5#umaj-!3bg*7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
 
 ]
 
@@ -126,7 +125,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 # Static files (CSS, JavaScript, Images)
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'webstore/static')]
+# MEDIA_URL = "/image/download/"
+# MEDIA_ROOT = BASE_DIR
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'webstore/static')]
-MEDIA_URL = "/image/download/"
-MEDIA_ROOT = BASE_DIR
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = 'staticfiles'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = BASE_DIR / "/image/download"
