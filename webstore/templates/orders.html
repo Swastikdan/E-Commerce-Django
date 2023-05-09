@@ -19,12 +19,13 @@
                         <div class="w-full flex flex-col justify-start items-start space-y-8 p-5">
                             <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{{ order.product.name }}</h3>
                             <div class="flex justify-start items-start flex-col space-y-2">
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Date: </span> {{ order.date }}</p>                             
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Address: </span> {{ order.address }}</p>
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Date: </span> {{ order.date }}</p>                             
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Address: </span> {{ order.address }}</p>
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Mobile No: </span> {{ order.phone }}</p>
                                 {% if order.status %}
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Completed</p>
+                                <p class="text-xs font-semibold leading-none text-green-700 "><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Completed</p>
                                 {% else %}
-                                <p class="text-sm dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Pending</p>
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Pending</p>
                                 {% endif %}
                             </div>
                         </div>

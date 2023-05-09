@@ -5,5 +5,5 @@ from .login import Login, logout
 from .cart import Cart
 from .checkout import CheckOut
 from .orders import OrderView
-from .static_pages import About, PrivacyPolicy, Licensing,  Service ,faq
+from .static_pages import About, PrivacyPolicy,  Service ,faq
 from .contact import ContactView 

@@ -2,6 +2,9 @@
 {% load cart %}
 {% load custom_filter %}
 {% block content %}
+
+
+
 <div class="dark:bg-gray-950 br-gray-100 text-black dark:text-gray-200">
   <div class="w-full max-w-screen-xl min-h-screen p-10 lg:p-20 mx-auto  relative md:text-left">
     <div class="md:flex items-center -mx-10">
@@ -76,7 +79,10 @@
           </div>
   
         </div>
-
+        <script>
+          var productName = "{{ product.name|escapejs }}";
+          document.title = productName;
+      </script>
 
 {% endblock %}
 

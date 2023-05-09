@@ -6,8 +6,6 @@ class About(TemplateView):
 class PrivacyPolicy(TemplateView):
     template_name = "privacy_policy.html"
 
-class Licensing(TemplateView):
-    template_name = "licensing.html"
 class faq(TemplateView):
     template_name = "faq.html"
 
