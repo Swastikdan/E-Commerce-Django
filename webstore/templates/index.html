@@ -15,7 +15,7 @@
 	  {% for product in products %}
 	  <div id="{{product.id}}" >
 		<a href="/product/?id={{product.id}}" class="group relative flex h-80 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-500 p-4 shadow-lg">
-		  <img src="{{product.image.url}}" alt="{{product.name}}" loading="lazy"
+		  <img src="{{ product.display_image_url }}" alt="{{product.name}}" loading="lazy"
 			class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
 		  <div

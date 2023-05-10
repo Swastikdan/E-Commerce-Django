@@ -13,7 +13,7 @@
       {% for product in products %} 
       <div class="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
         <a class="group relative block overflow-hidden bg-gray-100 h-56 w-40">
-          <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}" class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+          <img src="{{ product.display_image_url }}" loading="lazy" alt="{{product.name}}" class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
         </a>
         <div class="flex flex-1 flex-col justify-between py-4">
           <div>
@@ -106,7 +106,7 @@
                       <ul class="-my-4 divide-y divide-gray-100 ">
                         {% for product in products %} 
                         <li class="flex items-center gap-4 py-4">
-                          <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}" class="h-16 w-16 rounded object-cover" />
+                          <img src="{{ product.display_image_url }}" loading="lazy" alt="{{product.name}}" class="h-16 w-16 rounded object-cover" />
                           <div>
                             <h3 class="text-sm text-gray-900 dark:text-gray-200"> {{product.name}} </h3>
                             <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 dark:text-gray-300">

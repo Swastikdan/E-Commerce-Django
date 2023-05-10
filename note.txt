@@ -4,7 +4,7 @@ before running anything make sure to run ' python manage.py collectstatic '
 admin
 -  webstore
 password
--  12345
+-  0Wd@12345
 
 
 

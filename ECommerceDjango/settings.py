@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '-95t%=#4o3@l-(-%ok9*h%n3!0(sdchjn%+_$5#umaj-!3bg*7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com','http://.vercel.app', 'https://.vercel.app','http://.swastikdan.tech', 'https://.swastikdan.tech']
 
 
 APPEND_SLASH=False 
@@ -78,12 +79,35 @@ WSGI_APPLICATION = 'ECommerceDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# for local
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
+# Railway
+
+DATABASE_URL = os.getenv('postgresql://postgres:YOoIu70Txh5zE4IgRLkv@containers-us-west-114.railway.app:7911/railway')
+db_url = urlparse(DATABASE_URL)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'YOoIu70Txh5zE4IgRLkv',
+        'HOST': 'containers-us-west-114.railway.app',
+        'PORT': 7911,
     }
 }
+
+
+
+
 
 # settings.py
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
