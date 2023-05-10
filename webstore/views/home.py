@@ -75,16 +75,6 @@ def webstore(request):
     data = {}
     data['products'] = products
     data['categories'] = categories
-
-    # Set default image URL for products without an image
-    default_image_url = '/static/default_image.jpg'
-    for product in products:
-        if product.image:
-            product.display_image_url = product.image.url
-        else:
-            product.display_image_url = default_image_url
-
-
     return render(request, 'index.html', data)
 
 # ProductView class to handle the individual product page and cart updates for that product
