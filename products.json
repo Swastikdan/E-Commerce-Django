@@ -1,0 +1,733 @@
+{
+  "products": [
+    {
+      "name": "Samsung Galaxy S22 Ultra",
+      "description": "The Samsung Galaxy S22 Ultra features a 6.8-inch Dynamic AMOLED display with a 120Hz refresh rate, powered by Exynos 2200 chipset, 12GB RAM, and up to 1TB storage, running on Android 12. It boasts a 108MP primary camera and a 40MP front camera, backed up by a 5000mAh battery with 45W fast charging.",
+      "price": 109999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/S22_Ultra.jpg"
+    },
+    {
+      "name": "Apple iPhone 13 Pro Max",
+      "description": "The Apple iPhone 13 Pro Max comes with a stunning 6.7-inch Super Retina XDR display, A15 Bionic chip, 6GB RAM, and up to 1TB storage, running on iOS 15. It features a triple 12MP camera system with Night mode, and a 12MP TrueDepth front camera, powered by a long-lasting battery with MagSafe and Qi wireless charging support.",
+      "price": 129900,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/apple-iphone-13-pro-max-512-go-argent-sans-ecouteurs-318570415.jpg"
+    },
+    {
+      "name": "OnePlus 9 Pro",
+      "description": "The OnePlus 9 Pro sports a 6.7-inch Fluid AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888, 12GB RAM, and up to 256GB storage, running on OxygenOS based on Android 11. It features a 48MP main camera with Hasselblad color calibration, and a 16MP front camera, backed by a 4500mAh battery with 65W fast charging.",
+      "price": 64999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/one_plus_9_pro.jpg"
+    },
+    {
+      "name": "Google Pixel 6 Pro",
+      "description": "The Google Pixel 6 Pro features a 6.7-inch LTPO OLED display with a 120Hz refresh rate, powered by Google Tensor chipset, 12GB RAM, and up to 512GB storage, running on Android 12. It boasts a 50MP primary camera with Night Sight, and a 11.1MP front camera, fueled by a 5003mAh battery with 30W fast charging and wireless charging support.",
+      "price": 89999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/pixel_6_pro.jpg"
+    },
+    {
+      "name": "Xiaomi Mi 11 Ultra",
+      "description": "The Xiaomi Mi 11 Ultra sports a 6.81-inch AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888, 12GB RAM, and up to 256GB storage, running on MIUI 12 based on Android 11. It features a 50MP primary camera with OIS, and a 20MP front camera, backed by a 5000mAh battery with 67W fast charging and wireless charging support.",
+      "price": 69999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Mi_11_Ultra.jpg"
+    },
+    {
+      "name": "Vivo X70 Pro+",
+      "description": "The Vivo X70 Pro+ boasts a 6.78-inch AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888+, 12GB RAM, and up to 256GB storage, running on Funtouch OS 12 based on Android 11. It features a 50MP primary camera with gimbal stabilization, and a 32MP front camera, fueled by a 4500mAh battery with 55W fast charging support.",
+      "price": 79990,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Vivo-X70-Pro-plus.jpg"
+    },
+    {
+      "name": "OPPO Find X3 Pro",
+      "description": "The OPPO Find X3 Pro features a 6.7-inch QHD+ AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888, 12GB RAM, and up to 256GB storage, running on ColorOS 11.2 based on Android 11. It boasts a 50MP primary camera with OIS, and a 32MP front camera, backed by a 4500mAh battery with 65W fast charging and wireless charging support.",
+      "price": 69990,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/oppo_find_X_3.jpg"
+    },
+    {
+      "name": "Realme GT 5G",
+      "description": "The Realme GT 5G sports a 6.43-inch Super AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888, 8GB RAM, and up to 128GB storage, running on Realme UI 2.0 based on Android 11. It boasts a 64MP main camera with Nightscape mode, and a 16MP front camera, fueled by a 4500mAh battery with 65W fast charging support.",
+      "price": 37999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/RealmeGT5G.jpg"
+    },
+    {
+      "name": "Samsung Galaxy Z Flip 3",
+      "description": "The Samsung Galaxy Z Flip 3 features a 6.7-inch main Dynamic AMOLED 2x display with a 120Hz refresh rate, powered by Snapdragon 888, running on One UI 3.1 based on Android 11. It has a vibrant folding display, good build quality, and an IPX8 water resistance rating. It comes in Cream, Lavender, and Black colorways, suitable for those who want a strong style statement.",
+      "price": 84999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/galaxy_flip3.jpg"
+    },
+    {
+      "name": "Realme GT 2",
+      "description": "The Realme GT 2 sports a 6.62-inch 120Hz display with Gorilla Glass protection, powered by Snapdragon 888, running on Realme UI 3.0 based on Android 12. It has a paper-inspired design and comes in Paper Green, Paper White, and Steel Black colors. It weighs 198 grams and is 8.60mm thick, offering a host of connectivity options.",
+      "price": 41999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/realme_gt2.png"
+    },
+    {
+      "name": "Samsung Galaxy S22 Ultra 5G",
+      "description": "The Samsung Galaxy S22 Ultra 5G features a 6.8-inch 120Hz Dynamic AMOLED display, powered by the Snapdragon 8 Gen 1 processor, with 12GB RAM and up to 1TB storage. It has a 108MP primary camera, two telephoto cameras, and a 40MP under-display front camera. The device is IP68 rated for dust and water resistance, and supports the S Pen.",
+      "price": 109999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Samsung-Galaxy-S21-Ultra-5G.jpg"
+    },
+    {
+      "name": "Samsung Galaxy Z Fold 3",
+      "description": "The Samsung Galaxy Z Fold 3 sports a 7.6-inch main Dynamic AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888. It features S Pen support, IPX8 water resistance, and improved durability. The device has a 12MP rear camera setup and a 4MP under-display sensor on the main display, along with a 10MP cover display camera.",
+      "price": 149999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/ZFold3.jpg"
+    },
+    {
+      "name": "Samsung Galaxy S21 FE",
+      "description": "The Samsung Galaxy S21 FE features a 6.4-inch Dynamic AMOLED display with a 120Hz refresh rate, powered by Snapdragon 888, with up to 8GB RAM and 256GB storage. It has a 4500mAh battery, IP68 dust and water resistance, a triple rear camera setup with 3x optical and 30x super-resolution zoom, and a high-resolution 32MP front camera.",
+      "price": 49999,
+      "category": "Smartphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/s21FE_5G_klSYCAK.jpg"
+    },
+    {
+      "name": "Dell Inspiron 15 3000",
+      "description": "The Dell Inspiron 15 3000 is a budget-friendly laptop with a 15.6-inch Full HD display, Intel Core i3 processor, 4GB RAM, and a 1TB hard drive. It comes pre-installed with Windows 10 and features a durable build, making it a reliable option for everyday computing tasks.",
+      "price": 35000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/DellInspiron15-3000.jpg"
+    },
+    {
+      "name": "HP Pavilion x360",
+      "description": "The HP Pavilion x360 is a versatile 2-in-1 laptop with a 14-inch Full HD touchscreen display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. The laptop features a 360-degree hinge, allowing users to switch between laptop, tablet, and tent modes for a seamless computing experience.",
+      "price": 60000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/image-bd4Nmi6aG-transformed.jpeg"
+    },
+    {
+      "name": "Apple MacBook Air M1",
+      "description": "The Apple MacBook Air M1 features Apple's own M1 chip, delivering powerful performance and long-lasting battery life. With a 13.3-inch Retina display, 8GB RAM, and 256GB SSD, this lightweight laptop offers a sleek design and macOS Big Sur for a seamless computing experience.",
+      "price": 92000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AppleMacBookAirM1.jpeg"
+    },
+    {
+      "name": "Lenovo IdeaPad Slim 3",
+      "description": "The Lenovo IdeaPad Slim 3 is an affordable laptop with a 14-inch HD display, Intel Core i3 processor, 4GB RAM, and a 256GB SSD. It comes with Windows 10 pre-installed and features a slim design, making it a great option for students and professionals on the go.",
+      "price": 38000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/LenovoIdeaPadSlim3.jpg"
+    },
+    {
+      "name": "Acer Aspire 5",
+      "description": "The Acer Aspire 5 is a mid-range laptop with a 15.6-inch Full HD display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. It comes with Windows 10 pre-installed and features a sleek design, making it a great option for those looking for a balance between performance and price.",
+      "price": 55000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AcerAspire5.jpg"
+    },
+    {
+      "name": "Asus VivoBook 15",
+      "description": "The Asus VivoBook 15 is a stylish laptop with a 15.6-inch Full HD display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. It comes with Windows 10 pre-installed and features a sleek design with a unique ErgoLift hinge for comfortable typing and better cooling.",
+      "price": 58000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AsusVivoBook15.jpeg"
+    },
+    {
+      "name": "Microsoft Surface Laptop 4",
+      "description": "The Microsoft Surface Laptop 4 is a premium laptop with a 13.5-inch PixelSense touchscreen display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. It comes with Windows 10 pre-installed and features a sleek, lightweight design with an Alcantara fabric-covered keyboard for added comfort.",
+      "price": 100000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/RE4MzOE-transformed.jpg"
+    },
+    {
+      "name": "LG Gram 17",
+      "description": "The LG Gram 17 is a lightweight laptop with a large 17-inch WQXGA IPS display, Intel Core i7 processor, 16GB RAM, and a 1TB SSD. It comes with Windows 10 pre-installed and features a durable magnesium alloy body, making it a great option for professionals who need a portable yet powerful laptop.",
+      "price": 120000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/LGGram17.jpg"
+    },
+    {
+      "name": "Razer Blade 15",
+      "description": "The Razer Blade 15 is a high-performance gaming laptop with a 15.6-inch Full HD display, Intel Core i7 processor, 16GB RAM, and a 512GB SSD. It features an NVIDIA GeForce RTX 3060 GPU for smooth gaming and comes with Windows 10 pre-installed. The laptop has a sleek design with customizable RGB lighting.",
+      "price": 150000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/RazerBlade15.jpg"
+    },
+    {
+      "name": "Razer Blade 15 Advanced",
+      "description": "The Razer Blade 15 Advanced is a high-end gaming laptop with a 15.6-inch 4K Touch OLED display, Intel Core i9-11900H processor, 32GB RAM, and a 1TB SSD. It features an NVIDIA GeForce RTX 3080 GPU and comes with Windows 10 pre-installed. With 2 Thunderbolt 4 ports, 3 USB 3.2 Gen 2 Type-A ports, and an SD Card reader, this laptop offers powerful performance and connectivity options for both gamers and creative professionals.",
+      "price": 240000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/RazerBlade-15Advanced.jpeg"
+    },
+    {
+      "name": "MSI GF65 Thin",
+      "description": "The MSI GF65 Thin is a budget-friendly gaming laptop with a 15.6-inch Full HD display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. It features an NVIDIA GeForce GTX 1660 Ti GPU for smooth gaming performance and comes with Windows 10 pre-installed. The laptop has a sleek design with MSI's signature red accents and a customizable RGB keyboard.",
+      "price": 75000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/MSIGF65Thin.jpeg"
+    },
+    {
+      "name": "Acer Predator Helios 300",
+      "description": "The Acer Predator Helios 300 is a mid-range gaming laptop with a 15.6-inch Full HD display, Intel Core i7 processor, 16GB RAM, and a 512GB SSD. It features an NVIDIA GeForce RTX 3060 GPU for immersive gaming experiences and comes with Windows 10 pre-installed. The laptop has a bold design with customizable RGB lighting and Acer's AeroBlade 3D cooling system for optimal performance.",
+      "price": 100000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Acer-PredatorHelios300.jpeg"
+    },
+    {
+      "name": "Asus TUF Gaming A15",
+      "description": "The Asus TUF Gaming A15 is a durable gaming laptop with a 15.6-inch Full HD display, AMD Ryzen 7 processor, 16GB RAM, and a 512GB SSD. It features an NVIDIA GeForce RTX 3060 GPU for high-quality gaming and comes with Windows 10 pre-installed. The laptop has a military-grade design with customizable RGB lighting and Asus's TUF cooling system for sustained performance.",
+      "price": 90000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/61mbkijKbIL__SL1200-transformed.jpeg"
+    },
+    {
+      "name": "Lenovo Legion 5",
+      "description": "The Lenovo Legion 5 is a powerful gaming laptop with a 15.6-inch Full HD display, AMD Ryzen 7 processor, 16GB RAM, and a 512GB SSD. It features an NVIDIA GeForce RTX 3060 GPU for smooth gaming experiences and comes with Windows 10 pre-installed. The laptop has a sleek design with customizable RGB lighting and Lenovo's Coldfront 2.0 cooling system for optimal performance.",
+      "price": 95000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/LenovoLegion5.jpg"
+    },
+    {
+      "name": "HP Omen 15",
+      "description": "The HP Omen 15 is a high-performance gaming laptop with a 15.6-inch Full HD display, Intel Core i7 processor, 16GB RAM, and a 512GB SSD. It features an NVIDIA GeForce RTX 3060 GPU for immersive gaming experiences and comes with Windows 10 pre-installed. The laptop has a bold design with customizable RGB lighting and HP's Omen Tempest cooling system for optimal performance.",
+      "price": 110000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/HPOmen15.jpg"
+    },
+    {
+      "name": "Dell G3 15",
+      "description": "The Dell G3 15 is a budget-friendly gaming laptop with a 15.6-inch Full HD display, Intel Core i5 processor, 8GB RAM, and a 512GB SSD. It features an NVIDIA GeForce GTX 1650 GPU for smooth gaming performance and comes with Windows 10 pre-installed. The laptop has a sleek design with Dell's Game Shift technology and dual-fan cooling system for optimal performance.",
+      "price": 70000,
+      "category": "Laptops",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/DellG315.jpg"
+    },
+    {
+      "name": "Apple iPad Pro 12.9",
+      "description": "The Apple iPad Pro 12.9 features a stunning 12.9-inch Retina display, powerful A12Z Bionic chip, and support for Apple Pencil and Smart Keyboard. With up to 1TB of storage, this tablet is perfect for both work and play.",
+      "price": 99900,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AppleiPadPro12.9.jpg"
+    },
+    {
+      "name": "Samsung Galaxy Tab S7",
+      "description": "The Samsung Galaxy Tab S7 is a versatile tablet with a 12.4-inch Super AMOLED display, Snapdragon 865+ processor, and S Pen support. It's a great choice for productivity and entertainment with its DeX mode and quad speakers.",
+      "price": 58999,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Samsung7.jpg"
+    },
+    {
+      "name": "Microsoft Surface Pro 7",
+      "description": "The Microsoft Surface Pro 7 is a powerful 2-in-1 tablet featuring a 12.3-inch PixelSense display, 10th Generation Intel Core processors, and a detachable Type Cover keyboard. It's perfect for professionals on the go.",
+      "price": 71990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/image-XqPhNqxoh-transformed.jpeg"
+    },
+    {
+      "name": "Lenovo Tab P11 Pro",
+      "description": "The Lenovo Tab P11 Pro is a premium Android tablet with an 11.5-inch OLED display, Snapdragon 730G processor, and Dolby Atmos speakers. It also supports Lenovo's Precision Pen 2 and Keyboard Pack for enhanced productivity.",
+      "price": 44990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/LenovoTabP11Pro.jpg"
+    },
+    {
+      "name": "Amazon Fire HD 10",
+      "description": "The Amazon Fire HD 10 is an affordable tablet with a 10.1-inch Full HD display, powerful octa-core processor, and built-in Alexa voice assistant. It's perfect for streaming movies, browsing the web, and reading eBooks.",
+      "price": 14999,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AmazonFireHD10.jpg"
+    },
+    {
+      "name": "Asus ZenPad 3S 10",
+      "description": "The Asus ZenPad 3S 10 is a sleek Android tablet featuring a 9.7-inch 2K display, MediaTek MT8176 processor, and 4GB RAM. It's perfect for media consumption, gaming, and multitasking, thanks to its crisp visuals and powerful performance.",
+      "price": 27990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AsusZenPad3S10.jpg"
+    },
+    {
+      "name": "Huawei MediaPad M5 Lite",
+      "description": "The Huawei MediaPad M5 Lite is an affordable tablet with a 10.1-inch Full HD display, Kirin 659 processor, and Harman Kardon-tuned speakers. It's great for watching movies, playing games, and browsing the web.",
+      "price": 22990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/HuaweiMediaPadM5Lite.jpg"
+    },
+    {
+      "name": "Google Pixel Slate",
+      "description": "The Google Pixel Slate is a versatile Chrome OS tablet with a 12.3-inch Molecular Display, 8th Generation Intel Core processors, and a detachable keyboard. It's perfect for professionals and creatives who need a powerful device for work and play.",
+      "price": 59990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/googlePixelSlate.jpg"
+    },
+    {
+      "name": "Xiaomi Mi Pad 4 Plus",
+      "description": "The Xiaomi Mi Pad 4 Plus is a budget-friendly Android tablet with a 10.1-inch Full HD display, Snapdragon 660 processor, and 4GB RAM. It's perfect for watching movies, playing games, and browsing the web on a large screen.",
+      "price": 18990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/XiaomiMiPad4Plus.jpg"
+    },
+    {
+      "name": "Acer Iconia One 10",
+      "description": "The Acer Iconia One 10 is an entry-level tablet with a 10.1-inch HD display, MediaTek MT8167A processor, and dual stereo speakers. It's perfect for casual web browsing, watching videos, and light gaming.",
+      "price": 13990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AcerIconiaOne10.jpg"
+    },
+    {
+      "name": "Alcatel 3T 10",
+      "description": "The Alcatel 3T 10 is an affordable tablet with a 10-inch HD display, MediaTek MT 8163 processor, and 2GB RAM. It's ideal for casual web browsing, watching videos, and light gaming, with a user-friendly interface and expandable storage options.",
+      "price": 9990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Alcatel.jpeg"
+    },
+    {
+      "name": "Lenovo Tab M10 FHD Plus",
+      "description": "The Lenovo Tab M10 FHD Plus is a budget-friendly Android tablet featuring a 10.3-inch full HD display, a large battery, decent cameras, and stereo sound with Dolby Atmos. It's perfect for entertainment and on-the-go productivity tasks at an affordable price point.",
+      "price": 16990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/LenovoTabM10FHDPlus.jpg"
+    },
+    {
+      "name": "Vankyo MatrixPad Z4",
+      "description": "The Vankyo MatrixPad Z4 is an affordable 10-inch tablet with a 1280x800 IPS display and a 1.8GHz MT8173B MediaTek processor. It's responsive, faster than its previous models, and perfect for everyday tasks like browsing the web, watching videos, and playing games.",
+      "price": 10990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/VanKyoMatrixZ4.jpg"
+    },
+    {
+      "name": "Samsung Galaxy Tab A8",
+      "description": "The Samsung Galaxy Tab A8 is an affordable 10-inch tablet with a vibrant display, powerful performance, and long-lasting battery life. It's perfect for entertainment, on-the-go office work, and travel, making it a great alternative to Samsung's more expensive S series tablets.",
+      "price": 19990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SamsungGalaxyTabA8.jpeg"
+    },
+    {
+      "name": "Aoyodkg 10-inch Tablet",
+      "description": "The Aoyodkg 10-inch tablet features a 1920x1200 brilliant HD IPS display and a 5MP+8MP camera for stunning brightness and clarity. It's compatible with learning and office software, making it a great companion for work and education.",
+      "price": 15990,
+      "category": "Tablets",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AoyodkgTablet.png"
+    },
+    {
+      "name": "Apple Watch Series 7",
+      "description": "The Apple Watch Series 7 features a sleek design, enhanced durability, and a large, always-on Retina display. It offers advanced health tracking capabilities, including ECG, blood oxygen monitoring, and fall detection, making it an ideal choice for fitness enthusiasts and those seeking a comprehensive health monitoring solution.",
+      "price": 36900,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AppleWatchSeries7.jpg"
+    },
+    {
+      "name": "Samsung Galaxy Watch 4",
+      "description": "The Samsung Galaxy Watch 4 is a versatile smartwatch with a sleek design and a stunning Super AMOLED display. It offers advanced health tracking features, such as body composition analysis and sleep monitoring, and seamless integration with Samsung smartphones, making it perfect for users looking to stay connected and healthy.",
+      "price": 23999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SamsungGalaxyWatch4_nv02A9A.jpg"
+    },
+    {
+      "name": "Fitbit Versa 3",
+      "description": "The Fitbit Versa 3 is a feature-packed smartwatch that offers a wide range of health and fitness tracking capabilities, including heart rate monitoring, sleep tracking, and built-in GPS. With its stylish design, long battery life, and compatibility with both Android and iOS devices, the Versa 3 is an excellent choice for fitness enthusiasts.",
+      "price": 18999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/FitbitVersa3.jpeg"
+    },
+    {
+      "name": "Garmin Venu 2",
+      "description": "The Garmin Venu 2 is a premium smartwatch designed for fitness enthusiasts and outdoor adventurers. It boasts a stunning AMOLED display, robust build quality, and an extensive suite of health and fitness tracking features, including GPS, heart rate monitoring, and over 25 preloaded sports apps.",
+      "price": 37990,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/6459d39e313e43.97939044Processed.jpeg"
+    },
+    {
+      "name": "Amazfit GTR 3 Pro",
+      "description": "The Amazfit GTR 3 Pro is a stylish and feature-rich smartwatch that offers a sharp AMOLED display, customizable watch faces, and a wide range of health and fitness tracking features, such as heart rate monitoring, sleep tracking, and GPS. With its long battery life and affordable price point, the GTR 3 Pro is a great option for budget-conscious users.",
+      "price": 16999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AmazfitGTR3Pro.jpeg"
+    },
+    {
+      "name": "Fossil Gen 6",
+      "description": "The Fossil Gen 6 is a fashionable smartwatch that combines classic watch aesthetics with modern smart features. It offers a vibrant AMOLED display, customizable watch faces, and a wide range of health and fitness tracking features, such as heart rate monitoring, sleep tracking, and GPS. With its Wear OS platform, the Gen 6 is compatible with both Android and iOS devices.",
+      "price": 23995,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/FossilGen6.jpeg"
+    },
+    {
+      "name": "TicWatch Pro 3",
+      "description": "The TicWatch Pro 3 is a powerful smartwatch that offers a unique dual-display technology, combining an always-on LCD screen and a high-resolution AMOLED display. It features a wide range of health and fitness tracking capabilities, such as heart rate monitoring, sleep tracking, and GPS, and runs on Wear OS, making it compatible with both Android and iOS devices.",
+      "price": 28999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/TicWatchPro3.jpg"
+    },
+    {
+      "name": "Huawei Watch GT 2 Pro",
+      "description": "The Huawei Watch GT 2 Pro is a premium smartwatch that offers a stunning AMOLED display, a durable titanium frame, and a wide range of health and fitness tracking features, such as heart rate monitoring, sleep tracking, and GPS. With its long battery life and compatibility with both Android and iOS devices, the GT 2 Pro is an excellent choice for users seeking a high-quality smartwatch.",
+      "price": 22990,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/huawei-watch-gt2-pro.jpg"
+    },
+    {
+      "name": "Suunto 7",
+      "description": "The Suunto 7 is a rugged smartwatch designed for outdoor enthusiasts and athletes. It offers a crisp AMOLED display, durable build quality, and an extensive suite of health and fitness tracking features, such as GPS, heart rate monitoring, and over 70 sports modes. With its Wear OS platform, the Suunto 7 is compatible with both Android and iOS devices, making it a versatile option for outdoor enthusiasts and athletes.",
+      "price": 31920,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Suunto7.jpg"
+    },
+    {
+      "name": "Polar Vantage V2",
+      "description": "The Polar Vantage V2 is a premium smartwatch designed for serious athletes and fitness enthusiasts. It offers a range of advanced training features, such as Training Load Pro, Recovery Pro, and Running Performance tests, as well as GPS, heart rate monitoring, and sleep tracking. With its lightweight design and long battery life, the Vantage V2 is perfect for those seeking a high-performance smartwatch.",
+      "price": 44995,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Polar_Vantage_V2_image_GZRkxVW.jpg"
+    },
+    {
+      "name": "Garmin Forerunner 945",
+      "description": "The Garmin Forerunner 945 is a top-tier smartwatch designed for serious runners and triathletes. It offers advanced training features, such as VO2 max, training load focus, and race predictor, along with GPS, heart rate monitoring, and full-color maps. With its long battery life and compatibility with both Android and iOS devices, the Forerunner 945 is an excellent choice for dedicated athletes.",
+      "price": 59990,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/GarminForerunner945.png"
+    },
+    {
+      "name": "Coros APEX Pro",
+      "description": "The Coros APEX Pro is a rugged smartwatch designed for outdoor adventurers and endurance athletes. It features a durable build, enhanced GPS accuracy, and an extensive suite of fitness tracking features, such as heart rate monitoring, sleep tracking, and over 200 preloaded sports modes. With its long battery life and compatibility with both Android and iOS devices, the APEX Pro is an excellent choice for those seeking a reliable and durable smartwatch.",
+      "price": 39990,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/CorosAPEXPro.jpg"
+    },
+    {
+      "name": "Withings ScanWatch",
+      "description": "The Withings ScanWatch is a hybrid smartwatch that combines traditional watch aesthetics with advanced health tracking features. It offers an ECG, heart rate monitoring, sleep tracking, and SpO2 measurement, along with smartphone notifications and activity tracking. With its sleek design and long battery life, the ScanWatch is perfect for users seeking a stylish and feature-rich smartwatch.",
+      "price": 27999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/WithingsScanWatch.jpg"
+    },
+    {
+      "name": "Mobvoi TicWatch E3",
+      "description": "The Mobvoi TicWatch E3 is an affordable smartwatch that offers a variety of health and fitness tracking features, such as heart rate monitoring, sleep tracking, and GPS. Running on Wear OS, it is compatible with both Android and iOS devices and provides access to Google services, such as Google Assistant and Google Pay. With its budget-friendly price point, the TicWatch E3 is a great option for users looking for a feature-packed smartwatch without breaking the bank.",
+      "price": 19999,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/MobvoiTicWatchE3.jpg"
+    },
+    {
+      "name": "Oppo Watch",
+      "description": "The Oppo Watch is a stylish smartwatch that offers a vibrant AMOLED display, customizable watch faces, and a variety of health and fitness tracking features, such as heart rate monitoring, sleep tracking, and GPS. Running on Wear OS, it is compatible with both Android and iOS devices and provides access to Google services, such as Google Assistant and Google Pay. With its sleek design and affordable price point, the Oppo Watch is an excellent choice for fashion-conscious users.",
+      "price": 14990,
+      "category": "Smartwatches",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/OppoWatch.jpeg"
+    },
+    {
+      "name": "Audio-Technica ATH-M50x",
+      "description": "The Audio-Technica ATH-M50x offers professional-grade sound quality, featuring 45mm large-aperture drivers and a frequency range of 15-28,000 Hz. Its circumaural design provides excellent sound isolation in loud environments, and the 90-degree swiveling earcups allow for easy one-ear monitoring. The headphones come with a detachable cable and collapsible design for easy storage.",
+      "price": 13499,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Audio-TechnicaATH-M50x.jpeg"
+    },
+    {
+      "name": "Bose QuietComfort 35 II",
+      "description": "The Bose QuietComfort 35 II is a noise-cancelling wireless headphone with Bluetooth and NFC connectivity. It offers three levels of noise cancellation, a built-in Google Assistant, and Amazon Alexa integration. The headphone provides up to 20 hours of battery life and has a comfortable, lightweight design with plush ear cushions.",
+      "price": 29999,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/BoseQuietComfort-35_II.jpeg"
+    },
+    {
+      "name": "Sony WH-1000XM4",
+      "description": "Sony WH-1000XM4 is a premium wireless noise-cancelling headphone with industry-leading technology. It features adaptive sound control, touch sensor controls, and up to 30 hours of battery life. The headphone supports LDAC, which enables the transmission of high-resolution audio content. The foldable design and carrying case make it a perfect travel companion.",
+      "price": 24999,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SonyWH-1000XM4.jpeg"
+    },
+    {
+      "name": "Sennheiser HD 660 S",
+      "description": "The Sennheiser HD 660 S is an open-back, over-ear headphone designed for audiophiles. It features new and improved transducers that provide lower harmonic distortion and a more natural sound. The headphone has a comfortable design with a lightweight frame and plush ear cushions. It comes with detachable cables and a 6.3mm / 1/4\" stereo plug.",
+      "price": 42990,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SennheiserHD-660_S.jpeg"
+    },
+    {
+      "name": "JBL Live 660NC",
+      "description": "The JBL Live 660NC is a wireless, over-ear headphone with active noise cancellation. It offers up to 50 hours of battery life and supports fast charging. The headphone features JBL's signature sound with powerful bass, and it has a built-in microphone for clear voice calls. It also supports voice assistants like Amazon Alexa and Google Assistant.",
+      "price": 12999,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/JBL-Live-660NC.jpeg"
+    },
+    {
+      "name": "Beats Studio3 Wireless",
+      "description": "The Beats Studio3 Wireless is a stylish over-ear headphone with Pure Adaptive Noise Cancelling technology. It features the Apple W1 chip for seamless connectivity with Apple devices and up to 22 hours of battery life. The headphone has a comfortable design with soft over-ear cushions and a foldable structure for easy portability.",
+      "price": 27900,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/BeatsStudio3Wireless.jpeg"
+    },
+    {
+      "name": "AKG K371",
+      "description": "The AKG K371 is a closed-back, over-ear studio headphone with a balanced, natural sound. It features 50mm drivers, a lightweight design, and plush ear cushions for comfort during long listening sessions. The headphone has a foldable design and comes with a detachable cable and carrying pouch, making it ideal for professionals on the go.",
+      "price": 9999,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AKGK371.jpeg"
+    },
+    {
+      "name": "Beyerdynamic DT 770 Pro",
+      "description": "The Beyerdynamic DT 770 Pro is a closed-back, over-ear headphone designed for studio and professional use. It offers excellent sound isolation and a balanced sound signature with powerful bass. The headphone features a durable construction, a comfortable headband, and replaceable ear cushions. It comes with a single-sided cable and a gold-plated 3.5mm stereo jack.",
+      "price": 15999,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/BeyerdynamicDT-770Pro.jpeg"
+    },
+    {
+      "name": "Infinity Glide 510",
+      "description": "The Infinity Glide 510 on-ear headphones are known for their comfort and longer battery life. With 36mm audio drivers, they offer deep bass and the dual EQ mode helps you choose your listening experience. Harman Audio promises up to 72 hours of playback time with these headphones, which are lightweight and portable.",
+      "price": 2000,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/INFINITY-GLIDE-510.jpeg"
+    },
+    {
+      "name": "Sony MDR-ZX110AP",
+      "description": "The Sony MDR-ZX110AP are wired over-the-ear headphones with a 3.5mm headphone jack. They are designed to produce a well-balanced audio output and provide some ambient noise suppression. The headphones include a 30mm driver and are suitable for users with devices that support a 3.5mm headphone jack.",
+      "price": 1480,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SonyMDR-ZX110AP.jpg"
+    },
+    {
+      "name": "Boat Rockerz 550",
+      "description": "The Boat Rockerz 550 headphones are sturdy, comfortable, and lightweight, with powerful bass and a long battery life. They include a 50mm dynamic driver to offer immersive HD audio and are rated to deliver up to 25 hours of playback time with their 500mAh battery capacity. The headphones also feature physical noise isolation.",
+      "price": 2000,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/BoatRockerz550.jpg"
+    },
+    {
+      "name": "OneOdio Pro-10",
+      "description": "The OneOdio Pro-10 headphones are designed to produce high-quality and superior sound quality from their 50mm speaker unit. They deliver powerful bass, clear vocal, and crisp high tones. The headphones include padded ear cushions for maximum comfort and noise isolation, and a self-adjustable flexible headband. They are compatible with various audio devices and come with a detachable spring cable with a 3.5mm headphone jack.",
+      "price": 2000,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/OneOdioPro-10.jpg"
+    },
+    {
+      "name": "Soundcore by Anker Strike 1",
+      "description": "The Soundcore by Anker Strike 1 is a wired gaming headset with 52mm drivers for powerful bass. It is designed for PS4, Xbox, and PC, and includes a fully detachable noise-canceling microphone. The headphones are IPX5 waterproof rated and comfortable to wear with padded cushions. They are suitable for video conferencing apps and offer clean audio and bass.",
+      "price": 2000,
+      "category": "Headphones",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SoundcorebyAnkerStrike-1.jpg"
+    },
+    {
+      "name": "PowerBlast 360 Wireless Speaker",
+      "description": "The PowerBlast 360 Wireless Speaker offers crystal-clear sound quality with powerful bass and a 360-degree sound projection. It's perfect for both indoor and outdoor use, thanks to its rugged, water-resistant design. With a built-in rechargeable battery, you can enjoy up to 10 hours of continuous music playback.",
+      "price": 5999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/PowerBlast360WirelessSpeaker.jpeg"
+    },
+    {
+      "name": "SoundWave Mini Portable Speaker",
+      "description": "The SoundWave Mini Portable Speaker is a compact and lightweight speaker that delivers surprisingly powerful sound for its size. It features Bluetooth connectivity for wireless streaming from your smartphone or other devices, and a built-in microphone for hands-free calls. The rechargeable battery provides up to 6 hours of playback time.",
+      "price": 1999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SoundWaveMiniPortableSpeaker.jpeg"
+    },
+    {
+      "name": "Audiophile Pro Floorstanding Speaker",
+      "description": "The Audiophile Pro Floorstanding Speaker is designed for true music lovers who want the best possible sound quality. It features a 3-way design with dedicated drivers for deep bass, clear midrange, and crisp highs. The wooden cabinet ensures minimal resonance, while the gold-plated connectors ensure optimal signal transfer.",
+      "price": 24999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AudiophileProFloorstandingSpeaker.jpg"
+    },
+    {
+      "name": "SurroundMaster 5.1",
+      "description": "The SurroundMaster 5.1 Home Theater System provides a fully immersive audio experience for your movies and music. It includes five satellite speakers and a powerful subwoofer for deep, room-filling bass. The system supports Dolby Digital and DTS surround sound formats, ensuring a true cinematic experience at home.",
+      "price": 34999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SurroundMaster5.1.jpeg"
+    },
+    {
+      "name": "EcoJam Solar-Powered Speaker",
+      "description": "The EcoJam Solar-Powered Speaker is an eco-friendly and portable option for music lovers on the go. It features a built-in solar panel that charges the battery during the day, providing up to 12 hours of continuous playback. The rugged, waterproof design makes it perfect for outdoor adventures and pool parties.",
+      "price": 4999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/EcoJamSolar-PoweredSpeaker.jpg"
+    },
+    {
+      "name": "StudioMax Active Studio Monitor",
+      "description": "The StudioMax Active Studio Monitor is a professional-grade speaker designed for accurate audio reproduction in recording studios and home music production setups. It features a bi-amped design with separate amplifiers for the woofer and tweeter, ensuring precise sound across the entire frequency range. The rear-panel controls allow for easy setup and fine-tuning.",
+      "price": 9999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/StudioMaxActiveStudioMonitor.jpeg"
+    },
+    {
+      "name": "BassBeast Ultra Subwoofer",
+      "description": "The BassBeast Ultra Subwoofer is designed to add powerful, bone-rattling bass to your home theater or music system. It features a high-excursion 12-inch woofer and a built-in 300W amplifier for deep, tight bass response. The adjustable crossover and phase controls let you fine-tune the subwoofer for optimal integration with your existing speakers.",
+      "price": 14999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/BassBeastUltraSubwoofer.jpeg"
+    },
+    {
+      "name": "JBL PartyBox",
+      "description": "The PartyBox 1000W Portable PA System is a powerful all-in-one solution for parties, events, and karaoke nights. It features a 1000W amplifier, dual 10-inch speakers, and a built-in mixer with Bluetooth streaming, USB playback, and microphone inputs. The integrated LED lights and DJ effects make it a complete entertainment package.",
+      "price": 29999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/image-GPPiG3_XU-transformed.jpg"
+    },
+    {
+      "name": "Vintage Bluetooth Speaker",
+      "description": "The ClassicRetro Vintage Bluetooth Speaker combines nostalgic design with modern technology. It features a stylish wooden cabinet with a retro fabric grille and metal accents. The speaker offers Bluetooth connectivity and a built-in FM radio for versatile music listening options. The rechargeable battery provides up to 8 hours of playback time.",
+      "price": 3999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/VintageBluetoothSpeaker.jpg"
+    },
+    {
+      "name": "PowerBlast 360 Wireless Speaker",
+      "description": "The PowerBlast 360 Wireless Speaker offers crystal-clear sound quality with powerful bass and a 360-degree sound projection. It's perfect for both indoor and outdoor use, thanks to its rugged, water-resistant design. With a built-in rechargeable battery, you can enjoy up to 10 hours of continuous music playback.",
+      "price": 5999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/PowerBlast360WirelessSpeaker.jpeg"
+    },
+    {
+      "name": "SoundWave Mini Portable Speaker",
+      "description": "The SoundWave Mini Portable Speaker is a compact and lightweight speaker that delivers surprisingly powerful sound for its size. It features Bluetooth connectivity for wireless streaming from your smartphone or other devices, and a built-in microphone for hands-free calls. The rechargeable battery provides up to 6 hours of playback time.",
+      "price": 1999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SoundWaveMiniPortableSpeaker.jpeg"
+    },
+    {
+      "name": "Audiophile Pro Floorstanding Speaker",
+      "description": "The Audiophile Pro Floorstanding Speaker is designed for true music lovers who want the best possible sound quality. It features a 3-way design with dedicated drivers for deep bass, clear midrange, and crisp highs. The wooden cabinet ensures minimal resonance, while the gold-plated connectors ensure optimal signal transfer.",
+      "price": 24999,
+      "category": "Speakers",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/AudiophileProFloorstandingSpeaker.jpg"
+    },
+    {
+      "name": "Canon EOS 1500D",
+      "description": "The Canon EOS 1500D is an entry-level DSLR camera that offers an impressive 24.1MP APS-C CMOS sensor, DIGIC 4+ image processor, and Full HD 1080p video recording. It comes with a versatile 18-55mm IS II kit lens, making it perfect for beginners looking to explore photography.",
+      "price": 34990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/CanonEOS1500D.jpg"
+    },
+    {
+      "name": "Nikon D3500",
+      "description": "Nikon D3500 is a compact and lightweight DSLR camera, featuring a 24.2MP DX-format CMOS sensor, EXPEED 4 image processor, and Full HD 1080p video recording. It comes with an 18-55mm VR kit lens, making it a great choice for those starting their photography journey.",
+      "price": 36990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/Nikon-D35001.jpg"
+    },
+    {
+      "name": "Sony Alpha A6000",
+      "description": "The Sony Alpha A6000 is a mirrorless camera boasting a 24.3MP APS-C CMOS sensor, BIONZ X image processor, and Full HD 1080p video recording. It features a compact design, an electronic viewfinder, and a 16-50mm power zoom lens, making it an excellent choice for travel and street photography.",
+      "price": 47990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SonyAlphaA6000.jpg"
+    },
+    {
+      "name": "Fujifilm X-T30",
+      "description": "The Fujifilm X-T30 is a mirrorless camera with a 26.1MP APS-C X-Trans CMOS 4 sensor, X-Processor 4 image processor, and 4K video recording capabilities. It features a sleek retro design, an electronic viewfinder, and a 18-55mm kit lens, making it perfect for enthusiasts and professionals alike.",
+      "price": 84990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/FujifilmX-T30.jpg"
+    },
+    {
+      "name": "Panasonic Lumix G7",
+      "description": "The Panasonic Lumix G7 is a mirrorless camera featuring a 16MP Micro Four Thirds sensor, Venus Engine 9 image processor, and 4K UHD video recording. It comes with a 14-42mm kit lens and offers a versatile range of shooting modes, making it a great choice for vloggers and content creators.",
+      "price": 53990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/PanasonicLumixG7.jpg"
+    },
+    {
+      "name": "Olympus OM-D E-M10 Mark III",
+      "description": "The Olympus OM-D E-M10 Mark III is a mirrorless camera with a 16.1MP Micro Four Thirds sensor, TruePic VIII image processor, and 4K UHD video recording. It features a compact, retro design, an electronic viewfinder, and a 14-42mm kit lens, making it an excellent choice for travel and everyday photography.",
+      "price": 59990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/OlympusOM-DE-M10MarkIII.jpg"
+    },
+    {
+      "name": "Pentax K-70",
+      "description": "The Pentax K-70 is a rugged DSLR camera featuring a 24.2MP APS-C CMOS sensor, PRIME MII image processor, and Full HD 1080p video recording. It offers a weather-sealed body, in-body image stabilization, and an 18-135mm WR kit lens, making it a reliable choice for outdoor and adventure photography.",
+      "price": 78490,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/PentaxK-70.jpeg"
+    },
+    {
+      "name": "Canon PowerShot G7 X Mark III",
+      "description": "The Canon PowerShot G7 X Mark III is a premium compact camera with a 20.1MP 1-inch CMOS sensor, DIGIC 8 image processor, and 4K UHD video recording. It features a fast 24-100mm f/1.8-2.8 lens, a 3-inch tilting touchscreen, and built-in Wi-Fi and Bluetooth, making it perfect for vlogging and social media sharing.",
+      "price": 64990,
+      "category": "Cameras",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/image-11WD3YKrAw-transformed.jpg"
+    },
+    {
+      "name": "Smart LED Bulb",
+      "description": "This energy-efficient smart LED bulb allows you to control your home's lighting remotely using a smartphone app or voice commands. Set timers, create scenes, and adjust brightness and color temperature to create the perfect ambiance.",
+      "price": 1200,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SmartLedBulb.jpeg"
+    },
+    {
+      "name": "Smart Thermostat",
+      "description": "A smart thermostat enables you to control your home's temperature from anywhere using a mobile app. With advanced features like geofencing, learning algorithms, and energy-saving modes, this device can help you save on energy costs.",
+      "price": 8000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SmartThermostat.jpg"
+    },
+    {
+      "name": "Smart Door Lock",
+      "description": "This smart door lock allows you to secure your home without a key. Use your smartphone or a keypad to unlock the door, and grant temporary access to guests. Monitor your home's security with real-time notifications and an activity log.",
+      "price": 15000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SmartDoorLock.jpg"
+    },
+    {
+      "name": "Smart Security Camera",
+      "description": "Keep an eye on your home with this smart security camera, featuring high-definition video, night vision, and motion detection. Receive real-time alerts on your smartphone and store footage in the cloud or on a local storage device.",
+      "price": 5000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SecurityCamera.jpeg"
+    },
+    {
+      "name": "Smart Plug",
+      "description": "Control any appliance in your home with this smart plug. Connect it to your Wi-Fi network and use a smartphone app or voice commands to turn devices on and off, set schedules, and monitor energy usage.",
+      "price": 1500,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/smartPlug.jpg"
+    },
+    {
+      "name": "Smart Smoke Detector",
+      "description": "A smart smoke detector can alert you to potential fire hazards in your home, even when you're away. Receive notifications on your smartphone and integrate it with other smart devices to trigger alarms, lights, or emergency services.",
+      "price": 4000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/smartSmokeDetector.jpg"
+    },
+    {
+      "name": "Smart Hub",
+      "description": "A smart hub connects and controls multiple smart devices in your home, allowing you to manage them all from one place. Compatible with a wide range of devices and protocols, this hub simplifies your smart home setup and enhances automation.",
+      "price": 7000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/smartHub.jpeg"
+    },
+    {
+      "name": "Smart Speaker",
+      "description": "This smart speaker features a built-in voice assistant, allowing you to control smart home devices, play music, and get information hands-free. With multi-room audio capabilities, you can create a seamless audio experience throughout your home.",
+      "price": 6000,
+      "category": "Smart Home Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SmartSpeaker.jpg"
+    },
+    {
+      "name": "Samsung T5 Portable SSD",
+      "description": "The Samsung T5 500GB Portable SSD is a high-performance, reliable, and secure storage solution for your digital content. It features lightning-fast read and write speeds, a sleek and compact design, and advanced encryption technology to keep your data safe.",
+      "price": 8000,
+      "category": "Storage Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/image-6XOY9SYmV-transformed.jpg"
+    },
+    {
+      "name": "WD Blue 1TB Internal Hard Drive",
+      "description": "The WD Blue 1TB Internal Hard Drive is designed for desktop and all-in-one PCs, offering a perfect combination of reliability, performance, and storage capacity. It operates at 7200 RPM, ensuring fast data transfer speeds, and its SATA 6 Gb/s interface ensures seamless integration with your system.",
+      "price": 3500,
+      "category": "Storage Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/WDBlue1_TBInternalHardDrive.jpeg"
+    },
+    {
+      "name": "SanDisk Ultra  Flash Drive",
+      "description": "The SanDisk Ultra 64GB USB 3.0 Flash Drive is a high-speed, portable storage solution for your important files, photos, and videos. It features read speeds of up to 100 MB/s, a retractable design for protection, and is compatible with both Windows and Mac systems.",
+      "price": 1000,
+      "category": "Storage Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/SanDiskUltraFlashDrive.jpeg"
+    },
+    {
+      "name": "Kingston A2000",
+      "description": "The Kingston A2000 500GB NVMe Internal SSD is a high-performance, reliable, and efficient storage solution for your desktop or laptop. It features lightning-fast read and write speeds, advanced 3D NAND technology for extended lifespan, and a PCIe Gen 3.0 x4 NVMe interface for seamless integration with your system.",
+      "price": 6500,
+      "category": "Storage Devices",
+      "image": "https://swastikdan.pythonanywhere.com/media/images/KingstonA2000.jpeg"
+    }
+    
+  ]
+}
