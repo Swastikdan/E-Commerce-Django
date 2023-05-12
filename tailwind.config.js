@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './templates/**/*.html',
-    './node_modules/flowbite/**/*.js'
-],
+  content: ['./webstore/templates/**/*.html', "./node_modules/flowbite/**/*.js"],
   darkMode: 'class',
   theme: {
     extend: {},
