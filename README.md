@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ### 3. In a separate terminal, compile the Tailwind CSS:
 
    ```
-   npx tailwindcss -i ./tailwind.css -o ./webstore/static/output.css --watch
+  npx tailwindcss -i ./tailwind.css -o ./static/output.css  --watch
    ```
 
 Now, you can access the e-commerce website at `http://localhost:8000`.
