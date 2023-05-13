@@ -14,7 +14,7 @@
               type="image/x-icon">
         <title>Shop Vibe</title>
 
-         
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 <style>
 @font-face {
   font-family: 'Maven Pro';
@@ -39,16 +39,8 @@
       
     </head>
     <body class="font-maven bg-gray-50 dark:bg-gray-900">
-        <script>
-            window.addEventListener("load", function() {
-                if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              });
-          </script>
-    
+
+
         <!-- Top navigation -->
         <nav class="bg-white border-b sticky border-gray-200 dark:border-gray-600 dark:bg-gray-900  w-full top-0 left-0 z-20 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -99,38 +91,35 @@
                 </a>
                 <div class="flex items-center space-x-3 md:order-2">
                     <li class="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600 ">
+
                         <a href="/cart"
-                           role="button"
-                           class="relative flex p-3 rounded-xl hover:bg-gray-100 ">
+                        role="button" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                             <svg viewBox="0 0 24 24"
-                                 lass="flex-1  fill-current"
-                                 width="30"
-                                 height="30"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0">
-                                </g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
-                                </g>
-                                <g id="SVGRepo_iconCarrier">
-                                <path d="M4.46785 10.2658C4.47574 10.3372 4.48376 10.4094 4.49187 10.4823L4.61751 11.6131C4.7057 12.4072 4.78218 13.0959 4.91562 13.6455C5.05917 14.2367 5.29582 14.7937 5.78931 15.2354C6.28281 15.6771 6.86251 15.8508 7.46598 15.9281C8.02694 16.0001 8.71985 16 9.51887 16H14.8723C15.4201 16 15.9036 16 16.3073 15.959C16.7448 15.9146 17.1698 15.8162 17.5785 15.5701C17.9872 15.324 18.2731 14.9944 18.5171 14.6286C18.7422 14.291 18.9684 13.8637 19.2246 13.3797L21.7141 8.67734C22.5974 7.00887 21.3879 4.99998 19.5 4.99998L9.39884 4.99998C8.41604 4.99993 7.57525 4.99988 6.90973 5.09287C6.5729 5.13994 6.24284 5.21529 5.93326 5.34375L5.78941 4.04912C5.65979 2.88255 4.67375 2 3.5 2H3C2.44772 2 2 2.44771 2 3C2 3.55228 2.44772 4 3 4H3.5C3.65465 4 3.78456 4.11628 3.80164 4.26998L4.46785 10.2658Z" fill="#808080">
-                                </path>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19.5C14 18.1193 15.1193 17 16.5 17C17.8807 17 19 18.1193 19 19.5C19 20.8807 17.8807 22 16.5 22C15.1193 22 14 20.8807 14 19.5Z" fill="#808080">
-                                </path>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 19.5C5 18.1193 6.11929 17 7.5 17C8.88071 17 10 18.1193 10 19.5C10 20.8807 8.88071 22 7.5 22C6.11929 22 5 20.8807 5 19.5Z" fill="#808080">
-                                </path>
-                                </g>
-                            </svg>
-                            <span class="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">{{ request.session.cart.keys|length }}
-                            </span>
-                        </a>
+                            lass="flex-1  fill-current"
+                            width="30"
+                            height="30"
+                            xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0">
+                           </g>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                           </g>
+                           <g id="SVGRepo_iconCarrier">
+                           <path d="M4.46785 10.2658C4.47574 10.3372 4.48376 10.4094 4.49187 10.4823L4.61751 11.6131C4.7057 12.4072 4.78218 13.0959 4.91562 13.6455C5.05917 14.2367 5.29582 14.7937 5.78931 15.2354C6.28281 15.6771 6.86251 15.8508 7.46598 15.9281C8.02694 16.0001 8.71985 16 9.51887 16H14.8723C15.4201 16 15.9036 16 16.3073 15.959C16.7448 15.9146 17.1698 15.8162 17.5785 15.5701C17.9872 15.324 18.2731 14.9944 18.5171 14.6286C18.7422 14.291 18.9684 13.8637 19.2246 13.3797L21.7141 8.67734C22.5974 7.00887 21.3879 4.99998 19.5 4.99998L9.39884 4.99998C8.41604 4.99993 7.57525 4.99988 6.90973 5.09287C6.5729 5.13994 6.24284 5.21529 5.93326 5.34375L5.78941 4.04912C5.65979 2.88255 4.67375 2 3.5 2H3C2.44772 2 2 2.44771 2 3C2 3.55228 2.44772 4 3 4H3.5C3.65465 4 3.78456 4.11628 3.80164 4.26998L4.46785 10.2658Z" fill="white">
+                           </path>
+                           <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19.5C14 18.1193 15.1193 17 16.5 17C17.8807 17 19 18.1193 19 19.5C19 20.8807 17.8807 22 16.5 22C15.1193 22 14 20.8807 14 19.5Z" fill="white">
+                           </path>
+                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5 19.5C5 18.1193 6.11929 17 7.5 17C8.88071 17 10 18.1193 10 19.5C10 20.8807 8.88071 22 7.5 22C6.11929 22 5 20.8807 5 19.5Z" fill="white">
+                           </path>
+                           </g>
+                       </svg>
+                            <span class="sr-only">Notifications</span>
+                            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{ request.session.cart.keys|length }}</div>
+                    </a>
                     </li>
                     <button>
                         <button type="button"
                                 class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                id="dropdownDelayButton1"
-                                data-dropdown-toggle="dropdownDelay1"
-                                data-dropdown-delay="50"
-                                data-dropdown-trigger="hover"
+                               id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
                                 aria-expanded="false"
                                 data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
@@ -138,34 +127,49 @@
                                  src="https://i.ibb.co/Kzb3zK0/index.png"
                                  alt="user photo">
                         </button>
-                        <!-- Dropdown menu -->
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                             id="dropdownDelay1">
-                            {% if request.session.customer %}
-                                <ul class="py-2" aria-labelledby="dropdownDelayButton1">
-                                    <li>
-                                        <a href="/orders"
-                                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="/logout"
-                                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                                    </li>
-                                </ul>
-                            {% else %}
-                                <ul class="py-2" aria-labelledby="dropdownDelayButton1">
-                                    <li>
-                                        <a href="/login/"
-                                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign in</a>
-                                    </li>
-                                    <li>
-                                        <a href="/signup"
-                                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign up</a>
-                                    </li>
-                                </ul>
-                            {% endif %}
-                        </div>
+
+
+
+ <div id="dropdownInformation" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700 dark:divide-gray-600">
+    {% if customer %}
+    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+      <div>{{ customer.first_name }} {{ customer.last_name }}</div>
+      <div class="font-medium truncate">{{ customer.email }}</div>
+    </div>
+
+    {% endif %}
+{% if request.session.customer %}
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
+      
+       <a href="/orders" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
+      </li>
+    </ul>
+    <div class="py-2">
+        <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+    </div>
+    {% else %}
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
+      
+        <a href="/login/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign in</a>
+      </li>
+    </ul>
+    <div class="py-2">
+      <a href="/signup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign Up</a>
+    </div>
+       {% endif %}
+</div>
+    
+
+
                     </button>
+
+
+ 
+
+
+
+
+
                     <button data-collapse-toggle="mobile-menu-language-select"
                             type="button"
                             class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -181,6 +185,8 @@
                             </path>
                         </svg>
                     </button>
+
+
                 </div>
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
                      id="mobile-menu-language-select">
@@ -235,38 +241,45 @@
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                         </li>
                         <li>
-                            <button id="theme-toggle"
-                                    type="button"
-                                    class="my-3 rounded-lg border border-gray-950 dark:border-gray-200">
-                                <div id="theme-toggle-dark-icon"
-                                     type="button"
-                                     class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
-                                    <svg class="w-5 h-5"
-                                         fill="currentColor"
-                                         viewBox="0 0 20 20"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                                    </svg>
-                                    Dark
-                                </div>
-                                <div id="theme-toggle-light-icon"
-                                     type="button"
-                                     class="inline-flex items-center gap-2 rounded-lg bg-gray-700 px-2.5 py-2 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
-                                    <svg class="w-5 h-5"
-                                         fill="currentColor"
-                                         viewBox="0 0 20 20"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd">
-                                        </path>
-                                    </svg>
-                                    Light
-                                </div>
-                            </button>
+                          <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Theme <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+<!-- Dropdown menu -->
+
+
+
+<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <li>
+            <a id="systemTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --> <title>ic_fluent_dark_theme_24_regular</title> <desc>Created with Sketch.</desc> <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ic_fluent_dark_theme_24_regular" fill="currentColor" fill-rule="nonzero"> <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z" > </path> </g> </g> </g></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> System</p>
+             
+            </a>
+        </li>
+        <li>
+            <a id="lightTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor" id="light-mode"><path d="M7 12c0 2.8 2.2 5 5 5s5-2.2 5-5-2.2-5-5-5-5 2.2-5 5zm5-3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1-4V3c0-.6-.4-1-1-1s-1 .4-1 1v2c0 .6.4 1 1 1s1-.4 1-1zm6.1-.1c-.4-.4-1-.4-1.4 0l-1.4 1.4c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.3.4-1 0-1.4zM21 11h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-3.3 5.2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4l-1.4-1.4zM11 19v2c0 .6.4 1 1 1s1-.4 1-1v-2c0-.6-.4-1-1-1s-1 .4-1 1zm-6.1.1c.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-1.4 1.4c-.4.3-.4 1 0 1.4zM2 12c0 .6.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1zm4.3-7.1c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.3.5.4.8.4s.5-.1.7-.3c.4-.4.4-1 0-1.4L6.3 4.9z"></path></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> Light</p>
+               
+            </a>
+        </li>
+        <li>
+            <a id="darkTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor"  id="night-mode" x="0" y="0" version="1.1" viewBox="0 0 29 29" xml:space="preserve"><path d="M19.282 17.038c-4.15-.513-7.691-3.379-9.245-7.261a11.042 11.042 0 0 1-.748-5.355.5.5 0 0 0-.772-.468C5.09 6.156 2.905 10.121 3.261 14.573c.442 5.524 4.959 10.056 10.482 10.513 5.646.468 10.522-3.148 12.01-8.213.118-.402-.274-.774-.661-.614a11.43 11.43 0 0 1-5.81.779z"></path></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">  Dark</p>
+            
+            </a>
+        </li>
+    </ul>
+</div>
+
+
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+
         {% block content %}{% endblock %}
         <footer class="sticky   z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© <span class="px-1" id="year"></span><a href="/" class="hover:underline px-2">Shop Vibe™</a>. All Rights Reserved.
@@ -283,8 +296,61 @@
                     <a href="faq" class="mr-4 hover:underline md:mr-6">Faq</a>
                 </li>
             </ul>
-        </footer> 
-  
+        </footer>
+                <script>
+ // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+          </script>
+  <script >
+
+  function setTheme(theme) {
+  switch (theme) {
+    case 'system':
+      localStorage.removeItem('color-theme');
+      break;
+    case 'light':
+      localStorage.setItem('color-theme', 'light');
+      document.documentElement.classList.remove('dark');
+      break;
+    case 'dark':
+      localStorage.setItem('color-theme', 'dark');
+      document.documentElement.classList.add('dark');
+      break;
+  }
+  updateTheme();
+}
+
+function updateTheme() {
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+document.getElementById('systemTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('system');
+});
+
+document.getElementById('lightTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('light');
+});
+
+document.getElementById('darkTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('dark');
+});
+
+// Call updateTheme on page load
+updateTheme();
+
+  </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const yearElement = document.getElementById("year");
@@ -295,6 +361,6 @@
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-    <script  src="{% static '/darkmode.js' %}"></script>
+
     </body>
 </html>

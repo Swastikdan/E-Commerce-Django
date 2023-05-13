@@ -52,9 +52,6 @@ class Login(View):
                 error_message = 'Invalid !!'
         else:
             error_message = 'Invalid !!'
-
-        # Print email and password for debugging purposes (not recommended for production)
-        print(email, password)
         # Render the login.html template with the error message and return it as a response
         return render(request, 'login.html', {'error': error_message})
 

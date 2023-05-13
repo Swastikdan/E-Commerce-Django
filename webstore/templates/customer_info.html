@@ -1,0 +1,7 @@
+
+{% if customer %}
+  <p>Welcome, {{ customer.first_name }} {{ customer.last_name }}!</p>
+  <p>Your email is: {{ customer.email }}</p>
+{% else %}
+  <p>You are not logged in.</p>
+{% endif %}

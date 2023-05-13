@@ -27,9 +27,7 @@ class CheckOut(View):
         cart = request.session.get('cart')
         # Get the products corresponding to the ids from the cart
         products = Products.get_products_by_id(list(cart.keys()))
-        # Print the submitted information and products for debugging purposes
-        print(address, phone, customer, cart, products)
-
+        
         # Iterate through the products in the cart
         for product in products:
             # Get the quantity of the current product in the cart

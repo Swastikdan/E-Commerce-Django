@@ -20,8 +20,6 @@ class OrderView(View):
         customer = request.session.get('customer')
         # Get the orders associated with the customer
         orders = Order.get_orders_by_customer(customer)
-        # Print the orders for debugging purposes (not recommended for production)
-        print(orders)
         # Render the orders.html template with the orders data and return it as a response
         return render(request, 'orders.html', {'orders': orders})
 

@@ -50,9 +50,8 @@ class Index(View):
             cart = {}
             cart[product] = 1
 
-        # Update the session cart and print its contents for debugging
+        # Update the session cart 
         request.session['cart'] = cart
-        print('cart', request.session['cart'])
         return redirect('homepage')
 
     # Get method to redirect the user to the webstore page
@@ -111,14 +110,23 @@ class ProductView(View):
         else:
             cart = {}
             cart[product] = 1
+        
 
         # Update the session cart and redirect to the same product page
         request.session['cart'] = cart
         return HttpResponseRedirect(request.path + "?id=" + product)
 
+def customer_info(request):
+    customer_id = request.session.get('customer')
+    customer = None
 
-def custom_404(request, exception):
-    return render(request, '404.html', status=404)
+    if customer_id:
+        customer = Customer.objects.get(id=customer_id)
 
-def custom_500(request):
-    return render(request, '500.html', status=500)
+    context = {
+        'customer': customer,
+    }
+
+    return render(request, 'your_template.html', context)
+   
+
