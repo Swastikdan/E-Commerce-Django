@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
+# CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
 
 
 APPEND_SLASH=False 
@@ -76,6 +76,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ECommerceDjango.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@example.com'
+EMAIL_HOST_PASSWORD = 'your_email_password'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
