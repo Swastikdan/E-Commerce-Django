@@ -10,8 +10,7 @@ from django.urls import path
 from .middlewares.auth import auth_middleware
 
 urlpatterns = [
-    path('', Index.as_view(), name='homepage'),
-    path('webstore', webstore , name='webstore'),
+    path('', webstore , name='webstore'),
     path('signup', Signup.as_view(), name='signup'),
     path('login', Login.as_view(), name='login'),
     path('login/', Login.as_view(), name='login'),
