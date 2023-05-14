@@ -31,16 +31,16 @@
         </div>
         <div class="flex w-full justify-between border-t p-4 sm:w-auto sm:border-none sm:pl-0 lg:p-6 lg:pl-0">
           <div class="flex flex-col items-start gap-2"> {% if product|is_in_cart:request.session.cart %} <div class="flex flex-1 items-center justify-end gap-2">
-              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
+              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
                 <input type="hidden" name="remove" value="True" />
-                <input type="submit" value="-" class="text-4xl text-black dark:text-white" />
+                <input type="submit" value="-" class="text-4xl text-black dark:text-white cursor-pointer" />
               </form>
               <div>
                 <label for="Line2Qty" class="sr-only"> Quantity </label>
                 <input type="text" id="disabled-input" aria-label="disabled input" disabled value="{{ product | cart_quantity:request.session.cart }}" id="Line2Qty" class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-md text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none dark:bg-gray-600 dark:text-gray-300" />
               </div>
-              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
-                <input type="submit" value="+" class="text-4xl text-black dark:text-white" />
+              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
+                <input type="submit" value="+" class="text-4xl text-black dark:text-white cursor-pointer" />
               </form>
             </div> {% endif %} </div>
           <div class="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
@@ -82,10 +82,10 @@
         {% endif %}
     <!-- totals - end -->
     <!-- Main modal -->
-    <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div class="relative w-full max-h-full">
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full ">
+      <div class="relative max-w-screen w-full max-h-full px-5 ">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
           <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-200 " data-modal-hide="authentication-modal">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
