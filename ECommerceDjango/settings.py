@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['http://.pythonanywhere.com', 'https://.pythonanywhere.com']
 
 
 APPEND_SLASH=False 

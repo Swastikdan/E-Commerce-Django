@@ -116,17 +116,17 @@ class ProductView(View):
         request.session['cart'] = cart
         return HttpResponseRedirect(request.path + "?id=" + product)
 
-def customer_info(request):
-    customer_id = request.session.get('customer')
-    customer = None
+# def customer_info(request):
+#     customer_id = request.session.get('customer')
+#     customer = None
 
-    if customer_id:
-        customer = Customer.objects.get(id=customer_id)
+#     if customer_id:
+#         customer = Customer.objects.get(id=customer_id)
 
-    context = {
-        'customer': customer,
-    }
+#     context = {
+#         'customer': customer,
+#     }
 
-    return render(request, 'your_template.html', context)
+#     return render(request, 'your_template.html', context)
    
 
