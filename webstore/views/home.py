@@ -52,29 +52,28 @@ class Index(View):
 
         # Update the session cart 
         request.session['cart'] = cart
-        return redirect('homepage')
+        return redirect('homepage_or_webstore')  
 
-    # Get method to redirect the user to the webstore page
+    # Get method to redirect the user to the webstore page and display the products and categories
     def get(self, request):
-        return HttpResponseRedirect(f'/webstore{request.get_full_path()[1:]}')
+        cart = request.session.get('cart')
+        if not cart:
+            request.session['cart'] = {}
+        products = None
+        categories = Category.get_all_categories()
+        categoryID = request.GET.get('category')
+        if categoryID:
+            products = Products.get_all_products_by_categoryid(categoryID)
+        else:
+            products = Products.get_all_products()
+
+        data = {}
+        data['products'] = products
+        data['categories'] = categories
+        return render(request, 'index.html', data)
 
 # Function to display the webstore page with products and categories
-def webstore(request):
-    cart = request.session.get('cart')
-    if not cart:
-        request.session['cart'] = {}
-    products = None
-    categories = Category.get_all_categories()
-    categoryID = request.GET.get('category')
-    if categoryID:
-        products = Products.get_all_products_by_categoryid(categoryID)
-    else:
-        products = Products.get_all_products()
 
-    data = {}
-    data['products'] = products
-    data['categories'] = categories
-    return render(request, 'index.html', data)
 
 # ProductView class to handle the individual product page and cart updates for that product
 class ProductView(View):
@@ -116,17 +115,4 @@ class ProductView(View):
         request.session['cart'] = cart
         return HttpResponseRedirect(request.path + "?id=" + product)
 
-# def customer_info(request):
-#     customer_id = request.session.get('customer')
-#     customer = None
-
-#     if customer_id:
-#         customer = Customer.objects.get(id=customer_id)
-
-#     context = {
-#         'customer': customer,
-#     }
-
-#     return render(request, 'your_template.html', context)
-   
 
