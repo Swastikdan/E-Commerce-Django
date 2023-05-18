@@ -24,6 +24,7 @@ from webstore.models.customer import Customer
 from django.views import View
 from webstore.models.product import Products
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 # Index View class that handles the main page and cart updates
 class Index(View):
 
@@ -52,7 +53,8 @@ class Index(View):
 
         # Update the session cart 
         request.session['cart'] = cart
-        return redirect('homepage_or_webstore')  
+        return redirect('homepage_or_webstore')
+
 
     # Get method to redirect the user to the webstore page and display the products and categories
     def get(self, request):
@@ -77,16 +79,13 @@ class Index(View):
 
 # ProductView class to handle the individual product page and cart updates for that product
 class ProductView(View):
-
-    # Get method to display the individual product page
     def get(self, request):
         product_id = request.GET.get('id')
         if product_id:
-            product = Products.objects.get(id=product_id)
+            product = get_object_or_404(Products, id=product_id)
             return render(request, 'product.html', {'product': product})
         else:
-            return redirect('homepage')
-
+            return redirect('homepage_or_webstore')
     # Post method to handle cart updates (add/remove product) from the individual product page
     def post(self, request):
         product = request.POST.get('product')

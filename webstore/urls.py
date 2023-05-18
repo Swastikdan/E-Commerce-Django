@@ -25,7 +25,7 @@ urlpatterns = [
     path('services', Service.as_view(), name='services'),
     path('contact', ContactView.as_view(), name='contact'), 
     path('faq', faq.as_view(), name='faq'),
-     path('product/', ProductView.as_view(), name='productview'),
+    path('product/', ProductView.as_view(), name='productview'),
 
 ]
 handler404 = custom_404

@@ -47,7 +47,7 @@ class Login(View):
                     return HttpResponseRedirect(Login.return_url)
                 else:
                     Login.return_url = None
-                    return redirect('homepage')
+                    return redirect('homepage_or_webstore')
             else:
                 error_message = 'Invalid !!'
         else:
