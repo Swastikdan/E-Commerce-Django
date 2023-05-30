@@ -140,23 +140,24 @@
 
     {% endif %}
 {% if request.session.customer %}
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 " aria-labelledby="dropdownInformationButton">
-      <li class="overflow-hidden">
-       <a href="/orders" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:scale-105 duration-200">Orders</a>
+    <ul class="text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg " aria-labelledby="dropdownInformationButton">
+        <li class="overflow-hidden hover:scale-105 duration-200">
+        <a href="/orders" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Orders</a>
       </li>
+      <li class="overflow-hidden hover:scale-105 duration-200">
+        <a href="/logout" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign out</a>
+    </li>
     </ul>
-    <div class="py-2 overflow-hidden">
-        <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign out</a>
-    </div>
     {% else %}
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-        <li class="overflow-hidden">
-        <a href="/login/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:scale-105 duration-200">Sign in</a>
+    <ul class="text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg " aria-labelledby="dropdownInformationButton">
+        <li class="overflow-hidden hover:scale-105 duration-200">
+        <a href="/login/" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign in</a>
       </li>
+      <li class="overflow-hidden hover:scale-105 duration-200">
+        <a href="/signup" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign Up</a>
+    </li>
     </ul>
-    <div class="py-2 overflow-hidden">
-      <a href="/signup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign Up</a>
-    </div>
+
        {% endif %}
 </div>
     
@@ -248,7 +249,7 @@
 
 
 <div id="dropdown" class="z-10 hidden bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 overflow-hidden rounded-lg " aria-labelledby="dropdownDefaultButton">
+    <ul class=" text-sm text-gray-700 dark:text-gray-200 overflow-hidden rounded-lg " aria-labelledby="dropdownDefaultButton">
         <li class="hover:scale-105 duration-200">
             <a id="systemTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                 <svg viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --> <title>ic_fluent_dark_theme_24_regular</title> <desc>Created with Sketch.</desc> <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ic_fluent_dark_theme_24_regular" fill="currentColor" fill-rule="nonzero"> <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z" > </path> </g> </g> </g></svg>
