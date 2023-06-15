@@ -401,17 +401,39 @@ updateTheme();
       spaceBetween: 20
     },
     // Breakpoint for medium screens
-    768: {
+    1024: {
       slidesPerView: 3,
       spaceBetween: 30
     },
     // Breakpoint for large screens
-    1024: {
+    1536: {
       slidesPerView: 4,
       spaceBetween: 40
     }
   }
     });
+    new Swiper('.swiper-container', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 32,
+      autoplay: {
+        delay: 8000,
+      },
+      breakpoints: {
+        640: {
+          centeredSlides: true,
+          slidesPerView: 1.25,
+        },
+        1024: {
+          centeredSlides: false,
+          slidesPerView: 1.5,
+        },
+      },
+      navigation: {
+        nextEl: '.next-button',
+        prevEl: '.prev-button',
+      },
+    })  
   </script>
 
 

@@ -61,18 +61,34 @@ class Index(View):
         cart = request.session.get('cart')
         if not cart:
             request.session['cart'] = {}
-        products = None
+
         categories = Category.get_all_categories()
         categoryID = request.GET.get('category')
-        if categoryID:
-            products = Products.get_all_products_by_categoryid(categoryID)
-        else:
+
+        if categoryID == 'all':
             products = Products.get_all_products()
+            is_category_page = True
+        else:
+            products = Products.get_all_products_by_categoryid(categoryID)
+            is_category_page = categoryID is not None
 
         data = {}
-        data['products'] = products
         data['categories'] = categories
-        return render(request, 'index.html', data)
+        data['is_category_page'] = is_category_page
+
+        if is_category_page:
+            data['products'] = products
+            return render(request, 'category.html', data)
+        else:
+            product_id = request.GET.get('product_id')
+            if product_id:
+                product = Products.get_product_by_id(product_id)
+                if product:
+                    data['products'] = [product]
+                    return render(request, 'index.html', data)
+
+            data['products'] = products
+            return render(request, 'index.html', data)
 
 # Function to display the webstore page with products and categories
 

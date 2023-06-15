@@ -3,7 +3,9 @@
 from django.db import models
 
 class Category(models.Model):
-    name= models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images/', default='https://placehold.co/600x400?text=Catagory')  # Replace 'default_image.jpg' with the desired default image path
+ 
 
     @staticmethod
     def get_all_categories():

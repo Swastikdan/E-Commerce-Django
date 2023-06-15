@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
-{% block content %} 
-{% load cart %} 
+{% block content %}
+{% load cart %}
 {% load custom_filter %}
 <!-- body -->
 <!-- CSS -->
 
 <!-- Banner -->
-
 
 <!-- Swiper -->
 
@@ -225,14 +224,14 @@
 
 
 
- 
 
 
 
 
-  
 
-  
+
+
+
 
 
 
@@ -244,171 +243,38 @@
 
 <div class="bg-white py-6 sm:py-8 lg:py-12">
 	<div class="mx-auto  ">
-		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl">Collections</h2>
-			
+		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl ">Shop by category</h2>
+
 		<div class="swiper mySwiper2 bg-white rounded-xl p-10">
-		
+
 			<div class="swiper-wrapper rounded-xl">
+				{% for category in categories %}
 				<div class="swiper-slide">
 					<!-- product - start -->
 					<div>
-						<a href="#"
+						<a href="/category/{{ category.id }}"
 							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
+							<img src="media/{{ category.image }}" loading="lazy" alt="{{ category.name }}_Thumbnail"
 								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
 							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season1</span>
+								<span class="text-gray-500">{{ category.name }}</span>
+
 							</div>
 						</a>
 					</div>
 					<!-- product - end -->
 				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season2</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
-				<div class="swiper-slide">
-					<!-- product - start -->
-					<div>
-						<a href="#"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-							<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-								loading="lazy" alt="Photo by engin akyurt"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-								<span class="text-gray-500">Women</span>
-								<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-							</div>
-						</a>
-					</div>
-					<!-- product - end -->
-				</div>
+				{% endfor %}
 			</div>
-			
+
 
 			<div class="button-all pt-5 items-center justify-center  hidden sm:flex">
-				<div class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
+				<div
+					class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
 					<div class="cus-swiper-button-prev z-10  ">
-						<button type="button" class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
+						<button type="button"
+							class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
 							<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd"
@@ -418,7 +284,8 @@
 						</button>
 					</div>
 					<div class="cus-swiper-button-next   z-10  ">
-						<button type="button" class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
+						<button type="button"
+							class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 							<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd"
@@ -432,6 +299,349 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+<section>
+	<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white">
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+			<div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+				<div class="max-w-md mx-auto text-center lg:text-left">
+					<header>
+						<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Watches</h2>
+
+						<p class="mt-4 text-gray-500">
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+							rerum quam amet provident nulla error!
+						</p>
+					</header>
+
+					<a href="#"
+						class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">
+						Shop All
+					</a>
+				</div>
+			</div>
+
+			<div class="lg:col-span-2 lg:py-8">
+				<ul class="grid grid-cols-2 gap-4">
+					<li>
+						<a href="#" class="block group">
+							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80"
+								alt="" class="object-cover w-full rounded aspect-square" />
+
+							<div class="mt-3">
+								<h3
+									class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
+									Simple Watch
+								</h3>
+
+								<p class="mt-1 text-sm text-gray-700">$150</p>
+							</div>
+						</a>
+					</li>
+
+					<li>
+						<a href="#" class="block group">
+							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80"
+								alt="" class="object-cover w-full rounded aspect-square" />
+
+							<div class="mt-3">
+								<h3
+									class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
+									Simple Watch
+								</h3>
+
+								<p class="mt-1 text-sm text-gray-700">$150</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<!-- component -->
+<div class="py-16 bg-white">
+	<div class="container m-auto px-6">
+
+		<div class="lg:flex justify-between items-center">
+			<div class="lg:w-6/12 lg:p-0 p-7">
+				<h1 class="text-4xl font-bold leading-tight mb-5 capitalize"> Professional Tailwind theme designed for
+					developers. </h1>
+				<p class="text-xl"> With Tailwind you can optimized the customization process to save your team time
+					when building websites. </p>
+
+				<div class="py-5">
+					<a href="#"
+						class="text-white rounded-full py-2 px-5 text-lg font-semibold bg-purple-600 inline-block border border-purple-600 mr-3">Try
+						for free</a>
+					<a href="#"
+						class="text-black rounded-full py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black">Requist
+						a demo</a>
+				</div>
+
+			</div>
+			<div class="lg:w-5/12 order-2">
+				<img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+					style="transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);" alt=""
+					class="rounded">
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<section class="bg-gray-100">
+	<div class="mx-auto max-w-[1340px] px-4 py-16 sm:px-6 sm:py-24 lg:me-0 lg:pe-0 lg:ps-8">
+		<div class="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:items-center lg:gap-x-16">
+			<div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+				<h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+					Don't just take our word for it...
+					<br class="hidden sm:block lg:hidden" />
+					Read reviews from our customers
+				</h2>
+
+				<p class="mt-4 text-gray-500">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+					veritatis illo placeat harum porro optio fugit a culpa sunt id!
+				</p>
+
+				<div class="hidden lg:mt-8 lg:flex lg:gap-4">
+					<button
+						class="prev-button rounded-full border border-blue-600 p-3 text-blue-600 hover:bg-blue-600 hover:text-white">
+						<span class="sr-only">Previous Slide</span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+							stroke="currentColor" class="h-5 w-5 rtl:rotate-180">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+						</svg>
+					</button>
+
+					<button
+						class="next-button rounded-full border border-blue-600 p-3 text-blue-600 hover:bg-blue-600 hover:text-white">
+						<span class="sr-only">Next Slide</span>
+						<svg class="h-5 w-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg">
+							<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<div class="-mx-6 lg:col-span-2 lg:mx-0">
+				<div class="swiper-container !overflow-hidden">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<blockquote class="flex h-full flex-col justify-between bg-white p-12">
+								<div>
+									<div class="flex gap-0.5 text-green-500">
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+
+									<div class="mt-4">
+										<p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+											Stayin' Alive
+										</p>
+
+										<p class="mt-4 leading-relaxed text-gray-500">
+											No, Rose, they are not breathing. And they have no arms or
+											legs … Where are they? You know what? If we come across
+											somebody with no arms or legs, do we bother resuscitating
+											them? I mean, what quality of life do we have there?
+										</p>
+									</div>
+								</div>
+
+								<footer class="mt-8 text-sm text-gray-500">
+									&mdash; Michael Scott
+								</footer>
+							</blockquote>
+						</div>
+
+						<div class="swiper-slide">
+							<blockquote class="flex h-full flex-col justify-between bg-white p-12">
+								<div>
+									<div class="flex gap-0.5 text-green-500">
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+
+									<div class="mt-4">
+										<p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+											Stayin' Alive
+										</p>
+
+										<p class="mt-4 leading-relaxed text-gray-500">
+											No, Rose, they are not breathing. And they have no arms or
+											legs … Where are they? You know what? If we come across
+											somebody with no arms or legs, do we bother resuscitating
+											them? I mean, what quality of life do we have there?
+										</p>
+									</div>
+								</div>
+
+								<footer class="mt-8 text-sm text-gray-500">
+									&mdash; Michael Scott
+								</footer>
+							</blockquote>
+						</div>
+
+						<div class="swiper-slide">
+							<blockquote class="flex h-full flex-col justify-between bg-white p-12">
+								<div>
+									<div class="flex gap-0.5 text-green-500">
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+
+										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+
+									<div class="mt-4">
+										<p class="text-2xl font-bold text-pink-600 sm:text-3xl">
+											Stayin' Alive
+										</p>
+
+										<p class="mt-4 leading-relaxed text-gray-500">
+											No, Rose, they are not breathing. And they have no arms or
+											legs … Where are they? You know what? If we come across
+											somebody with no arms or legs, do we bother resuscitating
+											them? I mean, what quality of life do we have there?
+										</p>
+									</div>
+								</div>
+
+								<footer class="mt-8 text-sm text-gray-500">
+									&mdash; Michael Scott
+								</footer>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-8 flex justify-center gap-4 lg:hidden">
+			<button aria-label="Previous slide"
+				class="prev-button rounded-full border border-blue-600 p-4 text-blue-600 hover:bg-blue-600 hover:text-white">
+				<svg class="h-5 w-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg">
+					<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+				</svg>
+			</button>
+
+			<button aria-label="Next slide"
+				class="next-button rounded-full border border-blue-600 p-4 text-pink-600 hover:bg-blue-600 hover:text-white">
+				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg">
+					<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+				</svg>
+			</button>
+		</div>
+	</div>
+</section>
+
+
+
+
 
 {% comment %}
 
@@ -570,7 +780,7 @@
 		</div>
 	</div>
 </div>
-{% endcomment %} {% comment %}
+{% endcomment %}
 <div class="mx-auto max-w-screen-2xl min-h-screen px-4 md:px-8 py-10">
 	<div id="products" class="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
 		<!-- product - start -->
@@ -644,4 +854,4 @@
 	</div>
 </div>
 
-{% endcomment %} {% endblock %}
+{% endblock %}
