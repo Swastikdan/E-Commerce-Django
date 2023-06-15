@@ -1,0 +1,146 @@
+                         <!-- <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Theme <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+
+
+
+
+<div id="dropdown" class="z-10 hidden bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class=" text-sm text-gray-700 dark:text-gray-200 overflow-hidden rounded-lg " aria-labelledby="dropdownDefaultButton">
+        <li class="hover:scale-105 duration-200">
+            <a id="systemTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">  <title>ic_fluent_dark_theme_24_regular</title> <desc>Created with Sketch.</desc> <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ic_fluent_dark_theme_24_regular" fill="currentColor" fill-rule="nonzero"> <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z" > </path> </g> </g> </g></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> System</p>
+             
+            </a>
+        </li>
+        <li class="hover:scale-105 duration-200">
+            <a id="lightTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor" id="light-mode"><path d="M7 12c0 2.8 2.2 5 5 5s5-2.2 5-5-2.2-5-5-5-5 2.2-5 5zm5-3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1-4V3c0-.6-.4-1-1-1s-1 .4-1 1v2c0 .6.4 1 1 1s1-.4 1-1zm6.1-.1c-.4-.4-1-.4-1.4 0l-1.4 1.4c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.3.4-1 0-1.4zM21 11h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-3.3 5.2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4l-1.4-1.4zM11 19v2c0 .6.4 1 1 1s1-.4 1-1v-2c0-.6-.4-1-1-1s-1 .4-1 1zm-6.1.1c.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-1.4 1.4c-.4.3-.4 1 0 1.4zM2 12c0 .6.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1zm4.3-7.1c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.3.5.4.8.4s.5-.1.7-.3c.4-.4.4-1 0-1.4L6.3 4.9z"></path></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> Light</p>
+               
+            </a>
+        </li>
+        <li class="hover:scale-105 duration-200">
+            <a id="darkTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor"  id="night-mode" x="0" y="0" version="1.1" viewBox="0 0 29 29" xml:space="preserve"><path d="M19.282 17.038c-4.15-.513-7.691-3.379-9.245-7.261a11.042 11.042 0 0 1-.748-5.355.5.5 0 0 0-.772-.468C5.09 6.156 2.905 10.121 3.261 14.573c.442 5.524 4.959 10.056 10.482 10.513 5.646.468 10.522-3.148 12.01-8.213.118-.402-.274-.774-.661-.614a11.43 11.43 0 0 1-5.81.779z"></path></svg>
+                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">  Dark</p>
+            
+            </a>
+        </li>
+    </ul>
+</div> -->
+
+
+
+
+
+
+
+
+  <!-- <script >
+
+  function setTheme(theme) {
+  switch (theme) {
+    case 'system':
+      localStorage.removeItem('color-theme');
+      break;
+    case 'light':
+      localStorage.setItem('color-theme', 'light');
+      document.documentElement.classList.remove('dark');
+      break;
+    case 'dark':
+      localStorage.setItem('color-theme', 'dark');
+      document.documentElement.classList.add('dark');
+      break;
+  }
+  updateTheme();
+}
+
+function updateTheme() {
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+document.getElementById('systemTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('system');
+});
+
+document.getElementById('lightTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('light');
+});
+
+document.getElementById('darkTheme').addEventListener('click', function (event) {
+  event.preventDefault();
+  setTheme('dark');
+});
+
+// Call updateTheme on page load
+updateTheme();
+
+  </script> -->
+
+
+
+
+
+
+
+                          <select id="theme"
+                            class="bg-gray-100 border border-gray-300 text-gray-900 text-md rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="System" id="systemTheme">
+                                <span class="text-2xl">🌓 System</span>
+                            </option>
+                            <option value="Light" id="lightTheme">
+                                ☀️ Light
+                            </option>
+                            <option value="Dark" id="darkTheme">
+                                🌙 Dark
+                            </option>
+                        </select>
+
+
+
+
+
+
+                            <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        function setTheme(theme) {
+            switch (theme) {
+                case 'System':
+                    localStorage.removeItem('color-theme');
+                    break;
+                case 'Light':
+                    localStorage.setItem('color-theme', 'light');
+                    document.documentElement.classList.remove('dark');
+                    break;
+                case 'Dark':
+                    localStorage.setItem('color-theme', 'dark');
+                    document.documentElement.classList.add('dark');
+                    break;
+            }
+        }
+
+        document.getElementById('theme').addEventListener('change', function (event) {
+            setTheme(event.target.value);
+        });
+
+        // Call setTheme on page load
+        setTheme(localStorage.getItem('color-theme') || 'System');
+    </script>
+    <script>        document.addEventListener("DOMContentLoaded", function () {
+            const yearElement = document.getElementById("year");
+            const currentYear = new Date().getFullYear();
+            yearElement.innerText = currentYear;
+        });
+    </script>

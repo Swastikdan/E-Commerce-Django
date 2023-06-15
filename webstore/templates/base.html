@@ -16,7 +16,14 @@
 <meta name="description" content="Explore the portfolio site of Swastik Dan with a range of creative skills and experiences, including problem solving, research, and proficiency in programming languages like HTML, CSS, JavaScript, Java, C, and data structures. Discover the student's technical abilities and see examples of their work, as well as their education and experience in the field of computer science.">
     <meta property="og:description" content="Explore the portfolio site of Swastik Dan with a range of creative skills and experiences, including problem solving, research, and proficiency in programming languages like HTML, CSS, JavaScript, Java, C, and data structures. Discover the student's technical abilities and see examples of their work, as well as their education and experience in the field of computer science.">
     <meta property="og:image" content="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png">
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" /> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+
+
 <style>
 @font-face {
   font-family: 'Maven Pro';
@@ -362,6 +369,55 @@ updateTheme();
           
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper   -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".cus-swiper-button-next",
+        prevEl: ".cus-swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true,
+      },
+      rewind: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".cus-swiper-button-next",
+        prevEl: ".cus-swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true,
+      },
+      breakpoints: {
+    // Breakpoint for small screens
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    // Breakpoint for medium screens
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    // Breakpoint for large screens
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
+  }
+    });
+  </script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
     </body>
