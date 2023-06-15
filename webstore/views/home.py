@@ -25,6 +25,7 @@ from django.views import View
 from webstore.models.product import Products
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.http import Http404
 # Index View class that handles the main page and cart updates
 class Index(View):
 
@@ -77,6 +78,8 @@ class Index(View):
         data['is_category_page'] = is_category_page
 
         if is_category_page:
+            if not products:
+                raise Http404("Category not found.")  # Return 404 if products list is empty
             data['products'] = products
             return render(request, 'category.html', data)
         else:

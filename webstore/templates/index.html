@@ -9,6 +9,20 @@
 
 <!-- Swiper -->
 
+
+<!-- test product by catagory chnages need to be made to  work it properly -->
+
+<!-- {% for product in products %}
+        {% if product.category_id == 5 %}
+            <div class="product">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+              
+            </div>
+        {% endif %}
+    {% endfor %} -->
+
+
 <div class="swiper mySwiper">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide">
@@ -240,7 +254,6 @@
 
 
 
-
 <div class="bg-white py-6 sm:py-8 lg:py-12">
 	<div class="mx-auto  ">
 		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl ">Shop by category</h2>
@@ -252,7 +265,7 @@
 				<div class="swiper-slide">
 					<!-- product - start -->
 					<div>
-						<a href="/category/{{ category.id }}"
+						<a href="/?category={{ category.id }}"
 							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
 							<img src="media/{{ category.image }}" loading="lazy" alt="{{ category.name }}_Thumbnail"
 								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -296,6 +309,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="swiper-pagination sm:hidden "></div>
 		</div>
 	</div>
 </div>
@@ -305,66 +319,161 @@
 
 
 
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+	<div class="mx-auto  ">
+		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl ">Shop by category</h2>
 
 
-<section>
-	<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white">
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-			<div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
-				<div class="max-w-md mx-auto text-center lg:text-left">
-					<header>
-						<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Watches</h2>
+		<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white">
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+				<div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+					<div class="max-w-md mx-auto text-center lg:text-left">
+						<header>
+							<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Smart Phones</h2>
 
-						<p class="mt-4 text-gray-500">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
-							rerum quam amet provident nulla error!
-						</p>
-					</header>
+							<p class="mt-4 text-gray-500">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+								rerum quam amet provident nulla error!
+							</p>
+						</header>
 
-					<a href="#"
-						class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">
-						Shop All
-					</a>
+						<a href="#"
+							class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">
+							Shop All
+						</a>
+					</div>
+				</div>
+
+				<div class="lg:col-span-2 lg:py-8">
+
+
+
+
+
+					<!-- <ul class="grid grid-cols-2 gap-4">
+						<li>
+							<a href="#" class="group block">
+								<div class="relative h-[350px] sm:h-[450px]">
+								  <img
+									src="https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+									alt=""
+									class="absolute inset-0 h-full w-full object-cover "
+								  />
+							  
+								</div>
+							  
+								<div class="mt-3">
+								  <h3
+									class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4"
+								  >
+									Small Headphones
+								  </h3>
+							  
+								  <p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quibusdam
+									ab maiores placeat odio id?
+								  </p>
+								</div>
+							  </a>
+						</li>
+	
+						<li>
+							<a href="#" class="group block">
+								<div class="relative h-[350px] sm:h-[450px]">
+								  <img
+									src="https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+									alt=""
+									class="absolute inset-0 h-full w-full object-cover "
+								  />
+							  
+								</div>
+							  
+								<div class="mt-3">
+								  <h3
+									class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4"
+								  >
+									Small Headphones
+								  </h3>
+							  
+								  <p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quibusdam
+									ab maiores placeat odio id?
+								  </p>
+								</div>
+							  </a>
+						</li>
+					</ul> -->
+
+
+					<div class="swiper mySwiper3 p-3">
+						<div class="swiper-wrapper  ">
+
+							{% for product in products %}
+							{% if product.category_id == 2 %}
+
+														<div class="swiper-slide">
+									<a href="/product/?id={{product.id}}" class="block group">
+										<img src="{{product.image.url}}" alt="{{ product.name }}"
+											class="h-[350px] w-full object-cover sm:h-[450px]" />
+	
+										<div class="mt-3">
+											<h3
+												class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
+												{{ product.name }}
+											</h3>
+	
+											<p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+												{{ product.description|slice:":100" }}...
+											</p>
+										</div>
+									</a>
+								</div>
+
+						
+							{% endif %}
+							{% endfor %}
+
+						</div>
+
+						<div class="button-all pt-5 items-center justify-center  hidden sm:flex">
+							<div
+								class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
+								<div class="cus-swiper-button-prev z-10  ">
+									<button type="button"
+										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
+										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd"
+												d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+												clip-rule="evenodd"></path>
+										</svg>
+									</button>
+								</div>
+								<div class="cus-swiper-button-next   z-10  ">
+									<button type="button"
+										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
+										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd"
+												d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+												clip-rule="evenodd"></path>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination sm:hidden pt-5 "></div>
+					</div>
 				</div>
 			</div>
-
-			<div class="lg:col-span-2 lg:py-8">
-				<ul class="grid grid-cols-2 gap-4">
-					<li>
-						<a href="#" class="block group">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80"
-								alt="" class="object-cover w-full rounded aspect-square" />
-
-							<div class="mt-3">
-								<h3
-									class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-									Simple Watch
-								</h3>
-
-								<p class="mt-1 text-sm text-gray-700">$150</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="#" class="block group">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80"
-								alt="" class="object-cover w-full rounded aspect-square" />
-
-							<div class="mt-3">
-								<h3
-									class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-									Simple Watch
-								</h3>
-
-								<p class="mt-1 text-sm text-gray-700">$150</p>
-							</div>
-						</a>
-					</li>
-				</ul>
-			</div>
 		</div>
+
 	</div>
+</div>
+</div>
+
+<section>
+
 </section>
 
 
@@ -372,42 +481,118 @@
 
 
 <!-- component -->
-<div class="py-16 bg-white">
-	<div class="container m-auto px-6">
 
-		<div class="lg:flex justify-between items-center">
-			<div class="lg:w-6/12 lg:p-0 p-7">
-				<h1 class="text-4xl font-bold leading-tight mb-5 capitalize"> Professional Tailwind theme designed for
-					developers. </h1>
-				<p class="text-xl"> With Tailwind you can optimized the customization process to save your team time
-					when building websites. </p>
 
-				<div class="py-5">
-					<a href="#"
-						class="text-white rounded-full py-2 px-5 text-lg font-semibold bg-purple-600 inline-block border border-purple-600 mr-3">Try
-						for free</a>
-					<a href="#"
-						class="text-black rounded-full py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black">Requist
-						a demo</a>
-				</div>
+<!-- <section class="px-4 py-12 md:py-16 md:px-8"><div class="mx-auto flex max-w-5xl flex-col items-center justify-between lg:flex-row">
+	<div class="mt-12 grid max-w-[32.5rem] grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:mt-0"><div class="max-w-[15.25rem] space-y-2"><div class="mx-auto w-fit rounded-full bg-brand-three p-5 text-brand-six lg:mx-0"><svg role="img" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Heart</title><path d="M22 8.862C22.0034 10.4007 21.4106 11.881 20.346 12.992C17.905 15.523 15.537 18.162 13.006 20.6C12.425 21.15 11.504 21.13 10.949 20.555L3.654 12.993C1.449 10.707 1.449 7.017 3.654 4.732C4.17514 4.185 4.80194 3.74952 5.49639 3.45197C6.19084 3.15442 6.93849 3.001 7.694 3.001C8.44951 3.001 9.19716 3.15442 9.89161 3.45197C10.5861 3.74952 11.2129 4.185 11.734 4.732L12 5.006L12.265 4.732C12.7872 4.18629 13.4142 3.75161 14.1084 3.454C14.8026 3.15639 15.5497 3.00197 16.305 3C17.825 3 19.278 3.624 20.345 4.732C21.41 5.84284 22.0032 7.32311 22 8.862V8.862Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg></div>
+				<h3 class="text-center font-serif text-xl font-semibold text-neutral-ten lg:text-left">Highest quality</h3>
+				<p class="text-center text-base font-normal text-neutral-seven lg:text-left">Tempor platea congue tellus iaculis amet sem phasellus morbi</p>
+			</div><div class="max-w-[15.25rem] space-y-2"><div class="mx-auto w-fit rounded-full bg-brand-three p-5 text-brand-six lg:mx-0"><svg class="h-6 w-6" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Delivery truck</title><path d="M8 19C8.53043 19 9.03914 18.7893 9.41421 18.4142C9.78929 18.0391 10 17.5304 10 17C10 16.4696 9.78929 15.9609 9.41421 15.5858C9.03914 15.2107 8.53043 15 8 15C7.46957 15 6.96086 15.2107 6.58579 15.5858C6.21071 15.9609 6 16.4696 6 17C6 17.5304 6.21071 18.0391 6.58579 18.4142C6.96086 18.7893 7.46957 19 8 19V19ZM18 19C18.5304 19 19.0391 18.7893 19.4142 18.4142C19.7893 18.0391 20 17.5304 20 17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17C16 17.5304 16.2107 18.0391 16.5858 18.4142C16.9609 18.7893 17.4696 19 18 19V19Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.05 17H15V6.6C15 6.44087 14.9368 6.28826 14.8243 6.17574C14.7117 6.06321 14.5591 6 14.4 6H1M5.65 17H3.6C3.52121 17 3.44319 16.9845 3.37039 16.9543C3.29759 16.9242 3.23145 16.88 3.17574 16.8243C3.12002 16.7685 3.07583 16.7024 3.04567 16.6296C3.01552 16.5568 3 16.4788 3 16.4V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M2 9H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 9H20.61C20.726 9.00003 20.8395 9.03367 20.9367 9.09685C21.034 9.16003 21.1108 9.25005 21.158 9.356L22.948 13.384C22.9821 13.4605 22.9998 13.5433 23 13.627V16.4C23 16.4788 22.9845 16.5568 22.9543 16.6296C22.9242 16.7024 22.88 16.7685 22.8243 16.8243C22.7685 16.88 22.7024 16.9242 22.6296 16.9543C22.5568 16.9845 22.4788 17 22.4 17H20.5M15 17H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+				<h3 class="text-center font-serif text-xl font-semibold text-neutral-ten lg:text-left">Fast delivery</h3>
+				<p class="text-center text-base font-normal text-neutral-seven lg:text-left">Eu non amet sed sollicitudin porttitor leo aliquet eu integer</p>
+			</div><div class="max-w-[15.25rem] space-y-2"><div class="mx-auto w-fit rounded-full bg-brand-three p-5 text-brand-six lg:mx-0"><svg class="h-6 w-6" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Verified</title><path d="M11.528 1.6C11.5841 1.52847 11.6558 1.47064 11.7376 1.43086C11.8193 1.39109 11.9091 1.37043 12 1.37043C12.0909 1.37043 12.1807 1.39109 12.2624 1.43086C12.3442 1.47064 12.4159 1.52847 12.472 1.6L14.281 3.9C14.3544 3.99355 14.454 4.06317 14.567 4.10002C14.6801 4.13688 14.8016 4.13931 14.916 4.107L17.731 3.309C17.8184 3.28409 17.9103 3.27936 17.9998 3.29518C18.0893 3.31099 18.1741 3.34693 18.2477 3.40029C18.3212 3.45365 18.3817 3.52302 18.4246 3.60318C18.4674 3.68333 18.4915 3.77218 18.495 3.863L18.605 6.788C18.6096 6.90682 18.6495 7.02159 18.7194 7.11774C18.7894 7.21388 18.8864 7.28707 18.998 7.328L21.745 8.338C21.8303 8.36928 21.9073 8.41952 21.9704 8.48493C22.0334 8.55033 22.0808 8.6292 22.1089 8.71557C22.137 8.80194 22.1452 8.89358 22.1327 8.98356C22.1202 9.07353 22.0875 9.15951 22.037 9.235L20.407 11.666C20.3408 11.7648 20.3054 11.8811 20.3054 12C20.3054 12.1189 20.3408 12.2352 20.407 12.334L22.037 14.765C22.0875 14.8405 22.1202 14.9265 22.1327 15.0164C22.1452 15.1064 22.137 15.1981 22.1089 15.2844C22.0808 15.3708 22.0334 15.4497 21.9704 15.5151C21.9073 15.5805 21.8303 15.6307 21.745 15.662L18.998 16.672C18.8865 16.7131 18.7898 16.7863 18.72 16.8825C18.6502 16.9786 18.6105 17.0933 18.606 17.212L18.495 20.137C18.4915 20.2278 18.4674 20.3167 18.4246 20.3968C18.3817 20.477 18.3212 20.5464 18.2477 20.5997C18.1741 20.6531 18.0893 20.689 17.9998 20.7048C17.9103 20.7206 17.8184 20.7159 17.731 20.691L14.916 19.893C14.8015 19.8604 14.6799 19.8625 14.5667 19.8992C14.4534 19.9359 14.3536 20.0054 14.28 20.099L12.473 22.4C12.4169 22.4715 12.3452 22.5294 12.2634 22.5691C12.1817 22.6089 12.0919 22.6296 12.001 22.6296C11.9101 22.6296 11.8203 22.6089 11.7386 22.5691C11.6568 22.5294 11.5851 22.4715 11.529 22.4L9.72 20.1C9.64659 20.0065 9.54703 19.9368 9.43397 19.9C9.32091 19.8631 9.19944 19.8607 9.085 19.893L6.27 20.691C6.18259 20.7159 6.09067 20.7206 6.00116 20.7048C5.91166 20.689 5.82692 20.6531 5.75334 20.5997C5.67976 20.5464 5.61926 20.477 5.57641 20.3968C5.53357 20.3167 5.50949 20.2278 5.506 20.137L5.396 17.212C5.39138 17.0932 5.35155 16.9784 5.28158 16.8823C5.21161 16.7861 5.11465 16.7129 5.003 16.672L2.256 15.662C2.17072 15.6307 2.09366 15.5805 2.03062 15.5151C1.96759 15.4497 1.92023 15.3708 1.89211 15.2844C1.86399 15.1981 1.85585 15.1064 1.86831 15.0164C1.88076 14.9265 1.91348 14.8405 1.964 14.765L3.594 12.334C3.66021 12.2352 3.69556 12.1189 3.69556 12C3.69556 11.8811 3.66021 11.7648 3.594 11.666L1.964 9.235C1.91348 9.15951 1.88076 9.07353 1.86831 8.98356C1.85585 8.89358 1.86399 8.80194 1.89211 8.71557C1.92023 8.6292 1.96759 8.55033 2.03062 8.48493C2.09366 8.41952 2.17072 8.36928 2.256 8.338L5.003 7.328C5.11446 7.28691 5.21121 7.21365 5.28099 7.11752C5.35078 7.02139 5.39046 6.9067 5.395 6.788L5.506 3.863C5.50949 3.77218 5.53357 3.68333 5.57641 3.60318C5.61926 3.52302 5.67976 3.45365 5.75334 3.40029C5.82692 3.34693 5.91166 3.31099 6.00116 3.29518C6.09067 3.27936 6.18259 3.28409 6.27 3.309L9.085 4.107C9.19944 4.13931 9.32091 4.13688 9.43397 4.10002C9.54703 4.06317 9.64659 3.99355 9.72 3.9L11.53 1.6H11.528Z" stroke="currentColor" stroke-width="1.5"></path><path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+				<h3 class="text-center font-serif text-xl font-semibold text-neutral-ten lg:text-left">Lifetime warranty</h3>
+				<p class="text-center text-base font-normal text-neutral-seven lg:text-left">Odio fusce vel, ornare nibh. Vel eu non erat accumsan nullam</p>
+			</div><div class="max-w-[15.25rem] space-y-2"><div class="mx-auto w-fit rounded-full bg-brand-three p-5 text-brand-six lg:mx-0"><svg class="h-6 w-6" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Headset</title><path d="M20 11C20 8.87827 19.1571 6.84344 17.6569 5.34315C16.1566 3.84285 14.1217 3 12 3C9.87827 3 7.84344 3.84285 6.34315 5.34315C4.84285 6.84344 4 8.87827 4 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 18V18.5C20 19.0304 19.7893 19.5391 19.4142 19.9142C19.0391 20.2893 18.5304 20.5 18 20.5H14.5M2 15.438V13.562C2.00007 13.116 2.1492 12.6828 2.4237 12.3313C2.69821 11.9798 3.08232 11.7302 3.515 11.622L5.255 11.186C5.34342 11.164 5.43569 11.1624 5.52481 11.1813C5.61393 11.2003 5.69757 11.2393 5.76937 11.2954C5.84118 11.3515 5.89926 11.4232 5.93922 11.5051C5.97918 11.587 5.99997 11.6769 6 11.768V17.231C6.00016 17.3223 5.97947 17.4125 5.93952 17.4946C5.89957 17.5767 5.84141 17.6486 5.76946 17.7048C5.69752 17.761 5.61369 17.8001 5.52436 17.819C5.43503 17.8379 5.34257 17.8362 5.254 17.814L3.514 17.379C3.08151 17.2707 2.69762 17.0209 2.42331 16.6694C2.149 16.3179 2.00001 15.8849 2 15.439V15.438ZM22 15.438V13.562C21.9999 13.116 21.8508 12.6828 21.5763 12.3313C21.3018 11.9798 20.9177 11.7302 20.485 11.622L18.745 11.186C18.6566 11.164 18.5643 11.1624 18.4752 11.1813C18.3861 11.2003 18.3024 11.2393 18.2306 11.2954C18.1588 11.3515 18.1007 11.4232 18.0608 11.5051C18.0208 11.587 18 11.6769 18 11.768V17.231C17.9999 17.3222 18.0206 17.4122 18.0604 17.4942C18.1003 17.5763 18.1584 17.6481 18.2302 17.7043C18.3021 17.7605 18.3857 17.7996 18.4749 17.8186C18.5641 17.8376 18.6565 17.836 18.745 17.814L20.485 17.379C20.9177 17.2708 21.3018 17.0212 21.5763 16.6697C21.8508 16.3182 21.9999 15.885 22 15.439V15.438Z" stroke="currentColor" stroke-width="1.5"></path><path d="M13.5 22H10.5C10.1022 22 9.72064 21.842 9.43934 21.5607C9.15804 21.2794 9 20.8978 9 20.5C9 20.1022 9.15804 19.7206 9.43934 19.4393C9.72064 19.158 10.1022 19 10.5 19H13.5C13.8978 19 14.2794 19.158 14.5607 19.4393C14.842 19.7206 15 20.1022 15 20.5C15 20.8978 14.842 21.2794 14.5607 21.5607C14.2794 21.842 13.8978 22 13.5 22Z" stroke="currentColor" stroke-width="1.5"></path></svg></div>
+				<h3 class="text-center font-serif text-xl font-semibold text-neutral-ten lg:text-left">Friendly support</h3>
+				<p class="text-center text-base font-normal text-neutral-seven lg:text-left">Mauris sed lectus lorem nibh morbi in fermentum integer</p>
+			</div></div></div></section> -->
 
+
+
+
+<section class="bg-white dark:bg-gray-900">
+	<div class="container px-6 py-10 mx-auto">
+		<h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">explore our
+			<br> awesome <span class="text-blue-500">Components</span></h1>
+
+		<div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
+			<div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+				<span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full dark:text-white dark:bg-blue-500">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+					</svg>
+				</span>
+
+				<h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">Copy & paste components</h1>
+
+				<p class="text-gray-500 dark:text-gray-300">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+					corrupti doloribus voluptatum eveniet
+				</p>
+
+				<a href="#"
+					class="flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+					<span class="mx-1">read more</span>
+					<svg class="w-4 h-4 mx-1 rtl:-scale-x-100" fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+							clip-rule="evenodd"></path>
+					</svg>
+				</a>
 			</div>
-			<div class="lg:w-5/12 order-2">
-				<img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-					style="transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);" alt=""
-					class="rounded">
+
+			<div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+				<span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full dark:text-white dark:bg-blue-500">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+					</svg>
+				</span>
+
+				<h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">Zero Configuration</h1>
+
+				<p class="text-gray-500 dark:text-gray-300">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+					corrupti doloribus voluptatum eveniet
+				</p>
+
+				<a href="#"
+					class="flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+					<span class="mx-1">read more</span>
+					<svg class="w-4 h-4 mx-1 rtl:-scale-x-100" fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+							clip-rule="evenodd"></path>
+					</svg>
+				</a>
+			</div>
+
+			<div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+				<span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full dark:text-white dark:bg-blue-500">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+					</svg>
+				</span>
+
+				<h1 class="text-xl font-semibold text-gray-700 capitalize dark:text-white">Simple & clean designs</h1>
+
+				<p class="text-gray-500 dark:text-gray-300">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+					corrupti doloribus voluptatum eveniet
+				</p>
+
+				<a href="#"
+					class="flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+					<span class="mx-1">read more</span>
+					<svg class="w-4 h-4 mx-1 rtl:-scale-x-100" fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+							clip-rule="evenodd"></path>
+					</svg>
+				</a>
 			</div>
 		</div>
-
 	</div>
-</div>
-
-
-
-
-
-
-
+</section>
 
 
 
@@ -629,7 +814,7 @@
 			</button>
 
 			<button aria-label="Next slide"
-				class="next-button rounded-full border border-blue-600 p-4 text-pink-600 hover:bg-blue-600 hover:text-white">
+				class="next-button rounded-full border border-blue-600 p-4 text-blue-600 hover:bg-blue-600 hover:text-white">
 				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg">
 					<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />

@@ -392,7 +392,11 @@ updateTheme();
         nextEl: ".cus-swiper-button-next",
         prevEl: ".cus-swiper-button-prev",
       },
-
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true,
+      },
       rewind: true,
       breakpoints: {
     // Breakpoint for small screens
@@ -412,7 +416,33 @@ updateTheme();
     }
   }
     });
-    new Swiper('.swiper-container', {
+
+    var swiper3 = new Swiper(".mySwiper3", {
+     
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".cus-swiper-button-next",
+        prevEl: ".cus-swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true,
+      },
+      rewind: true,
+      breakpoints: {
+    // Breakpoint for small screens
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+
+  }
+      
+    });
+
+
+  new Swiper('.swiper-container', {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 32,
