@@ -1,5 +1,5 @@
 # views/__init__.py
-from .home import Index,  ProductView 
+from .home import Index,  ProductView , CategoryView
 from .signup import Signup
 from .login import Login, logout
 from .cart import Cart

@@ -101,7 +101,7 @@
                 <div class="flex items-center space-x-3 md:order-2">
                     <li class="font-sans block  lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600 ">
 
-                        <a href="/cart"
+                    <a data-tooltip-target="tooltip-animation" type="button" data-tooltip-placement="bottom" href="/cart"
                         role="button" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:scale-105 duration-200">
                             <svg viewBox="0 0 24 24"
                             lass="flex-1  fill-current"
@@ -123,6 +123,15 @@
                             <span class="sr-only">Notifications</span>
                             <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{ request.session.cart.keys|length }}</div>
                     </a>
+
+
+
+
+<!-- Top Right Modal -->
+
+
+
+
                     </li>
                     <button>
                         <button type="button"

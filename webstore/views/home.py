@@ -27,8 +27,80 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 # Index View class that handles the main page and cart updates
-class Index(View):
 
+# class Index(View):
+#     # Post method to handle cart updates (add/remove product)
+#     def post(self, request):
+#         product = request.POST.get('product')
+#         remove = request.POST.get('remove')
+#         cart = request.session.get('cart')
+
+#         # Update the cart based on the add/remove action
+#         if cart:
+#             quantity = cart.get(product)
+#             if quantity:
+#                 if remove:
+#                     if quantity <= 1:
+#                         cart.pop(product)
+#                     else:
+#                         cart[product] = quantity - 1
+#                 else:
+#                     cart[product] = quantity + 1
+#             else:
+#                 cart[product] = 1
+#         else:
+#             cart = {}
+#             cart[product] = 1
+
+#         # Update the session cart
+#         request.session['cart'] = cart
+
+#         # Get the category ID of the product
+#         product_category = Products.objects.get(id=product).category_id
+
+#         # Redirect to the category page with the updated query
+#         return redirect('category', category_id=product_category)
+
+    
+#     # Get method to redirect the user to the webstore page and display the products and categories
+#     def get(self, request):
+#         cart = request.session.get('cart')
+#         if not cart:
+#             request.session['cart'] = {}
+
+#         categories = Category.objects.all()
+#         categoryID = request.GET.get('category')
+
+#         if categoryID == 'all':
+#             products = Products.objects.all()
+#             is_category_page = True
+#         else:
+#             products = Products.objects.filter(category_id=categoryID)
+#             is_category_page = categoryID is not None
+
+#         data = {
+#             'categories': categories,
+#             'is_category_page': is_category_page,
+#             'products': products
+#         }
+
+#         if is_category_page:
+#             if not products:
+#                 raise Http404("Category not found.")  # Return 404 if products list is empty
+#             return render(request, 'category.html', data)
+#         else:
+#             product_id = request.GET.get('product_id')
+#             if product_id:
+#                 product = Products.objects.get(id=product_id)
+#                 if product:
+#                     data['products'] = [product]
+#                     return render(request, 'index.html', data)
+
+#             return render(request, 'index.html', data)
+
+
+# Index View class that handles the main page and cart updates
+class Index(View):
     # Post method to handle cart updates (add/remove product)
     def post(self, request):
         product = request.POST.get('product')
@@ -52,48 +124,59 @@ class Index(View):
             cart = {}
             cart[product] = 1
 
-        # Update the session cart 
+        # Update the session cart
         request.session['cart'] = cart
-        return redirect('homepage_or_webstore')
+
+        # Get the category ID of the product
+        product_category = Products.objects.get(id=product).category_id
+
+        # Redirect to the category page with the updated query
+        return redirect('category', category_id=product_category)
 
 
-    # Get method to redirect the user to the webstore page and display the products and categories
+    # Get method to redirect the user to the webstore page and display all products
     def get(self, request):
         cart = request.session.get('cart')
         if not cart:
             request.session['cart'] = {}
 
-        categories = Category.get_all_categories()
-        categoryID = request.GET.get('category')
+        categories = Category.objects.all()
+        products = Products.objects.all()
 
-        if categoryID == 'all':
-            products = Products.get_all_products()
-            is_category_page = True
-        else:
-            products = Products.get_all_products_by_categoryid(categoryID)
-            is_category_page = categoryID is not None
+        data = {
+            'categories': categories,
+            'is_category_page': False,
+            'products': products,
+            'cart': cart  # Add the 'cart' data to the template context
+        }
 
-        data = {}
-        data['categories'] = categories
-        data['is_category_page'] = is_category_page
+        return render(request, 'index.html', data)
 
-        if is_category_page:
-            if not products:
-                raise Http404("Category not found.")  # Return 404 if products list is empty
-            data['products'] = products
-            return render(request, 'category.html', data)
-        else:
-            product_id = request.GET.get('product_id')
-            if product_id:
-                product = Products.get_product_by_id(product_id)
-                if product:
-                    data['products'] = [product]
-                    return render(request, 'index.html', data)
 
-            data['products'] = products
-            return render(request, 'index.html', data)
 
-# Function to display the webstore page with products and categories
+class CategoryView(View):
+    def get(self, request, category_id):
+        cart = request.session.get('cart')
+        if not cart:
+            request.session['cart'] = {}
+
+        categories = Category.objects.all()
+        products = Products.objects.filter(category_id=category_id)
+        category = Category.objects.get(id=category_id)
+
+        if not products:
+            raise Http404("Category not found.")
+
+        data = {
+            'categories': categories,
+            'is_category_page': True,
+            'products': products,
+            'category': category
+        }
+
+        return render(request, 'category.html', data)
+
+
 
 
 # ProductView class to handle the individual product page and cart updates for that product
