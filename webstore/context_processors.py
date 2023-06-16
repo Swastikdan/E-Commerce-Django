@@ -1,4 +1,4 @@
-from .models import Customer, Products
+from .models import Customer, Products , Category
 
 def customer_info(request):
     customer = None
@@ -6,6 +6,11 @@ def customer_info(request):
         customer_id = request.session.get('customer')
         customer = Customer.objects.get(id=customer_id)
     return {'customer': customer}
+
+
+def categories(request):
+    categories = Category.get_all_categories()
+    return {'categories': categories}
 
 # def cart_items(request):
 #     cart = request.session.get('cart', {})

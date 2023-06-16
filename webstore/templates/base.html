@@ -34,7 +34,7 @@
 
   font-display: swap;
 
-  src: url(https://ik.imagekit.io/swastik/Maven__3__nC0f8V_YU.woff2?updatedAt=1682970625878) format('woff2');
+  src: url(https://ik.imagekit.io/swastik/Maven__3__nC0f8V_YU.woff2) format('woff2');
 
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -43,6 +43,8 @@
   font-family: 'Maven Pro', sans-serif;
   display: swap;
 }
+
+
         </style>
         <link rel="stylesheet" href="{% static '/output.css' %}">
       
@@ -101,7 +103,7 @@
                 <div class="flex items-center space-x-3 md:order-2">
                     <li class="font-sans block  lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600 ">
 
-                    <a data-tooltip-target="tooltip-animation" type="button" data-tooltip-placement="bottom" href="/cart"
+                    <a data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" href="/cart"
                         role="button" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:scale-105 duration-200">
                             <svg viewBox="0 0 24 24"
                             lass="flex-1  fill-current"
@@ -241,13 +243,10 @@
                                  class="z-20 hidden font-normal bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                 <ul class=" text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg "
                                     aria-labelledby="dropdownDelayButton2">
-                                    <li class="overflow-hidden hover:scale-105 duration-200">
-                                        <a href="/"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ">All Products </a>
-                                    </li>
+
                                     {% for category in categories %}
                                     <li class="overflow-hidden hover:scale-105 duration-200 ">
-                                            <a href="/?category={{ category.id }}"
+                                            <a href="/category/{{ category.id }}"
                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ">{{ category.name }}</a>
                                         </li>
                                     {% endfor %}
@@ -255,7 +254,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="contact"
+                            <a href="/contact"
                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200">Contact</a>
                         </li>
                         <li>
@@ -369,7 +368,17 @@ document.getElementById('darkTheme').addEventListener('click', function (event) 
 updateTheme();
 
   </script>
-    <script>
+
+<!-- <script>const addButton = document.getElementById('popover-bottom-close');
+  const popover = document.getElementById('popover-bottom');
+  
+  addButton.addEventListener('click', () => {
+    popover.classList.add('invisible');
+  });
+  </script> -->
+
+<script src="{% static '/script.js' %}"></script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             const yearElement = document.getElementById("year");
             const currentYear = new Date().getFullYear();
@@ -377,7 +386,7 @@ updateTheme();
           });
           
 
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper   -->

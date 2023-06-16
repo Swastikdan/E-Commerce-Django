@@ -4,7 +4,67 @@
 {% block content %}
 
 
+<div data-popover id="popover-bottom" role="tooltip"
+	class="absolute z-20 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200  shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 right-0 rounded-xl ">
+	<div class="relative w-64 border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8 rounded-xl" aria-modal="true"
+		role="dialog" tabindex="-1">
 
+
+		<div class="mt-4 space-y-6">
+
+
+			{% if cart_empty %}
+			
+			<ul class="space-y-4">
+				<p>Your cart is empty.</p>
+				<div class="space-y-4 text-center">
+					<a href="/" id="popover-bottom-close"
+						class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
+						Continue shopping
+					</a>
+				</div>
+			
+			</ul>
+			{% else %}
+			<ul class="space-y-4">
+				{% for item in cart_items %}
+				
+				<li class="flex items-center gap-4">
+					<img src="{{ item.image }}"
+						alt="{{ item.name }}" class="h-16 w-16 rounded object-cover" />
+
+					<div>
+						<h3 class="text-sm text-gray-900">{{ item.name }}</h3>
+
+						<dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+							<div>
+								<dt class="inline">Price:</dt>
+								<dd class="inline">Rs {{ item.price }}</dd>
+							</div>
+						</dl>
+					</div>
+				</li>
+
+				{% endfor %}
+			</ul>
+
+			<div class="space-y-4 text-center">
+				<a href="/cart"
+					class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400">
+					View my cart ({{ request.session.cart.keys|length }})
+				</a>
+
+
+
+				<a href="/" id="popover-bottom-close"
+					class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
+					Continue shopping
+				</a>
+			</div>
+			{% endif %}</div>
+	</div>
+	<div data-popper-arrow></div>
+</div>
 <div class="dark:bg-gray-900 br-gray-100 text-black dark:text-gray-200">
   <div class="w-full max-w-screen-xl min-h-screen p-10 lg:p-20 mx-auto  relative md:text-left">
     <div class="md:flex items-center -mx-10">
