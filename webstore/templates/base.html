@@ -1,629 +1,335 @@
-{% load cart %}
-{% load custom_filter %}
+{% load cart %} 
+{% load custom_filter %} 
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" >
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       
-        <link rel="shortcut icon"
-              href="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png"
-              type="image/x-icon">
-        <title>Shop Vibe</title>
-<meta name="description" content="Explore the portfolio site of Swastik Dan with a range of creative skills and experiences, including problem solving, research, and proficiency in programming languages like HTML, CSS, JavaScript, Java, C, and data structures. Discover the student's technical abilities and see examples of their work, as well as their education and experience in the field of computer science.">
-    <meta property="og:description" content="Explore the portfolio site of Swastik Dan with a range of creative skills and experiences, including problem solving, research, and proficiency in programming languages like HTML, CSS, JavaScript, Java, C, and data structures. Discover the student's technical abilities and see examples of their work, as well as their education and experience in the field of computer science.">
-    <meta property="og:image" content="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous"> -->
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+  <link rel="shortcut icon" href="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png" type="image/x-icon" />
+  <title>Shop Vibe</title>
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="https://ik.imagekit.io/swastik/svgexport-19_q1mcTgfM3.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <style>
+    @font-face {
+      font-family: "Maven Pro";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://ik.imagekit.io/swastik/Maven__3__nC0f8V_YU.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+        U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+        U+2212, U+2215, U+FEFF, U+FFFD;
+    }
 
-<style>
-@font-face {
-  font-family: 'Maven Pro';
+    .font-maven {
+      font-family: "Maven Pro", sans-serif;
+      display: swap;
+    }
 
-  font-style: normal;
+    * {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <link rel="stylesheet" href="{% static '/output.css' %}" />
+</head>
 
-  font-weight: 400;
-
-  font-display: swap;
-
-  src: url(https://ik.imagekit.io/swastik/Maven__3__nC0f8V_YU.woff2) format('woff2');
-
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-.font-maven{
-  font-family: 'Maven Pro', sans-serif;
-  display: swap;
-}
-.body{
-
-  scroll-behavior: smooth;
-}
-
-
-        </style>
-        <link rel="stylesheet" href="{% static '/output.css' %}">
-      
-    </head>
-    <body class="font-maven bg-gray-50 dark:bg-gray-900">
-
-
-        <!-- Top navigation -->
-        <nav class="bg-white border-b sticky border-gray-200 dark:border-gray-600 dark:bg-gray-900 items-center  w-full top-0 left-0 z-20 ">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
-                <a href="/" class="flex items-center ">
-                    <svg xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xmlns="http://www.w3.org/2000/svg"
-                         class="css-ze2te4 css-qd6ojx mr-3 hidden md:flex "
-                         viewBox="0 0 99.99999999999999 101.16792050837127"
-                         width="50"
-                         height="50">
-                        <g transform="translate(-6.204965233732897, -5.620440028242848) scale(1.1240880056485696)" class="css-1e98oqk" fill="#D91895">
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="42.125" cy="19.337" r="9.916" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="27.438" cy="63.042" r="4.958" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="62.284" cy="87.752" r="4.958" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="46.204" cy="33.938" r="4.462" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="64.86" cy="59.99" r="5.356" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M74.019,19.736c2.416,0,4.487-1.398,5.505-3.418c-3.036-2.71-6.439-5.016-10.13-6.832c-0.959,1.089-1.561,2.503-1.561,4.068  C67.833,16.97,70.603,19.736,74.019,19.736z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="62.615" cy="30.244" r="11.237" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M93.643,59.136c-0.273,1.32-0.608,2.617-0.996,3.893C93.2,61.829,93.546,60.519,93.643,59.136z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M82.447,47.098c-6.207,0-11.237,5.031-11.237,11.239c0,6.205,5.03,11.238,11.237,11.238c4.528,0,8.422-2.687,10.199-6.547  c0.388-1.275,0.723-2.572,0.996-3.893c0.019-0.265,0.041-0.528,0.041-0.799C93.684,52.129,88.652,47.098,82.447,47.098z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M17.748,33.007c0-3.719-2.476-6.828-5.855-7.863c-2.983,4.52-5.172,9.608-6.373,15.069c1.181,0.652,2.52,1.057,3.965,1.057  C14.047,41.27,17.748,37.571,17.748,33.007z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="71.619" cy="76.304" r="8.263" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M58.373,17.711c4.198,0,7.6-3.403,7.6-7.602c0-0.8-0.157-1.554-0.386-2.278C61.562,6.293,57.26,5.321,52.776,5  c-1.233,1.353-2.005,3.135-2.005,5.109C50.771,14.308,54.173,17.711,58.373,17.711z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M13.703,69.904c4.197,0,7.6-3.403,7.6-7.602c0-4.196-3.403-7.602-7.6-7.602c-4.12,0-7.454,3.283-7.58,7.371  c0.479,1.719,1.053,3.397,1.726,5.027C9.243,68.799,11.333,69.904,13.703,69.904z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="23.286" cy="52.574" r="4.481" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M39.335,88.411c0-2.474-2.007-4.48-4.48-4.48c-2.476,0-4.482,2.007-4.482,4.48c0,1.048,0.375,2,0.979,2.763  c1.395,0.615,2.826,1.164,4.292,1.638C37.739,92.438,39.335,90.616,39.335,88.411z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="13.015" cy="47.207" r="5.802" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="26.313" cy="30.271" r="7.603" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M62.137,71.661c-0.032-8.119-6.643-14.678-14.762-14.646c-8.122,0.032-14.68,6.64-14.646,14.76  c0.03,8.123,6.64,14.679,14.76,14.647C55.61,86.391,62.169,79.783,62.137,71.661z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M81.061,17.76c-3.272,3.114-5.316,7.506-5.298,12.381c0.038,9.399,7.686,16.989,17.085,16.952  c0.55-0.001,1.096-0.036,1.633-0.088C93.744,35.57,88.751,25.299,81.061,17.76z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M70.2,42.307c-2.465,0.01-4.453,2.015-4.444,4.48c0.01,2.462,2.015,4.453,4.48,4.445c2.463-0.011,4.451-2.018,4.442-4.483  C74.671,44.286,72.664,42.298,70.2,42.307z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="23.67" cy="42.116" r="2.643" fill="#D91895"></circle><circle xmlns="http://www.w3.org/2000/svg" cx="37.26" cy="46.034" r="9.454" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M30.479,11.066c-0.002-0.646-0.07-1.278-0.196-1.886c-5.257,2.486-9.955,5.957-13.856,10.178  c1.373,0.766,2.952,1.206,4.635,1.199C26.284,20.536,30.5,16.285,30.479,11.066z" fill="#D91895">
-                        </path>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M31.842,78.716c-0.022-5.22-4.271-9.435-9.491-9.416c-4.465,0.019-8.185,3.132-9.16,7.292  c3.252,4.425,7.294,8.228,11.917,11.214C29.015,86.632,31.857,83.005,31.842,78.716z" fill="#D91895">
-                        </path>
-                        <circle xmlns="http://www.w3.org/2000/svg" cx="55.339" cy="48.772" r="7.603" fill="#D91895"></circle>
-                        <path xmlns="http://www.w3.org/2000/svg" d="M48.537,87.771c-3.811,0.016-6.958,2.778-7.604,6.402C43.715,94.709,46.585,95,49.522,95c2.28,0,4.52-0.173,6.71-0.5  C55.717,90.694,52.482,87.757,48.537,87.771z" fill="#D91895">
-                        </path>
-                        </g>
-                    </svg>
-                    <span class="self-center text-xl md:text-2xl font-semibold whitespace-nowrap dark:text-white">Shop Vibe</span>
-                </a>
-                <div class="flex items-center space-x-3 md:order-2">
-                    <li class="font-sans block  lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600 ">
-
-                    <a data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" 
-                        role="button" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:scale-105 duration-200">
-                            <svg viewBox="0 0 24 24"
-                            lass="flex-1  fill-current"
-                           class="w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg">
-                           <g id="SVGRepo_bgCarrier" stroke-width="0">
-                           </g>
-                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
-                           </g>
-                           <g id="SVGRepo_iconCarrier">
-                           <path d="M4.46785 10.2658C4.47574 10.3372 4.48376 10.4094 4.49187 10.4823L4.61751 11.6131C4.7057 12.4072 4.78218 13.0959 4.91562 13.6455C5.05917 14.2367 5.29582 14.7937 5.78931 15.2354C6.28281 15.6771 6.86251 15.8508 7.46598 15.9281C8.02694 16.0001 8.71985 16 9.51887 16H14.8723C15.4201 16 15.9036 16 16.3073 15.959C16.7448 15.9146 17.1698 15.8162 17.5785 15.5701C17.9872 15.324 18.2731 14.9944 18.5171 14.6286C18.7422 14.291 18.9684 13.8637 19.2246 13.3797L21.7141 8.67734C22.5974 7.00887 21.3879 4.99998 19.5 4.99998L9.39884 4.99998C8.41604 4.99993 7.57525 4.99988 6.90973 5.09287C6.5729 5.13994 6.24284 5.21529 5.93326 5.34375L5.78941 4.04912C5.65979 2.88255 4.67375 2 3.5 2H3C2.44772 2 2 2.44771 2 3C2 3.55228 2.44772 4 3 4H3.5C3.65465 4 3.78456 4.11628 3.80164 4.26998L4.46785 10.2658Z" fill="white">
-                           </path>
-                           <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19.5C14 18.1193 15.1193 17 16.5 17C17.8807 17 19 18.1193 19 19.5C19 20.8807 17.8807 22 16.5 22C15.1193 22 14 20.8807 14 19.5Z" fill="white">
-                           </path>
-                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5 19.5C5 18.1193 6.11929 17 7.5 17C8.88071 17 10 18.1193 10 19.5C10 20.8807 8.88071 22 7.5 22C6.11929 22 5 20.8807 5 19.5Z" fill="white">
-                           </path>
-                           </g>
-                       </svg>
-                            <span class="sr-only">Notifications</span>
-                            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{ request.session.cart.keys|length }}</div>
-                    </a>
-
-
-
-
-
-
-
-
-
-                    </li>
-                    <button>
-                        <button type="button"
-                                class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 hover:scale-105 duration-200 "
-                               id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
-                                aria-expanded="false"
-                                data-dropdown-placement="bottom">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="w-10 h-10 rounded-full  "
-                                 src="https://i.ibb.co/Kzb3zK0/index.png"
-                                 alt="user photo">
-                        </button>
-
-
-
- <div id="dropdownInformation" class="z-50 hidden bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700 dark:divide-gray-600">
-    {% if customer %}
-    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-      <div>{{ customer.first_name }} {{ customer.last_name }}</div>
-      <div class="font-medium truncate">{{ customer.email }}</div>
-    </div>
-
-    {% endif %}
-{% if request.session.customer %}
-    <ul class="text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg " aria-labelledby="dropdownInformationButton">
-        <li class="overflow-hidden hover:scale-105 duration-200">
-        <a href="/orders" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Orders</a>
-      </li>
-      <li class="overflow-hidden hover:scale-105 duration-200">
-        <a href="/logout" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign out</a>
-    </li>
-    </ul>
-    {% else %}
-    <ul class="text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg " aria-labelledby="dropdownInformationButton">
-        <li class="overflow-hidden hover:scale-105 duration-200">
-        <a href="/login/" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign in</a>
-      </li>
-      <li class="overflow-hidden hover:scale-105 duration-200">
-        <a href="/signup" class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign Up</a>
-    </li>
-    </ul>
-
-       {% endif %}
-</div>
-    
-
-
-                    </button>
-
-
- 
-
-
-
-
-
-                    <button data-collapse-toggle="mobile-menu-language-select"
-                            type="button"
-                            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                            aria-controls="mobile-menu-language-select"
-                            aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-10 h-10"
-                             fill="currentColor"
-                             aria-hidden="true"
-                             viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
-                            </path>
-                        </svg>
-                    </button>
-
-
-                </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-                     id="mobile-menu-language-select">
-                    <ul class=" md:items-center flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="/"
-                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200"
-                               aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="/services"
-                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200">Services</a>
-                        </li>
-                        <li>
-                            <button id="dropdownDelayButton2"
-                                    data-dropdown-toggle="dropdownDelay2"
-                                    data-dropdown-delay="50"
-                                    data-dropdown-trigger="hover"
-                                    aria-expanded="false"
-                                    data-dropdown-placement="bottom"
-                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 hover:scale-105 duration-200 md:dark:hover:bg-transparent">
-                                Browse Products
-                                <svg class="w-5 h-5 ml-1"
-                                     aria-hidden="true"
-                                     fill="currentColor"
-                                     viewBox="0 0 20 20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownDelay2"
-                                 class="z-20 hidden font-normal bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class=" text-sm text-gray-700 dark:text-gray-400  overflow-hidden rounded-lg "
-                                    aria-labelledby="dropdownDelayButton2">
-
-                                    {% for category in categories %}
-                                    <li class="overflow-hidden hover:scale-105 duration-200 ">
-                                            <a href="/category/{{ category.id }}"
-                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ">{{ category.name }}</a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="/contact"
-                               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200">Contact</a>
-                        </li>
-                        <li>
-  <!-- <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Theme <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-
-
-
-
-<div id="dropdown" class="z-20 hidden bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-    <ul class=" text-sm text-gray-700 dark:text-gray-200 overflow-hidden rounded-lg " aria-labelledby="dropdownDefaultButton">
-        <li class="hover:scale-105 duration-200">
-            <a id="systemTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                <svg viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>ic_fluent_dark_theme_24_regular</title> <desc>Created with Sketch.</desc> <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="ic_fluent_dark_theme_24_regular" fill="currentColor" fill-rule="nonzero"> <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z" > </path> </g> </g> </g></svg>
-                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> System</p>
-             
-            </a>
-        </li>
-        <li class="hover:scale-105 duration-200">
-            <a id="lightTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor" id="light-mode"><path d="M7 12c0 2.8 2.2 5 5 5s5-2.2 5-5-2.2-5-5-5-5 2.2-5 5zm5-3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1-4V3c0-.6-.4-1-1-1s-1 .4-1 1v2c0 .6.4 1 1 1s1-.4 1-1zm6.1-.1c-.4-.4-1-.4-1.4 0l-1.4 1.4c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.3.4-1 0-1.4zM21 11h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-3.3 5.2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4l-1.4-1.4zM11 19v2c0 .6.4 1 1 1s1-.4 1-1v-2c0-.6-.4-1-1-1s-1 .4-1 1zm-6.1.1c.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-1.4 1.4c-.4.3-.4 1 0 1.4zM2 12c0 .6.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1zm4.3-7.1c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.3.5.4.8.4s.5-.1.7-.3c.4-.4.4-1 0-1.4L6.3 4.9z"></path></svg>
-                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white"> Light</p>
-               
-            </a>
-        </li>
-        <li class="hover:scale-105 duration-200">
-            <a id="darkTheme" href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 dark:text-gray-400" fill="currentColor"  id="night-mode" x="0" y="0" version="1.1" viewBox="0 0 29 29" xml:space="preserve"><path d="M19.282 17.038c-4.15-.513-7.691-3.379-9.245-7.261a11.042 11.042 0 0 1-.748-5.355.5.5 0 0 0-.772-.468C5.09 6.156 2.905 10.121 3.261 14.573c.442 5.524 4.959 10.056 10.482 10.513 5.646.468 10.522-3.148 12.01-8.213.118-.402-.274-.774-.661-.614a11.43 11.43 0 0 1-5.81.779z"></path></svg>
-                <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">  Dark</p>
-            
-            </a>
-        </li>
-    </ul>
-</div> -->
-
-<select id="theme"
-class="bg-gray-100 border border-gray-300 text-gray-900 text-md rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-<option selected value="System" id="systemTheme">
-    <span class="text-xl">🌓 System</span>
-</option>
-<option value="Light" id="lightTheme">
-    ☀️ Light
-</option>
-<option value="Dark" id="darkTheme">
-    🌙 Dark
-</option>
-</select>
-
-                        </li>
-                    </ul>
-                </div>
+<body class="font-maven bg-gray-50 dark:bg-gray-900">
+  <nav
+    class="bg-white border-b sticky border-gray-200 dark:border-gray-600 dark:bg-gray-900 items-center w-full top-0 left-0 z-20">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/" class="flex items-center">
+  <img class="mr-3 hidden md:flex" src="{% static '/logo.svg' %}" alt="Logo">
+        <span class="self-center text-xl md:text-2xl font-semibold whitespace-nowrap dark:text-white">Shop Vibe</span>
+        </a>
+      <div class="flex items-center space-x-3 md:order-2">
+        <li class="font-sans block lg:inline-block lg:mt-0 lg:ml-6 align-middle text-gray-800 hover:text-gray-600">
+          <a data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" role="button"
+            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:scale-105 duration-200">
+            <svg viewBox="0 0 24 24" lass="flex-1  fill-current" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M4.46785 10.2658C4.47574 10.3372 4.48376 10.4094 4.49187 10.4823L4.61751 11.6131C4.7057 12.4072 4.78218 13.0959 4.91562 13.6455C5.05917 14.2367 5.29582 14.7937 5.78931 15.2354C6.28281 15.6771 6.86251 15.8508 7.46598 15.9281C8.02694 16.0001 8.71985 16 9.51887 16H14.8723C15.4201 16 15.9036 16 16.3073 15.959C16.7448 15.9146 17.1698 15.8162 17.5785 15.5701C17.9872 15.324 18.2731 14.9944 18.5171 14.6286C18.7422 14.291 18.9684 13.8637 19.2246 13.3797L21.7141 8.67734C22.5974 7.00887 21.3879 4.99998 19.5 4.99998L9.39884 4.99998C8.41604 4.99993 7.57525 4.99988 6.90973 5.09287C6.5729 5.13994 6.24284 5.21529 5.93326 5.34375L5.78941 4.04912C5.65979 2.88255 4.67375 2 3.5 2H3C2.44772 2 2 2.44771 2 3C2 3.55228 2.44772 4 3 4H3.5C3.65465 4 3.78456 4.11628 3.80164 4.26998L4.46785 10.2658Z"
+                  fill="white"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M14 19.5C14 18.1193 15.1193 17 16.5 17C17.8807 17 19 18.1193 19 19.5C19 20.8807 17.8807 22 16.5 22C15.1193 22 14 20.8807 14 19.5Z"
+                  fill="white"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5 19.5C5 18.1193 6.11929 17 7.5 17C8.88071 17 10 18.1193 10 19.5C10 20.8807 8.88071 22 7.5 22C6.11929 22 5 20.8807 5 19.5Z"
+                  fill="white"></path>
+              </g>
+            </svg>
+            <span class="sr-only">Notifications</span>
+            <div
+              class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+              {{ request.session.cart.keys|length }}
             </div>
-        </nav>
-      
-
-
-        <!-- <section id="Cookie-Notice" class=" z-20 fixed max-w-md p-4  mx-auto bg-white border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-2xl bottom-1 sm:bottom-5  left-1 sm:left-5 " role="alert">
-          <h2 class="font-semibold text-gray-800 dark:text-white">🍪 Cookie Notice</h2><p class="mt-4 text-sm text-gray-600 dark:text-gray-300">We use cookies to ensure that we give you the best experience on our website. <a href="#" class="text-blue-500 hover:underline">Read cookies policies</a>. </p>
-          <div class="flex items-center justify-between mt-4 gap-x-4 shrink-0">
-<div></div> <button id=" cookie-accepted" type="button" class=" text-xs bg-gray-800 font-medium rounded-lg hover:bg-gray-700  text-white  px-4 py-2.5 duration-300 transition-colors focus:outline-none" data-dismiss-target="#Cookie-Notice" aria-label="Close">
-                  Accept
-                  <span class="sr-only">Close</span>
-              </button>
-          </div>
-      </section> -->
-
-<!-- 
-<div id="popup-modal"  class="fixed top-1/2 left-1/2 right-1/2 z-50  p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative w-full  max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="popup-modal">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="bg-white py-6 sm:py-8 lg:py-12">
-              <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-                <div class="flex flex-col items-center rounded-lg bg-gray-100 p-4 sm:p-8 lg:flex-row lg:justify-between">
-                  <div class="mb-4 sm:mb-8 lg:mb-0">
-                    <h2 class="text-center text-xl font-bold text-indigo-500 sm:text-2xl lg:text-left lg:text-3xl">Get the latest updates</h2>
-                    <p class="text-center text-gray-500 lg:text-left">Sign up for our newsletter</p>
-                  </div>
-            
-                  <div class="flex flex-col items-center lg:items-end">
-                    <form class="mb-3 flex w-full max-w-md gap-2">
-                      <input placeholder="Email" class="bg-gray-white w-full flex-1 rounded border border-gray-300 px-3 py-2 text-gray-800 placeholder-gray-400 outline-none ring-indigo-300 transition duration-100 focus:ring" />
-            
-                      <button class="inline-block rounded bg-indigo-500 px-8 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Send</button>
-                    </form>
-            
-                    <p class="text-center text-xs text-gray-400 lg:text-right">By signing up to our newsletter you agree to our <a href="#" class="underline transition duration-100 hover:text-indigo-500 active:text-indigo-600">Term of Service</a> and <a href="#" class="underline transition duration-100 hover:text-indigo-500 active:text-indigo-600">Privacy Policy</a>.</p>
-                  </div>
-                </div>
-              </div>
+          </a>
+        </li>
+        <button>
+          <button type="button"
+            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 hover:scale-105 duration-200"
+            id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" aria-expanded="false"
+            data-dropdown-placement="bottom">
+            <span class="sr-only">Open user menu</span><img class="w-10 h-10 rounded-full"
+              src="https://i.ibb.co/Kzb3zK0/index.png" alt="user photo" />
+          </button>
+          <div id="dropdownInformation"
+            class="z-50 hidden bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700 dark:divide-gray-600">
+            {% if customer %}
+            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+              <div>{{ customer.first_name }} {{ customer.last_name }}</div>
+              <div class="font-medium truncate">{{ customer.email }}</div>
             </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-
-
-
-
-<section id="Cookie-Notice" class="z-20 fixed max-w-md p-4 mx-auto bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl bottom-1 sm:bottom-5 left-1 sm:left-5" role="alert">
-  <h2 class="font-semibold text-gray-800 dark:text-white">🍪 Cookie Notice</h2>
-  <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">We use cookies to ensure that we give you the best experience on our website. <a href="#" class="text-blue-500 hover:underline">Read cookies policies</a>.</p>
-  <div class="flex items-center justify-between mt-4 gap-x-4 shrink-0">
-    <div></div>
-    <button id="cookie-accepted" type="button" class="text-xs bg-gray-800 font-medium rounded-lg hover:bg-gray-700 text-white px-4 py-2.5 duration-300 transition-colors focus:outline-none" data-dismiss-target="#Cookie-Notice" aria-label="Close">
-      Accept
-      <span class="sr-only">Close</span>
-    </button>
-  </div>
-</section> 
-
-
-<script>
-document.getElementById("cookie-accepted").addEventListener("click", function() {
-  // Set a cookie to indicate that the user has accepted cookies.
-  document.cookie = "cookie-accepted=true";
-
-  // Hide the cookie popup.
-  document.getElementById("Cookie-Notice").style.display = "none";
-});
-
-if (document.cookie.indexOf("cookie-accepted=true") !== -1) {
-  // The user has accepted cookies, so do not show the popup.
-  document.getElementById("Cookie-Notice").style.display = "none";
-}
-
-
-</script>
-
-
-
-
-
-
-        {% block content %}{% endblock %}
-        <footer class="sticky   z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© <span class="px-1" id="year"></span><a href="/" class="hover:underline px-2">Shop Vibe™</a>. All Rights Reserved.
-            </span>
-            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                <li>
-                    <a href="privacy-policy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                </li>
- 
-                <li>
-                    <a href="contact" class="mr-4 hover:underline md:mr-6">Contact</a>
-                </li>
-                <li>
-                    <a href="faq" class="mr-4 hover:underline md:mr-6">Faq</a>
-                </li>
+            {% endif %} {% if request.session.customer %}
+            <ul class="text-sm text-gray-700 dark:text-gray-400 overflow-hidden rounded-lg"
+              aria-labelledby="dropdownInformationButton">
+              <li class="overflow-hidden hover:scale-105 duration-200">
+                <a href="/orders"
+                  class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Orders</a>
+              </li>
+              <li class="overflow-hidden hover:scale-105 duration-200">
+                <a href="/logout"
+                  class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign
+                  out</a>
+              </li>
             </ul>
-        </footer>
-                <!-- <script>
- // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-          </script>
-  <script >
-
-  function setTheme(theme) {
-  switch (theme) {
-    case 'system':
-      localStorage.removeItem('color-theme');
-      break;
-    case 'light':
-      localStorage.setItem('color-theme', 'light');
-      document.documentElement.classList.remove('dark');
-      break;
-    case 'dark':
-      localStorage.setItem('color-theme', 'dark');
-      document.documentElement.classList.add('dark');
-      break;
-  }
-  updateTheme();
-}
-
-function updateTheme() {
-  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-}
-
-document.getElementById('systemTheme').addEventListener('click', function (event) {
-  event.preventDefault();
-  setTheme('system');
-});
-
-document.getElementById('lightTheme').addEventListener('click', function (event) {
-  event.preventDefault();
-  setTheme('light');
-});
-
-document.getElementById('darkTheme').addEventListener('click', function (event) {
-  event.preventDefault();
-  setTheme('dark');
-});
-
-// Call updateTheme on page load
-updateTheme();
-
-  </script> -->
-
+            {% else %}
+            <ul class="text-sm text-gray-700 dark:text-gray-400 overflow-hidden rounded-lg"
+              aria-labelledby="dropdownInformationButton">
+              <li class="overflow-hidden hover:scale-105 duration-200">
+                <a href="/login/"
+                  class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign
+                  in</a>
+              </li>
+              <li class="overflow-hidden hover:scale-105 duration-200">
+                <a href="/signup"
+                  class="block px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white hover:scale-105 duration-200">Sign
+                  Up</a>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+        </button><button data-collapse-toggle="mobile-menu-language-select" type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="mobile-menu-language-select" aria-expanded="false">
+          <span class="sr-only">Open main menu</span><svg class="w-10 h-10" fill="currentColor" aria-hidden="true"
+            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        id="mobile-menu-language-select">
+        <ul
+          class="md:items-center flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="/"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="/services"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200">Services</a>
+          </li>
+          <li>
+            <button id="dropdownDelayButton2" data-dropdown-toggle="dropdownDelay2" data-dropdown-delay="50"
+              data-dropdown-trigger="hover" aria-expanded="false" data-dropdown-placement="bottom"
+              class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 hover:scale-105 duration-200 md:dark:hover:bg-transparent">
+              Browse Products<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div id="dropdownDelay2"
+              class="z-20 hidden font-normal bg-gray-200 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="text-sm text-gray-700 dark:text-gray-400 overflow-hidden rounded-lg"
+                aria-labelledby="dropdownDelayButton2">
+                {% for category in categories %}
+                <li class="overflow-hidden hover:scale-105 duration-200">
+                  <a href="/category/{{ category.id }}"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ category.name }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="/contact"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 hover:scale-105 duration-200">Contact</a>
+          </li>
+          <li>
+            <select id="theme"
+              class="bg-gray-100 border border-gray-300 text-gray-900 text-md rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option selected="selected" value="System" id="systemTheme">
+                <span class="text-xl">🌓 System</span>
+              </option>
+              <option value="Light" id="lightTheme">☀️ Light</option>
+              <option value="Dark" id="darkTheme">🌙 Dark</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="Cookie-Notice"
+    class="z-50 fixed max-w-xs sm:max-w-md p-4 mx-auto bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl bottom-5 left-5"
+    role="alert">
+    <h2 class="font-semibold text-gray-800 dark:text-white">
+      🍪 Cookie Notice
+    </h2>
+    <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+      We use cookies to ensure that we give you the best experience on our
+      website.<a href="#" class="text-blue-500 hover:underline">Read cookies policies</a>.
+    </p>
+    <div class="flex items-center justify-between mt-4 gap-x-4 shrink-0">
+      <div></div>
+      <button id="cookie-accepted" type="button"
+        class="text-xs bg-gray-800 font-medium rounded-lg hover:bg-gray-700 text-white px-4 py-2.5 duration-300 transition-colors focus:outline-none"
+        data-dismiss-target="#Cookie-Notice" aria-label="Close">
+        Accept<span class="sr-only">Close</span>
+      </button>
+    </div>
+  </section>
   <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
+    document
+      .getElementById("cookie-accepted")
+      .addEventListener("click", function () {
+        (document.cookie = "cookie-accepted=true"),
+          (document.getElementById("Cookie-Notice").style.display = "none");
+      }),
+      -1 !== document.cookie.indexOf("cookie-accepted=true") &&
+      (document.getElementById("Cookie-Notice").style.display = "none");
+  </script>
+  {% block content %}
+  {% endblock %}
+  <footer
+    class="sticky z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">©<span class="px-1" id="year"></span><a
+        href="/" class="hover:underline px-2">Shop Vibe™</a>. All Rights
+      Reserved.</span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <li>
+        <a href="/privacy-policy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+      </li>
+      <li>
+        <a href="/contact" class="mr-4 hover:underline md:mr-6">Contact</a>
+      </li>
+      <li><a href="/faq" class="mr-4 hover:underline md:mr-6">Faq</a></li>
+    </ul>
+  </footer>
+  <script>
+    function setTheme(e) {
+      switch (e) {
+        case "System":
+          localStorage.removeItem("color-theme");
+          break;
+        case "Light":
+          localStorage.setItem("color-theme", "light"),
+            document.documentElement.classList.remove("dark");
+          break;
+        case "Dark":
+          localStorage.setItem("color-theme", "dark"),
+            document.documentElement.classList.add("dark");
+      }
     }
-
-    function setTheme(theme) {
-        switch (theme) {
-            case 'System':
-                localStorage.removeItem('color-theme');
-                break;
-            case 'Light':
-                localStorage.setItem('color-theme', 'light');
-                document.documentElement.classList.remove('dark');
-                break;
-            case 'Dark':
-                localStorage.setItem('color-theme', 'dark');
-                document.documentElement.classList.add('dark');
-                break;
-        }
-    }
-
-    document.getElementById('theme').addEventListener('change', function (event) {
-        setTheme(event.target.value);
+    "dark" === localStorage.getItem("color-theme") ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark"),
+      document
+        .getElementById("theme")
+        .addEventListener("change", function (e) {
+          setTheme(e.target.value);
+        }),
+      setTheme(localStorage.getItem("color-theme") || "System");
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearElement = document.getElementById("year");
+      const currentYear = new Date().getFullYear();
+      yearElement.innerText = currentYear;
     });
-
-    // Call setTheme on page load
-    setTheme(localStorage.getItem('color-theme') || 'System');
-</script>
-<script>        document.addEventListener("DOMContentLoaded", function () {
-        const yearElement = document.getElementById("year");
-        const currentYear = new Date().getFullYear();
-        yearElement.innerText = currentYear;
-    });
-</script>
-
-<!-- <script>const addButton = document.getElementById('popover-bottom-close');
-  const popover = document.getElementById('popover-bottom');
-  
-  addButton.addEventListener('click', () => {
-    popover.classList.add('invisible');
-  });
-  </script> -->
-
-<script src="{% static '/script.js' %}"></script>
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const yearElement = document.getElementById("year");
-            const currentYear = new Date().getFullYear();
-            yearElement.innerText = currentYear;
-          });
-          
-
-    </script> -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper   -->
+  </script>
+  <script src="{% static '/script.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
-     
       navigation: {
         nextEl: ".cus-swiper-button-next",
         prevEl: ".cus-swiper-button-prev",
       },
       pagination: {
         el: ".swiper-pagination",
-        dynamicBullets: true,
-        clickable: true,
+        dynamicBullets: !0,
+        clickable: !0,
       },
-      rewind: true,
-    });
-    var swiper2 = new Swiper(".mySwiper2", {
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".cus-swiper-button-next",
-        prevEl: ".cus-swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-        clickable: true,
-      },
-      rewind: true,
-      breakpoints: {
-    // Breakpoint for small screens
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    // Breakpoint for medium screens
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    },
-    // Breakpoint for large screens
-    1536: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  }
-    });
-
-    var swiper3 = new Swiper(".mySwiper3", {
-     
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".cus-swiper-button-next",
-        prevEl: ".cus-swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-        clickable: true,
-      },
-      rewind: true,
-      breakpoints: {
-    // Breakpoint for small screens
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-
-  }
-      
-    });
-
-
-  new Swiper('.swiper-container', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 32,
-      autoplay: {
-        delay: 8000,
-      },
-      breakpoints: {
-        640: {
-          centeredSlides: true,
-          slidesPerView: 1.25,
+      rewind: !0,
+    }),
+      swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".cus-swiper-button-next",
+          prevEl: ".cus-swiper-button-prev",
         },
-        1024: {
-          centeredSlides: false,
-          slidesPerView: 1.5,
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: !0,
+          clickable: !0,
         },
-      },
-      navigation: {
-        nextEl: '.next-button',
-        prevEl: '.prev-button',
-      },
-    })  
+        rewind: !0,
+        breakpoints: {
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+          1536: { slidesPerView: 4, spaceBetween: 40 },
+        },
+      }),
+      swiper3 = new Swiper(".mySwiper3", {
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".cus-swiper-button-next",
+          prevEl: ".cus-swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: !0,
+          clickable: !0,
+        },
+        rewind: !0,
+        breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 } },
+      }),
+      swiper4 = new Swiper(".mySwiper4", {
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".cus-swiper-button-next",
+          prevEl: ".cus-swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          dynamicBullets: !0,
+          clickable: !0,
+        },
+        rewind: !0,
+        breakpoints: {
+          640: { slidesPerView: 1.5, spaceBetween: 20 },
+          1024: { slidesPerView: 2.5, spaceBetween: 20 },
+        },
+        autoplay: { delay: 8e3 },
+        loop: !0,
+        slidesPerView: 1,
+      });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+</body>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-
-    </body>
 </html>

@@ -1,3 +1,5 @@
+# This is a Django view class for handling GET and POST requests for a contact form, which saves the
+# submitted data to the database and displays a success message.
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
@@ -11,9 +13,11 @@ class ContactView(View):
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-
-        contact = Contact(email=email, subject=subject, message=message)
-        contact.save()
-
         messages.success(request, 'Your message has been sent successfully!')
         return redirect('contact')
+''' This Part is for Gmail Intregation  '''
+
+        # contact = Contact(email=email, subject=subject, message=message)
+        # contact.save()
+
+

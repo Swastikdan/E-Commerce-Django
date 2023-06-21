@@ -1,3 +1,13 @@
+
+"""
+    This is a Django signal that sends an email notification to the website owner when a new contact
+    message is submitted through a contact form.
+    
+    :param sender: The model class that the signal is being sent from, in this case, the Contact model
+    :param instance: Refers to the instance of the Contact model that was just saved
+    :param created: A boolean value that indicates whether a new instance of the Contact model was
+    created or an existing instance was updated
+"""
 from django.db import models
 from django.core.mail import send_mail
 from django.db.models.signals import post_save

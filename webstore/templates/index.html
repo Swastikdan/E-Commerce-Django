@@ -2,59 +2,30 @@
 {% block content %}
 {% load cart %}
 {% load custom_filter %}
-<!-- body -->
-<!-- CSS -->
-
-<!-- Banner -->
-
-<!-- Swiper -->
-
-
-<!-- test product by catagory chnages need to be made to  work it properly -->
-
-<!-- {% for product in products %}
-        {% if product.category_id == 5 %}
-            <div class="product">
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.description }}</p>
-              
-            </div>
-        {% endif %}
-    {% endfor %} -->
-
-
 <div data-popover id="popover-bottom" role="tooltip"
-	class="absolute z-20 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200  shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 right-0 rounded-xl ">
-	<div class="relative w-64 border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8 rounded-xl" aria-modal="true"
-		role="dialog" tabindex="-1">
-
-
+	class="absolute z-20 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 right-0 rounded-xl">
+	<div class="relative w-64 border border-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-800 px-4 py-8 sm:px-6 lg:px-8 rounded-xl"
+		aria-modal="true" role="dialog" tabindex="-1">
 		<div class="mt-4 space-y-6">
-
-
 			{% if cart_empty %}
-
-			<ul class="space-y-4">
+			<ul class="space-y-4 text-center">
 				<p>Your cart is empty.</p>
 				<div class="space-y-4 text-center">
 					<a href="/" id="popover-bottom-close"
-						class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
-						Continue shopping
-					</a>
+						class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">Continue
+						shopping</a>
 				</div>
-
 			</ul>
 			{% else %}
 			<ul class="space-y-4">
 				{% for item in cart_items %}
-
 				<li class="flex items-center gap-4">
 					<img src="{{ item.image }}" alt="{{ item.name }}" class="h-16 w-16 rounded object-cover" />
-
 					<div>
-						<h3 class="text-sm text-gray-900">{{ item.name }}</h3>
-
-						<dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+						<h3 class="text-sm text-gray-900 dark:text-white">
+							{{ item.name }}
+						</h3>
+						<dl class="mt-0.5 space-y-px text-[15px] text-gray-600 dark:text-gray-300">
 							<div>
 								<dt class="inline">Price:</dt>
 								<dd class="inline">Rs {{ item.price }}</dd>
@@ -62,229 +33,38 @@
 						</dl>
 					</div>
 				</li>
-
 				{% endfor %}
 			</ul>
-
 			<div class="space-y-4 text-center">
 				<a href="/cart"
-					class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400">
-					View my cart ({{ request.session.cart.keys|length }})
-				</a>
-
-
-
-				<a href="/" id="popover-bottom-close"
-					class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
-					Continue shopping
-				</a>
+					class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 dark:text-gray-200 transition hover:ring-1 hover:ring-gray-400 font-semibold">View
+					my cart ( {{ request.session.cart.keys|length }} )</a><a href="/" id="popover-bottom-close"
+					class="inline-block text-sm text-gray-500 dark:text-gray-100 underline underline-offset-4 transition hover:text-gray-600 font-semibold">Continue
+					shopping</a>
 			</div>
 			{% endif %}
 		</div>
 	</div>
-	<div data-popper-arrow></div>
+	<div data-popper-arrow class="bg-gray-200 dark:bg-gray-800 border border-gray-600"></div>
 </div>
-
-<!-- {% if cart_empty %}
-<p>Your cart is empty.</p>
-{% else %}
-
-{% for item in cart_items %}
-<div>
-	<img src="{{ item.image }}" alt="{{ item.name }}">
-	<h3>{{ item.name }}</h3>
-	<p>Price: ${{ item.price }}</p>
-	<p>Quantity: {{ item.quantity }}</p>
-</div>
-{% endfor %}
-
-
-<p>Total Price: ${{ total_price }}</p>
-{% endif %} -->
-<!-- {% if cart %}
-    <h2>Cart:</h2>
-    <ul>
-        {% for product_id, quantity in cart.items %}
-            <li>Product ID: {{ product_id }} | Quantity: {{ quantity }}  </li>
-			<img src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Your cart is empty.</p>
-{% endif %} -->
-<!-- Display cart items -->
-<!-- {% for item in cart_items %}
-    <div>
-        <img src="{{ item.image }}" alt="{{ item.name }}">
-        <h3>{{ item.name }}</h3>
-        <p>Price: ${{ item.price }}</p>
-        <p>Quantity: {{ item.quantity }}</p>
-    </div>
-{% endfor %}
-
-
-<p>Total Price: ${{ total_price }}</p> -->
-
-
-</div>
-<!-- {% if cart %}
-    <h2>Cart:</h2>
-	 <p class="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-200 ">{{products|total_cart_price:request.session.cart|currency}}  </p>
-    <ul>
-        {% for product_id, quantity in cart.items %}
-            <li>Product ID: {{ product_id }} | Quantity: {{ quantity }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Your cart is empty.</p>
-{% endif %}  -->
-
-<!-- <div
-  class="relative w-screen max-w-sm border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8"
-  aria-modal="true"
-  role="dialog"
-  tabindex="-1"
->
-  <button class="absolute end-4 top-4 text-gray-600 transition hover:scale-110">
-    <span class="sr-only">Close cart</span>
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="h-5 w-5"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  </button>
-
-  <div class="mt-4 space-y-6">
-    <ul class="space-y-4">
-      <li class="flex items-center gap-4">
-        <img
-          src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-          alt=""
-          class="h-16 w-16 rounded object-cover"
-        />
-
-        <div>
-          <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-          <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-            <div>
-              <dt class="inline">Size:</dt>
-              <dd class="inline">XXS</dd>
-            </div>
-
-            <div>
-              <dt class="inline">Color:</dt>
-              <dd class="inline">White</dd>
-            </div>
-          </dl>
-        </div>
-      </li>
-
-      <li class="flex items-center gap-4">
-        <img
-          src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-          alt=""
-          class="h-16 w-16 rounded object-cover"
-        />
-
-        <div>
-          <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-          <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-            <div>
-              <dt class="inline">Size:</dt>
-              <dd class="inline">XXS</dd>
-            </div>
-
-            <div>
-              <dt class="inline">Color:</dt>
-              <dd class="inline">White</dd>
-            </div>
-          </dl>
-        </div>
-      </li>
-
-      <li class="flex items-center gap-4">
-        <img
-          src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-          alt=""
-          class="h-16 w-16 rounded object-cover"
-        />
-
-        <div>
-          <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-          <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-            <div>
-              <dt class="inline">Size:</dt>
-              <dd class="inline">XXS</dd>
-            </div>
-
-            <div>
-              <dt class="inline">Color:</dt>
-              <dd class="inline">White</dd>
-            </div>
-          </dl>
-        </div>
-      </li>
-    </ul>
-
-    <div class="space-y-4 text-center">
-      <a
-        href="#"
-        class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400"
-      >
-        View my cart ({{ request.session.cart.keys|length }})
-      </a>
-
-      <a
-        href="#"
-        class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-      >
-        Checkout
-      </a>
-
-      <a
-        href="#"
-        class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600"
-      >
-        Continue shopping
-      </a>
-    </div>
-  </div>
-</div> -->
-
-
-
-<div class="swiper  mySwiper">
+<div class="swiper mySwiper">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide">
 			<section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right"
 				style="
           max-width: 1600px;
           height: 32rem;
-          background-image: url('https://ik.imagekit.io/swastik/E-Commerce-Django/cq5dam.web.1920.1920_F9miEfi-3.jpeg?updatedAt=1686934266976');
+          background-image: url(https://ik.imagekit.io/swastik/E-Commerce-Django/cq5dam.web.1920.1920_F9miEfi-3.jpeg?updatedAt=1686934266976);
         ">
-				<div class="container mx-auto px-10 md:px-20 ">
+				<div class="container mx-auto px-10 md:px-20">
 					<div
-						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide  p-5 rounded-xl bg-gray-50 bg-opacity-20    ">
-						<h1 class=" font-black text-gray-800 text-5xl my-4  ">
+						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide p-5 rounded-xl bg-gray-50 bg-opacity-20">
+						<h1 class="font-black text-gray-800 text-5xl my-4">
 							PORTABLE BLUETOOTH SPEAKERS
 						</h1>
-						<p>Keep up with your
-							busy life and make your music sound amazing</p>
+						<p>Keep up with your busy life and make your music sound amazing</p>
 						<a class="text-xl pt-5 inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-							href="#">Buy Now</a>
+							href="/category/8">Buy Now</a>
 					</div>
 				</div>
 			</section>
@@ -294,30 +74,26 @@
 				class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right bg-[#F1F4FF]"
 				style="max-width: 1600px; height: 32rem">
 				<img src="https://ik.imagekit.io/swastik/E-Commerce-Django/indoor20header_20copy_TxQ9o8JAB.webp?updatedAt=1686979131976"
-					loading="lazy" alt="Photo by Fakurian Design"
+					loading="lazy" alt="Shop What your heart says"
 					class="absolute inset-0 h-full w-full object-cover object-center lg:hidden" />
 				<div class="container mx-auto px-10 md:px-20">
 					<div class="lg:flex lg:items-center lg:-mx-4 relative">
-						<div class="lg:w-1/2 lg:px-4">
-							<h3 class="text-5xl font-black text-gray-800  uppercase ">
+						<div class="lg:w-1/2 lg:px-4 p-5 rounded-xl bg-gray-50 bg-opacity-20">
+							<h3 class="text-5xl font-black text-gray-800 uppercase">
 								Shop What your heart says
 							</h3>
-
-							<p class="mt-6 text-gray-500 pb-5">
+							<p class="mt-6 sm:text-gray-500 pb-5">
 								with our secrued payment gateway
 							</p>
-
 							<a href="#shop-by-catagory"
-								class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400 w-40 text-center  ">
-
+								class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400 w-40 text-center bg-white">
 								<p class="mx-1 font-semibold">Shop Now</p>
 							</a>
 						</div>
-
 						<div class="mt-8 lg:w-1/2 lg:px-4 lg:mt-0 rounded-xl">
 							<img class="object-cover w-full rounded-xl h-96 hidden lg:block"
 								src="https://ik.imagekit.io/swastik/E-Commerce-Django/indoor20header_20copy_TxQ9o8JAB.webp?updatedAt=1686979131976"
-								alt="Video thumbnail" />
+								alt="Shop What your heart says" />
 						</div>
 					</div>
 				</div>
@@ -328,17 +104,17 @@
 				style="
           max-width: 1600px;
           height: 32rem;
-          background-image: url('https://ik.imagekit.io/swastik/E-Commerce-Django/LNzA2mxC_2x_8kuTzd1v5.png?updatedAt=1686940982071');
+          background-image: url(https://ik.imagekit.io/swastik/E-Commerce-Django/LNzA2mxC_2x_8kuTzd1v5.png?updatedAt=1686940982071);
         ">
-				<div class="container mx-auto px-10 md:px-20 ">
+				<div class="container mx-auto px-10 md:px-20">
 					<div
-						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide  p-5 sm:p-0 rounded-xl sm:bg-opacity-0 bg-gray-700 bg-opacity-20    ">
-						<h1 class=" font-black text-white text-5xl my-4  ">
-							SMART WATCHES
-						</h1>
-						<p class="text-gray-100">Stay connected and track your activities with style</p>
+						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide p-5 sm:p-0 rounded-xl sm:bg-opacity-0 bg-gray-700 bg-opacity-20">
+						<h1 class="font-black text-white text-5xl my-4">SMART WATCHES</h1>
+						<p class="text-gray-100">
+							Stay connected and track your activities with style
+						</p>
 						<a class="text-xl pt-5 inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-							href="#">Buy Now</a>
+							href="/category/1">Buy Now</a>
 					</div>
 				</div>
 			</section>
@@ -348,62 +124,53 @@
 				class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right bg-[#F1F4FF]"
 				style="max-width: 1600px; height: 32rem">
 				<img src="https://ik.imagekit.io/swastik/E-Commerce-Django/D3oOn4SA_4x_Qax0h4TuJ.jpg?updatedAt=1687023178571"
-					loading="lazy" alt="Photo by Fakurian Design"
+					loading="lazy" alt="PORTABLE HEADPHONES"
 					class="absolute inset-0 h-full w-full object-cover object-center lg:hidden" />
 				<div class="container mx-auto px-10 md:px-20">
 					<div class="lg:flex lg:items-center lg:-mx-4 relative">
 						<div class="lg:w-1/2 lg:px-4">
-							<h3 class="text-5xl font-black text-gray-800  uppercase ">
-								Shop What your heart says
+							<h3 class="text-5xl font-black text-gray-800 uppercase">
+								PORTABLE HEADPHONES
 							</h3>
-
-							<p class="mt-6 text-gray-500 pb-5">
-								with our secrued payment gateway
+							<p class="mt-6 sm:text-gray-500 pb-5">
+								Enjoy your music with our best quality headphones
 							</p>
-
-							<a href="#shop-by-catagory"
-								class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400 w-40 text-center  ">
-
+							<a href="/category/3"
+								class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400 w-40 text-center bg-white">
 								<p class="mx-1 font-semibold">Shop Now</p>
 							</a>
 						</div>
-
 						<div class="mt-8 lg:w-1/3 ml-40 lg:px-4 lg:mt-0 rounded-xl">
 							<img class="object-cover w-full rounded-xl h-96 hidden lg:block"
 								src="https://ik.imagekit.io/swastik/E-Commerce-Django/D3oOn4SA_4x_Qax0h4TuJ.jpg?updatedAt=1687023178571"
-								alt="Video thumbnail" />
+								alt="Video thumbnailPORTABLE HEADPHONES" />
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
-
 		<div class="swiper-slide">
 			<section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right"
 				style="
           max-width: 1600px;
           height: 32rem;
-          background-image: url('https://ik.imagekit.io/swastik/E-Commerce-Django/banner-15_2__Ggn7vnSjU.png?updatedAt=1687024341447');
+          background-image: url(https://ik.imagekit.io/swastik/E-Commerce-Django/banner-15_2__Ggn7vnSjU.png?updatedAt=1687024341447);
         ">
-				<div class="container mx-auto px-10 md:px-20 ">
+				<div class="container mx-auto px-10 md:px-20">
 					<div
-						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide  p-5 sm:p-0 rounded-xl sm:bg-opacity-0 bg-gray-700 bg-opacity-20    ">
-						<h1 class=" font-black text-white text-5xl my-4  ">
-							SMART WATCHES
-						</h1>
-						<p class="text-gray-100">Stay connected and track your activities with style</p>
+						class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide p-5 sm:p-0 rounded-xl sm:bg-opacity-0 bg-gray-700 bg-opacity-20">
+						<h1 class="font-black text-white text-5xl my-4">TABLATES</h1>
+						<p class="text-gray-100">
+							Stay Connected and Track Your Activities with Style: Introducing
+							the Ultimate Tablet Experience
+						</p>
 						<a class="text-xl pt-5 inline-block no-underline border-b border-gray-100 leading-relaxed text-gray-100 hover:text-white hover:border-white"
-							href="#">Buy Now</a>
+							href="/category/9">Buy Now</a>
 					</div>
 				</div>
 			</section>
 		</div>
-
-
-
 	</div>
-
-	<!-- Custom Navigation Buttons -->
 	<div class="cus-swiper-button-prev left-3 right-auto z-10 top-1/2 absolute hidden sm:block">
 		<button type="button"
 			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-3 py-3 rounded-full text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative inline-flex items-center justify-center transition duration-300 ease-out overflow-hidden group">
@@ -415,7 +182,7 @@
 			</svg>
 		</button>
 	</div>
-	<div class=" cus-swiper-button-next left-auto right-3 z-10 top-1/2 absolute hidden sm:block">
+	<div class="cus-swiper-button-next left-auto right-3 z-10 top-1/2 absolute hidden sm:block">
 		<button type="button"
 			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-3 py-3 rounded-full text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative inline-flex items-center justify-center transition duration-300 ease-out overflow-hidden group">
 			<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -428,110 +195,109 @@
 	</div>
 	<div class="swiper-pagination"></div>
 </div>
-
-	<div class="bg-gray-50 dark:bg-gray-800 lg:grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:px-20 lg:py-12 py-10 md:px-12 px-4 hidden lg: ">
-		<!-- Delivery grid Card -->
-		<div class="">
-			<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg1.svg" alt="delivery">
-			<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg1dark.svg" alt="delivery">
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Delivery</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Free worldwide delivery over orders above Rs. 1000</p>
-		</div>
-
-		<!-- customer Grid Card -->
-
-		<div class="">
-			<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg2.svg" alt="Customer Care">
-			<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg2dark.svg" alt="Customer Care">
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Customer Care</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Our customer care is available 24/7 at <span class="font-semibold cursor-pointer">+91 1236547890</span> and <span class="font-semibold cursor-pointer">customercar.shopvibe@gmail.com</span></p>
-		</div>
-
-		<!-- Recycle Grid Card -->
-
-		<div class="">
-			<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg3.svg" alt="Recycle">
-			<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg3dark.svg" alt="Recycle">
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Recycle</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">All out products are 100 percent recycable</p>
-		</div>
-
-		<!-- Secure Payment Card -->
-
-		<div class="">
-			<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg4.svg" alt="Secure Payment">
-			<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg4dark.svg" alt="Secure Payment">
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Secure Payment</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Transaction process has end to end encryption</p>
-		</div>
+<div
+	class="bg-gray-50 dark:bg-gray-800 lg:grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:px-20 lg:py-12 py-10 md:px-12 px-4 hidden lg:">
+	<div class="">
+		<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg1.svg"
+			alt="delivery" />
+		<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg1dark.svg"
+			alt="delivery" />
+		<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+			Delivery
+		</h3>
+		<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+			Free worldwide delivery over orders above Rs. 1000
+		</p>
 	</div>
-
-<!-- call to action - start -->
+	<div class="">
+		<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg2.svg"
+			alt="Customer Care" />
+		<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg2dark.svg"
+			alt="Customer Care" />
+		<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+			Customer Care
+		</h3>
+		<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+			Our customer care is available 24/7 at<span class="font-semibold cursor-pointer">+91
+				1236547890</span>and<span class="font-semibold cursor-pointer">customercar.shopvibe@gmail.com</span>
+		</p>
+	</div>
+	<div class="">
+		<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg3.svg"
+			alt="Recycle" />
+		<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg3dark.svg"
+			alt="Recycle" />
+		<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+			Recycle
+		</h3>
+		<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+			All out products are 100 percent recycable
+		</p>
+	</div>
+	<div class="">
+		<img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg4.svg"
+			alt="Secure Payment" />
+		<img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-1-svg4dark.svg"
+			alt="Secure Payment" />
+		<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+			Secure Payment
+		</h3>
+		<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+			Transaction process has end to end encryption
+		</p>
+	</div>
+</div>
 <div class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12">
 	<div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-		<div class="flex flex-col overflow-hidden rounded-lg bg-gray-800  sm:flex-row md:h-80">
-			<!-- content - start -->
+		<div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800 sm:flex-row md:h-80">
 			<div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
-				<h2 class="mb-4 text-xl font-bold text-white md:text-2xl lg:text-4xl">
+				<h2 class="mb-4 text-xl font-bold dark:text-white md:text-2xl lg:text-4xl">
 					Summer Sale<br />Up to 70% off. On all the tablates.
 				</h2>
-
 				<p class="mb-8 max-w-md text-gray-400">
 					Offer valid upto 2 days. Hurry up!
 				</p>
-
 				<div class="mt-auto">
-					<a href="#" class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">Save
+					<a href="/category/9"
+						class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">Save
 						now</a>
 				</div>
 			</div>
-			<!-- content - end -->
-
-			<!-- image - start -->
 			<div class="order-first h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
 				<img src="https://ik.imagekit.io/swastik/E-Commerce-Django/oOP9FhQ7_4x_030MWXbUP.webp?updatedAt=1687102756217"
-					loading="lazy" alt="Photo by Dom Hill" class="h-full w-full object-cover object-center bg-black" />
+					loading="lazy" alt="tablates" class="h-full w-full object-cover object-center bg-black" />
 			</div>
-			<!-- image - end -->
 		</div>
 	</div>
 </div>
-<!-- call to action - end -->
-
 <div id="shop-by-catagory" class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12">
-	<div class="mx-auto  ">
-		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 dark:text-gray-100 lg:text-3xl     ">Shop by category</h2>
-
+	<div class="mx-auto">
+		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 dark:text-gray-100 lg:text-3xl">
+			Shop by category
+		</h2>
 		<div class="swiper mySwiper2 bg-white dark:bg-gray-900 rounded-xl p-10">
-
 			<div class="swiper-wrapper rounded-xl">
 				{% for category in categories %}
 				<div class="swiper-slide drop-shadow-md shadow-gray-50">
-					<!-- product - start -->
 					<div>
 						<a href="/category/{{ category.id }}"
-							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 p-4 shadow-lg">
-							<img src="media/{{ category.image }}" loading="lazy" alt="{{ category.name }}_Thumbnail"
-								class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
+							class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 p-4 shadow-lg "><img
+								src="media/{{ category.image }}" loading="lazy" alt="{{ category.name }}_Thumbnail"
+								class="absolute inset-0 h-full w-full object-cover object-center  group-hover:scale-110 transition duration-200 group-hover:opacity-90" />
 							<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
 								<span class="text-gray-500">{{ category.name }}</span>
-
 							</div>
 						</a>
 					</div>
-					<!-- product - end -->
 				</div>
 				{% endfor %}
 			</div>
-
-
-			<div class="button-all pt-5 items-center justify-center  hidden sm:flex">
+			<div class="button-all pt-5 items-center justify-center hidden sm:flex">
 				<div
-					class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
-					<div class="cus-swiper-button-prev z-10  ">
+					class="button items-center justify-center flex py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50 space-x-4">
+					<div class="cus-swiper-button-prev z-10">
 						<button type="button"
-							class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
+							class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 							<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd"
@@ -540,7 +306,7 @@
 							</svg>
 						</button>
 					</div>
-					<div class="cus-swiper-button-next   z-10  ">
+					<div class="cus-swiper-button-next z-10">
 						<button type="button"
 							class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 							<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -553,73 +319,60 @@
 					</div>
 				</div>
 			</div>
-			<div class="swiper-pagination sm:hidden "></div>
+			<div class="py-3"></div>
+			<div class="swiper-pagination sm:hidden text-white bg-white p-2 rounded-xl"></div>
 		</div>
 	</div>
 </div>
-
-  <div class="bg-white py-6 sm:py-8 lg:py-12">
-	<div class="mx-auto  ">
-		
-		<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white">
+<div class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12">
+	<div class="mx-auto">
+		<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-				<div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+				<div class="grid p-6 bg-gray-100 dark:bg-gray-700 rounded-xl place-content-center sm:p-8">
 					<div class="max-w-md mx-auto text-center lg:text-left">
 						<header>
-							<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Smart Phones</h2>
-
-							<p class="mt-4 text-gray-500">
-								Shop our collection of smart phones, including the latest iPhone 12, Samsung Galaxy S21, and more.
-
+							<h2 class="text-xl font-bold text-gray-900 dark:text-gray-200 sm:text-3xl">
+								Smart Phones
+							</h2>
+							<p class="mt-4 text-gray-500 dark:text-white">
+								Shop our collection of smart phones, including the latest iPhone
+								12, Samsung Galaxy S21, and more.
 							</p>
 						</header>
-
-						<a href="#"
-							class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">
-							Shop All
-						</a>
+						<a href="/category/2"
+							class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">Shop
+							All</a>
 					</div>
 				</div>
-
 				<div class="lg:col-span-2 lg:py-8">
-
 					<div class="swiper mySwiper3 p-3">
-						<div class="swiper-wrapper  ">
-
-							{% for product in products %}
-							{% if product.category_id == 2 %}
-
+						<div class="swiper-wrapper">
+							{% for product in products %} {% if product.category_id == 2 %}
 							<div class="swiper-slide">
 								<a href="/product/?id={{product.id}}" class="block group">
-									<img src="{{product.image.url}}" alt="{{ product.name }}"
-										class="h-[350px] w-full object-cover sm:h-[450px]" />
-
+									<div class="product-image bg-white rounded-xl overflow-hidden">
+										<img src="{{product.image.url}}" alt="{{ product.name }}"
+											class="h-[350px] w-full object-cover sm:h-[450px] bg-white transition duration-500 group-hover:opacity-90 group-hover:scale-105" />
+									</div>
 									<div class="mt-3">
 										<h3
-											class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
+											class="text-sm text-gray-700 dark:text-gray-100 group-hover:underline group-hover:underline-offset-4">
 											{{ product.name }}
 										</h3>
-
-										<p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+										<p class="mt-1.5 max-w-[40ch] text-xs text-gray-500 dark:text-gray-300">
 											{{ product.description|slice:":100" }}...
 										</p>
 									</div>
 								</a>
 							</div>
-
-
-							{% endif %}
-							{% endfor %}
-
-
+							{% endif %} {% endfor %}
 						</div>
-
-						<div class="button-all pt-5 items-center justify-center  hidden sm:flex">
+						<div class="button-all pt-5 items-center justify-center hidden sm:flex">
 							<div
-								class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
-								<div class="cus-swiper-button-prev z-10  ">
+								class="button items-center justify-center flex py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50 space-x-4">
+								<div class="cus-swiper-button-prev z-10">
 									<button type="button"
-										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
+										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
 											xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd"
@@ -628,7 +381,7 @@
 										</svg>
 									</button>
 								</div>
-								<div class="cus-swiper-button-next   z-10  ">
+								<div class="cus-swiper-button-next z-10">
 									<button type="button"
 										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -641,193 +394,137 @@
 								</div>
 							</div>
 						</div>
-						<div class="swiper-pagination sm:hidden pt-5 "></div>
+						<div class="py-3"></div>
+						<div class="swiper-pagination sm:hidden text-white bg-white p-2 rounded-xl"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="bg-white py-6 sm:py-8 lg:py-12">
+		<div class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12">
 			<div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-			  <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-				<div class="flex items-center gap-12">
-				  <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">Featured Products</h2>
-		  
-
+				<div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+					<div class="flex items-center gap-12">
+						<h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 lg:text-3xl">
+							Featured Products
+						</h2>
+					</div>
 				</div>
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 md:gap-6 xl:gap-8">
 
-			  </div>
-		  
-			  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4   md:gap-6 xl:gap-8">
-	
-				
-				<a href="#" class="relative block group">
-					<img
-					  src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
-					  alt=""
-					  class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px]"
-					/>
-				  
-					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-					  <h3 class="text-xl font-medium text-white">Skinny Jeans Blue</h3>
-				  
-					  <p class="mt-1.5 max-w-[40ch] text-xs text-white">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi
-						dicta impedit aperiam ipsum!
-					  </p>
-				  
-					  <span
-						class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-black"
-					  >
-						Shop Now
-					  </span>
-					</div>
-				  </a>
+					{% for product in products %}
 
-
-				  <a href="#" class="relative block group">
-					<img
-					  src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
-					  alt=""
-					  class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px]"
-					/>
-				  
-					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-					  <h3 class="text-xl font-medium text-white">Skinny Jeans Blue</h3>
-				  
-					  <p class="mt-1.5 max-w-[40ch] text-xs text-white">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi
-						dicta impedit aperiam ipsum!
-					  </p>
-				  
-					  <span
-						class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-black"
-					  >
-						Shop Now
-					  </span>
-					</div>
-				  </a>
-
-
-
-				  <a href="#" class="relative block group">
-					<img
-					  src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
-					  alt=""
-					  class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px]"
-					/>
-				  
-					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-					  <h3 class="text-xl font-medium text-white">Skinny Jeans Blue</h3>
-				  
-					  <p class="mt-1.5 max-w-[40ch] text-xs text-white">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi
-						dicta impedit aperiam ipsum!
-					  </p>
-				  
-					  <span
-						class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-black"
-					  >
-						Shop Now
-					  </span>
-					</div>
-				  </a>
-
-
-				  <a href="#" class="relative block group">
-					<img
-					  src="http://localhost:8000/media/images/Samsung_Galaxy_S22_Ultra_image.jpg"
-					  alt=""
-					  class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px]"
-					/>
-				  
-					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-					  <h3 class="text-xl font-medium text-white">Skinny Jeans Blue</h3>
-				  
-					  <p class="mt-1.5 max-w-[40ch] text-xs text-white">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi
-						dicta impedit aperiam ipsum!
-					  </p>
-				  
-					  <span
-						class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-black"
-					  >
-						Shop Now
-					  </span>
-					</div>
-				  </a>
-
-		  
-
-		  
-
-			  </div>
+					{% if product.id == 103 %}
+					<a href="/product/?id={{ product.id }}" class="relative block group">
+						<img src="{{ product.image.url }}" alt="{{ product.name }}"
+							class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px] rounded-xl" />
+						<div class="absolute inset-0 flex flex-col items-start justify-end p-6 ">
+							<h3 class="text-xl font-medium text-white">{{ product.name }}</h3>
+							<p class="mt-1.5 max-w-[40ch] text-xs text-white">
+								{{ product.description|slice:":100" }}...
+							</p>
+							<span
+								class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-gray-900 rounded-md hover:bg-gray-800 cursor-pointer  ">Shop
+								Now</span>
+						</div>
+					</a>
+					{% endif %}
+					{% if product.id == 67 %}
+					<a href="/product/?id={{ product.id }}" class="relative block group">
+						<img src="{{ product.image.url }}" alt="{{ product.name }}"
+							class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px] rounded-xl" />
+						<div class="absolute inset-0 flex flex-col items-start justify-end p-6 ">
+							<h3 class="text-xl font-medium text-white">{{ product.name }}</h3>
+							<p class="mt-1.5 max-w-[40ch] text-xs text-white">
+								{{ product.description|slice:":100" }}...
+							</p>
+							<span
+								class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-gray-900 rounded-md hover:bg-gray-800 cursor-pointer  ">Shop
+								Now</span>
+						</div>
+					</a>
+					{% endif %}
+					{% if product.id == 65 %}
+					<a href="/product/?id={{ product.id }}" class="relative block group">
+						<img src="{{ product.image.url }}" alt="{{ product.name }}"
+							class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px] rounded-xl" />
+						<div class="absolute inset-0 flex flex-col items-start justify-end p-6 ">
+							<h3 class="text-xl font-medium text-white">{{ product.name }}</h3>
+							<p class="mt-1.5 max-w-[40ch] text-xs text-white">
+								{{ product.description|slice:":100" }}...
+							</p>
+							<span
+								class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-gray-900 rounded-md hover:bg-gray-800 cursor-pointer  ">Shop
+								Now</span>
+						</div>
+					</a>
+					{% endif %}
+					{% if product.id == 48 %}
+					<a href="/product/?id={{ product.id }}" class="relative block group">
+						<img src="{{ product.image.url }}" alt="{{ product.name }}"
+							class="h-[350px] w-full object-cover transition duration-500 group-hover:opacity-90 sm:h-[450px] rounded-xl" />
+						<div class="absolute inset-0 flex flex-col items-start justify-end p-6 ">
+							<h3 class="text-xl font-medium text-white">{{ product.name }}</h3>
+							<p class="mt-1.5 max-w-[40ch] text-xs text-white">
+								{{ product.description|slice:":100" }}...
+							</p>
+							<span
+								class="inline-block px-5 py-3 mt-3 text-xs font-medium tracking-wide text-white uppercase bg-gray-900 rounded-md hover:bg-gray-800 cursor-pointer  ">Shop
+								Now</span>
+						</div>
+					</a>
+					{% endif %}
+					{% endfor %}
+				</div>
 			</div>
-		  </div>
-
-
-
-
-		  
-
-		<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white">
+		</div>
+		<div class="max-w-screen-2xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-				<div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+				<div class="grid p-6 bg-gray-100 dark:bg-gray-700 rounded-xl place-content-center sm:p-8">
 					<div class="max-w-md mx-auto text-center lg:text-left">
 						<header>
-							<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Smart Watches</h2>
-
-							<p class="mt-4 text-gray-500">
-								Shop our latest collection of smart watches. From the Apple Watch to the Samsung Galaxy Watch, we have a wide range of smart watches to suit your needs.
+							<h2 class="text-xl font-bold text-gray-900 dark:text-gray-200 sm:text-3xl">
+								Smart Watches
+							</h2>
+							<p class="mt-4 text-gray-500 dark:text-white">
+								Shop our latest collection of smart watches. From the Apple
+								Watch to the Samsung Galaxy Watch, we have a wide range of smart
+								watches to suit your needs.
 							</p>
 						</header>
-
-						<a href="#"
-							class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">
-							Shop All
-						</a>
+						<a href="/category/1"
+							class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring">Shop
+							All</a>
 					</div>
 				</div>
-
 				<div class="lg:col-span-2 lg:py-8">
-
 					<div class="swiper mySwiper3 p-3">
-						<div class="swiper-wrapper  ">
-
-							{% for product in products %}
-							{% if product.category_id == 1 %}
-
+						<div class="swiper-wrapper">
+							{% for product in products %} {% if product.category_id == 1 %}
 							<div class="swiper-slide">
 								<a href="/product/?id={{product.id}}" class="block group">
-									<img src="{{product.image.url}}" alt="{{ product.name }}"
-										class="h-[350px] w-full object-cover sm:h-[450px]" />
-
+									<div class="product-image bg-white rounded-xl overflow-hidden">
+										<img src="{{product.image.url}}" alt="{{ product.name }}"
+											class="h-[350px] w-full object-cover sm:h-[450px] bg-white transition duration-500 group-hover:opacity-90" />
+									</div>
 									<div class="mt-3">
 										<h3
-											class="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
+											class="text-sm text-gray-700 dark:text-gray-100 group-hover:underline group-hover:underline-offset-4">
 											{{ product.name }}
 										</h3>
-
-										<p class="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+										<p class="mt-1.5 max-w-[40ch] text-xs text-gray-500 dark:text-gray-300">
 											{{ product.description|slice:":100" }}...
 										</p>
 									</div>
 								</a>
 							</div>
-
-
-							{% endif %}
-							{% endfor %}
-
-
+							{% endif %} {% endfor %}
 						</div>
-
-						<div class="button-all pt-5 items-center justify-center  hidden sm:flex">
+						<div class="button-all pt-5 items-center justify-center hidden sm:flex">
 							<div
-								class="button items-center justify-center flex  py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50  space-x-4">
-								<div class="cus-swiper-button-prev z-10  ">
+								class="button items-center justify-center flex py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50 space-x-4">
+								<div class="cus-swiper-button-prev z-10">
 									<button type="button"
-										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full ">
+										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
 											xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd"
@@ -836,7 +533,7 @@
 										</svg>
 									</button>
 								</div>
-								<div class="cus-swiper-button-next   z-10  ">
+								<div class="cus-swiper-button-next z-10">
 									<button type="button"
 										class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full">
 										<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -849,835 +546,347 @@
 								</div>
 							</div>
 						</div>
-						<div class="swiper-pagination sm:hidden pt-5 "></div>
+						<div class="py-3"></div>
+						<div class="swiper-pagination sm:hidden text-white bg-white p-2 rounded-xl"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
-
-
-<section class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
-	<div class="mx-auto max-w-[1340px] px-4 py-16 sm:px-6 sm:py-24 lg:me-0 lg:pe-0 lg:ps-8">
-
-
-			<div class="-mx-6 lg:col-span-2 lg:mx-0">
-				<div class="swiper-container !overflow-hidden">
-					<div class="swiper-wrapper ">
-						<div class="swiper-slide">
-							<blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-xl">
-								<div>
-									<div class="flex gap-0.5 text-yellow-300">
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									</div>
-
-									<div class="mt-4">
-										<p class="text-2xl font-bold text-blue-600 sm:text-3xl">
-											Fast and Reliable Delivery Service!
-										</p>
-
-										<p class="mt-4 leading-relaxed text-gray-500">
-											"I received my order promptly and in excellent condition. The packaging was
-											secure, and the delivery personnel were courteous. I highly recommend their
-											efficient delivery service.
-										</p>
-									</div>
-								</div>
-
-								<footer class="mt-8 text-sm text-gray-500">
-									&mdash; Rajesh Sharma
-								</footer>
-							</blockquote>
-						</div>
-
-						<div class="swiper-slide">
-							<blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-xl">
-								<div>
-									<div class="flex gap-0.5 text-yellow-300">
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="gray" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									</div>
-
-									<div class="mt-4">
-										<p class="text-2xl font-bold text-blue-600 sm:text-3xl">
-											A Seamless Online Shopping Experience
-										</p>
-
-										<p class="mt-4 leading-relaxed text-gray-500">
-											The website offers a user-friendly interface, easy navigation, and a wide
-											range of products. The customer support team is responsive and helpful.
-											Overall, a great online shopping destination!
-										</p>
-									</div>
-								</div>
-
-								<footer class="mt-8 text-sm text-gray-500">
-									&mdash; Priya Patel
-								</footer>
-							</blockquote>
-						</div>
-						<div class="swiper-slide">
-							<blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-xl">
-								<div>
-									<div class="flex gap-0.5 text-yellow-300">
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									</div>
-
-									<div class="mt-4">
-										<p class="text-2xl font-bold text-blue-600 sm:text-3xl">
-											Top-Notch Customer Support!
-										</p>
-
-										<p class="mt-4 leading-relaxed text-gray-500">
-											I had a query regarding a product, and their customer support team resolved
-											it quickly and efficiently. They were knowledgeable, polite, and went above
-											and beyond to assist me. Outstanding customer service!
-										</p>
-									</div>
-								</div>
-
-								<footer class="mt-8 text-sm text-gray-500">
-									&mdash; Sneha Verma
-								</footer>
-							</blockquote>
-						</div>
-						<div class="swiper-slide">
-							<blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-xl">
-								<div>
-									<div class="flex gap-0.5 text-yellow-300">
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									</div>
-
-									<div class="mt-4">
-										<p class="text-2xl font-bold text-blue-600 sm:text-3xl">
-											Impressive Product Quality!
-										</p>
-
-										<p class="mt-4 leading-relaxed text-gray-500">
-											I recently purchased a speaker from this site, and I'm amazed by the sound
-											quality and durability. The product exceeded my expectations. Highly
-											satisfied with my purchase!
-										</p>
-									</div>
-								</div>
-
-								<footer class="mt-8 text-sm text-gray-500">
-									&mdash; Ravi Gupta
-								</footer>
-							</blockquote>
-						</div>
-						<div class="swiper-slide">
-							<blockquote class="flex h-full flex-col justify-between bg-white p-12 rounded-xl">
-								<div>
-									<div class="flex gap-0.5 text-yellow-300">
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-
-										<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									</div>
-
-									<div class="mt-4">
-										<p class="text-2xl font-bold text-blue-600 sm:text-3xl">
-											Secure and Hassle-Free Transactions!
-										</p>
-
-										<p class="mt-4 leading-relaxed text-gray-500">
-
-											The site provides a secure payment gateway, ensuring the safety of my
-											personal information. The transaction process was smooth and hassle-free. I
-											appreciate their commitment to customer security.
-										</p>
-									</div>
-								</div>
-
-								<footer class="mt-8 text-sm text-gray-500">
-									&mdash; Aman Joshi
-								</footer>
-							</blockquote>
-						</div>
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="mt-8 flex justify-center gap-4 lg:hidden">
-			<button aria-label="Previous slide"
-				class="prev-button rounded-full border border-blue-600 p-4 text-blue-600 hover:bg-blue-600 hover:text-white">
-				<svg class="h-5 w-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg">
-					<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-				</svg>
-			</button>
-
-			<button aria-label="Next slide"
-				class="next-button rounded-full border border-blue-600 p-4 text-blue-600 hover:bg-blue-600 hover:text-white">
-				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg">
-					<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-				</svg>
-			</button>
-		</div>
-	</div>
-</section>
-
-
-
-
-
-<section class="bg-white">
-	<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-	  <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl">
-		Read trusted reviews from our customers
-	  </h2>
-  
-	  <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-		<blockquote class="rounded-lg bg-gray-100 p-8">
-		  <div class="flex items-center gap-4">
-			<img
-			  alt="Man"
-			  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-			  class="h-16 w-16 rounded-full object-cover"
-			/>
-  
-			<div>
-			  <div class="flex justify-center gap-0.5 text-green-500">
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-			  </div>
-  
-			  <p class="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
-			</div>
-		  </div>
-  
-		  <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-			voluptatem alias ut provident sapiente repellendus.
-		  </p>
-		</blockquote>
-  
-		<blockquote class="rounded-lg bg-gray-100 p-8">
-		  <div class="flex items-center gap-4">
-			<img
-			  alt="Man"
-			  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-			  class="h-16 w-16 rounded-full object-cover"
-			/>
-  
-			<div>
-			  <div class="flex justify-center gap-0.5 text-green-500">
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-			  </div>
-  
-			  <p class="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
-			</div>
-		  </div>
-  
-		  <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-			voluptatem alias ut provident sapiente repellendus.
-		  </p>
-		</blockquote>
-  
-		<blockquote class="rounded-lg bg-gray-100 p-8">
-		  <div class="flex items-center gap-4">
-			<img
-			  alt="Man"
-			  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-			  class="h-16 w-16 rounded-full object-cover"
-			/>
-  
-			<div>
-			  <div class="flex justify-center gap-0.5 text-green-500">
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  class="h-4 w-4"
-				  viewBox="0 0 20 20"
-				  fill="currentColor"
-				>
-				  <path
-					d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-				  />
-				</svg>
-			  </div>
-  
-			  <p class="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
-			</div>
-		  </div>
-  
-		  <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-			voluptatem alias ut provident sapiente repellendus.
-		  </p>
-		</blockquote>
-	  </div>
-	</div>
-  </section>
-
-
-
-
-
-
-  <div class="2xl:container 2xl:mx-auto  lg:hidden ">
-	<div class="bg-gray-50 py-10  dark:bg-gray-800 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:px-20  md:px-12 px-4 items-center text-center">
-
-		<!-- Delivery grid Card -->
-		<div class="">
-
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Delivery</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Free worldwide delivery over orders above Rs. 1000</p>
-		</div>
-
-		<!-- customer Grid Card -->
-
-		<div class="">
-
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Customer Care</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Our customer care is available 24/7 at <span class="font-semibold cursor-pointer">+91 1236547890</span> and <span class="font-semibold cursor-pointer">customercar.shopvibe@gmail.com</span></p>
-		</div>
-
-		<!-- Recycle Grid Card -->
-
-		<div class="">
-
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Recycle</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">All out products are 100 percent recycable</p>
-		</div>
-
-		<!-- Secure Payment Card -->
-
-		<div class="">
-			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">Secure Payment</h3>
-			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">Transaction process has end to end encryption</p>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-<section class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white  lg:py-12 py-10 md:px-12 px-4  ">
-
-	<div class="container py-8 px-10 mx-auto">
-
-		<a class="uppercase tracking-wide no-underline hover:no-underline font-bold  text-xl mb-8 text-center sm:text-left" href="#">
-		About
-	</a>
-
-		<p class="mt-8 mb-8">ShopVibe is your ultimate destination for high-quality tech products. We strive for excellence in every aspect, from the materials we choose to the craftsmanship we deliver. 
-			</p>
-
-		<p class="mb-8">With our fast delivery service, you can expect your orders to arrive promptly and reliably. We pride ourselves on building strong customer relationships and offer friendly support to assist you whenever you need it. At ShopVibe, we curate a collection of cutting-edge tech products to enhance your digital lifestyle. From smartphones to smart home devices, our range covers all your needs. Experience the difference of shopping with us and join the ShopVibe community today. Elevate your tech game with our premium products and enjoy a seamless and enjoyable shopping experience.</p>
-
-	</div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %}
-
-<div class="bg-white py-6 sm:py-8 lg:py-12">
-	<div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-		<h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl">
-			Collections
+<section class="bg-white dark:bg-gray-900 dark:text-gray-100">
+	<div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+		<h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl">
+			Read trusted reviews from our customers
 		</h2>
-
-		<div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Men</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Business Causual</span>
+		<div class="mt-12 px-5">
+			<div class="swiper mySwiper4 p-3">
+				<div class="swiper-wrapper rounded-xl">
+					<div class="swiper-slide rounded-xl">
+						<blockquote class="rounded-lg bg-gray-100 p-8">
+							<div class="flex items-center gap-4">
+								<img alt="Man" src="https://ik.imagekit.io/swastik/E-Commerce-Django/male_default.jpg"
+									class="h-16 w-16 rounded-full object-cover" />
+								<div>
+									<div class="flex justify-center gap-0.5 text-green-500">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+											fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+									<p class="mt-1 text-lg font-medium text-gray-700">
+										Rajesh Sharma
+									</p>
+								</div>
+							</div>
+							<div class="mt-4">
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 font-bold text-blue-600">
+									Fast and Reliable Delivery Service!
+								</p>
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 text-gray-500">
+									I received my order promptly and in excellent condition. The
+									packaging was secure, and the delivery personnel were
+									courteous. I highly recommend their efficient delivery
+									service.
+								</p>
+							</div>
+						</blockquote>
 					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by engin akyurt"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Women</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
+					<div class="swiper-slide rounded-xl">
+						<blockquote class="rounded-lg bg-gray-100 p-8">
+							<div class="flex items-center gap-4">
+								<img alt="Man" src="https://ik.imagekit.io/swastik/E-Commerce-Django/female_default.jpg"
+									class="h-16 w-16 rounded-full object-cover" />
+								<div>
+									<div class="flex justify-center gap-0.5 text-green-500">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+											fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="gray">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+									<p class="mt-1 text-lg font-medium text-gray-700">
+										Priya Patel
+									</p>
+								</div>
+							</div>
+							<div class="mt-4">
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 font-bold text-blue-600">
+									A Seamless Online Shopping Experience
+								</p>
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 text-gray-500">
+									I have been shopping from this website for the past 2 years. I
+									have never faced any issues with the products or the delivery.
+								</p>
+							</div>
+						</blockquote>
 					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Men</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Streetwear</span>
+					<div class="swiper-slide rounded-xl">
+						<blockquote class="rounded-lg bg-gray-100 p-8">
+							<div class="flex items-center gap-4">
+								<img alt="Man" src="https://ik.imagekit.io/swastik/E-Commerce-Django/male_default.jpg"
+									class="h-16 w-16 rounded-full object-cover" />
+								<div>
+									<div class="flex justify-center gap-0.5 text-green-500">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+											fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+									<p class="mt-1 text-lg font-medium text-gray-700">
+										Ravi Gupta
+									</p>
+								</div>
+							</div>
+							<div class="mt-4">
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 font-bold text-blue-600">
+									Impressive Product Quality!
+								</p>
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 text-gray-500">
+									I recently purchased a speaker from this site, and I'm amazed
+									by the sound quality and durability. The product exceeded my
+									expectations. Highly satisfied with my purchase!
+								</p>
+							</div>
+						</blockquote>
 					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1560269999-cef6ebd23ad3?auto=format&q=75&fit=crop&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Women</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Sale</span>
+					<div class="swiper-slide rounded-xl">
+						<blockquote class="rounded-lg bg-gray-100 p-8">
+							<div class="flex items-center gap-4">
+								<img alt="Man" src="https://ik.imagekit.io/swastik/E-Commerce-Django/male_default.jpg"
+									class="h-16 w-16 rounded-full object-cover" />
+								<div>
+									<div class="flex justify-center gap-0.5 text-green-500">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+											fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="gray">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+									<p class="mt-1 text-lg font-medium text-gray-700">
+										Aman Joshi
+									</p>
+								</div>
+							</div>
+							<div class="mt-4">
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 font-bold text-blue-600">
+									Secure and Hassle-Free Transactions!
+								</p>
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 text-gray-500">
+									The site provides a secure payment gateway, ensuring the
+									safety of my personal information. The transaction process was
+									smooth and hassle-free. I appreciate their commitment to
+									customer security.
+								</p>
+							</div>
+						</blockquote>
 					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Men</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Business Causual</span>
+					<div class="swiper-slide rounded-xl">
+						<blockquote class="rounded-lg bg-gray-100 p-8">
+							<div class="flex items-center gap-4">
+								<img alt="Man" src="https://ik.imagekit.io/swastik/E-Commerce-Django/female_default.jpg"
+									class="h-16 w-16 rounded-full object-cover" />
+								<div>
+									<div class="flex justify-center gap-0.5 text-green-500">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+											fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+											viewBox="0 0 20 20" fill="currentColor">
+											<path
+												d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+										</svg>
+									</div>
+									<p class="mt-1 text-lg font-medium text-gray-700">
+										Sneha Verma
+									</p>
+								</div>
+							</div>
+							<div class="mt-4">
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 font-bold text-blue-600">
+									Top-Notch Customer Support!
+								</p>
+								<p class="line-clamp-5 sm:line-clamp-none mt-4 text-gray-500">
+									I had a query regarding a product, and their customer support
+									team resolved it quickly and efficiently. They were
+									knowledgeable, polite, and went above and beyond to assist me.
+									Outstanding customer service!
+								</p>
+							</div>
+						</blockquote>
 					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by engin akyurt"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Women</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Summer Season</span>
-					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Men</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Streetwear</span>
-					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-
-			<!-- product - start -->
-			<div>
-				<a href="#"
-					class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-					<img src="https://images.unsplash.com/photo-1560269999-cef6ebd23ad3?auto=format&q=75&fit=crop&w=600&h=700"
-						loading="lazy" alt="Photo by Austin Wade"
-						class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-					<div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-						<span class="text-gray-500">Women</span>
-						<span class="text-lg font-bold text-gray-800 lg:text-xl">Sale</span>
-					</div>
-				</a>
-			</div>
-			<!-- product - end -->
-		</div>
-	</div>
-</div>
-{% endcomment %}
-{% comment %}
-<div class="mx-auto max-w-screen-2xl min-h-screen px-4 md:px-8 py-10">
-	<div id="products" class="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
-		<!-- product - start -->
-		{% for product in products %}
-		<div id="{{product.id}}">
-			<a href="/product/?id={{product.id}}"
-				class="group relative flex h-80 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-500 p-4 shadow-lg">
-				<img src="{{product.image.url}}" alt="{{product.name}}" loading="lazy"
-					class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-110" />
-
-				<div
-					class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
 				</div>
-
-				<div class="relative flex flex-col bg-gray-500 rounded-xl px-3 py-1 bg-opacity-40">
-					<span class="text-gray-300">{{product.category}}</span>
-					<span class="text-lg font-semibold text-white lg:text-xl">{{product.name}}</span>
-				</div>
-			</a>
-			<div class="flex flex-col space-y-3 px-2">
-				<div class="flex items-start justify-between gap-2">
-					<div class="flex flex-col items-end">
-						<span
-							class="font-bold text-gray-600 dark:text-gray-100 lg:text-lg px-5 py-2">{{product.price|currency}}</span>
-					</div>
-				</div>
-
-				<div class="card-footer mt-4 px-16 md:px-10 p-0 grid grid-cols-12">
-					{% if product|is_in_cart:request.session.cart %}
-
-					<div class="col-span-12 flex items-center space-x-2">
-						<form action="/#{{product.id}}" method="post" class="flex items-center">
-							{% csrf_token %}
-							<input hidden type="text" name="product" value="{{product.id}}" />
-							<input hidden type="text" name="remove" value="True" />
-							<button type="submit"
-								class="bg-gray-700 text-white py-2 px-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
-								-
+				<div class="button-all pt-5 items-center justify-center hidden sm:flex">
+					<div
+						class="button items-center justify-center flex py-2 ring-1 w-[6.5rem] rounded-full ring-gray-300 bg-gray-50 space-x-4">
+						<div class="cus-swiper-button-prev z-10">
+							<button type="button"
+								class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full text-black">
+								<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
 							</button>
-						</form>
-						<div class="flex-1 flex py-2 justify-center items-center bg-gray-700 text-white rounded-md">
-							{{product|cart_quantity:request.session.cart}} in Cart
 						</div>
-						<form action="/#{{product.id}}" method="post" class="flex items-center">
-							{% csrf_token %}
-							<input hidden type="text" name="product" value="{{product.id}}" />
-							<button type="submit"
-								class="bg-gray-700 text-white py-2 px-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">
-								+
+						<div class="cus-swiper-button-next z-10">
+							<button type="button"
+								class="p-2 bg-white ring-1 ring-gray-300 hover:bg-blue-700 hover:text-white duration-150 rounded-full text-black">
+								<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
 							</button>
-						</form>
+						</div>
 					</div>
-
-					{% else %}
-					<div class="col-span-12 hover:scale-105">
-						<form action="/#{{product.id}}" method="post">
-							{% csrf_token %}
-							<input hidden type="text" name="product" value="{{product.id}}" />
-							<button type="submit"
-								class="bg-gray-700 text-white py-2 px-3 w-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 rounded-md">
-								Add To Cart
-							</button>
-						</form>
-					</div>
-					{% endif %}
 				</div>
+				<div class="py-3"></div>
+				<div class="swiper-pagination sm:hidden text-white bg-white p-2 rounded-xl"></div>
 			</div>
 		</div>
-		{% endfor %}
-		<!-- product - end -->
+	</div>
+</section>
+<div class="2xl:container 2xl:mx-auto lg:hidden">
+	<div
+		class="bg-gray-50 py-10 dark:bg-gray-800 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:px-20 md:px-12 px-4 items-center text-center">
+		<div class="">
+			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+				Delivery
+			</h3>
+			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+				Free worldwide delivery over orders above Rs. 1000
+			</p>
+		</div>
+		<div class="">
+			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+				Customer Care
+			</h3>
+			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+				Our customer care is available 24/7 at<span class="font-semibold cursor-pointer">+91
+					1236547890</span>and<span class="font-semibold cursor-pointer">customercar.shopvibe@gmail.com</span>
+			</p>
+		</div>
+		<div class="">
+			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+				Recycle
+			</h3>
+			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+				All out products are 100 percent recycable
+			</p>
+		</div>
+		<div class="">
+			<h3 class="text-xl leading-5 dark:text-white font-semibold text-gray-800 lg:mt-10 mt-8">
+				Secure Payment
+			</h3>
+			<p class="text-base leading-6 font-normal dark:text-gray-300 text-gray-600 mt-4 lg:w-full md:w-9/12 w-full">
+				Transaction process has end to end encryption
+			</p>
+		</div>
 	</div>
 </div>
-{% endcomment %}
+<section class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white py-10 md:px-12 px-4">
+	<div class="container py-8 px-10 mx-auto border-t border-gray-800 dark:border-gray-100">
+		<a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-xl mb-8 text-center sm:text-left"
+			href="#">About</a>
+		<p class="mt-8 mb-8">
+			ShopVibe is your ultimate destination for high-quality tech products. We
+			strive for excellence in every aspect, from the materials we choose to the
+			craftsmanship we deliver.
+		</p>
+		<p class="mb-8">
+			With our fast delivery service, you can expect your orders to arrive
+			promptly and reliably. We pride ourselves on building strong customer
+			relationships and offer friendly support to assist you whenever you need
+			it. At ShopVibe, we curate a collection of cutting-edge tech products to
+			enhance your digital lifestyle. From smartphones to smart home devices,
+			our range covers all your needs. Experience the difference of shopping
+			with us and join the ShopVibe community today. Elevate your tech game with
+			our premium products and enjoy a seamless and enjoyable shopping
+			experience.
+		</p>
+	</div>
+</section>
+
 {% endblock %}

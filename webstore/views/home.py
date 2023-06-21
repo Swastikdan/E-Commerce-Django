@@ -27,79 +27,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 # Index View class that handles the main page and cart updates
-
-# class Index(View):
-#     # Post method to handle cart updates (add/remove product)
-#     def post(self, request):
-#         product = request.POST.get('product')
-#         remove = request.POST.get('remove')
-#         cart = request.session.get('cart')
-
-#         # Update the cart based on the add/remove action
-#         if cart:
-#             quantity = cart.get(product)
-#             if quantity:
-#                 if remove:
-#                     if quantity <= 1:
-#                         cart.pop(product)
-#                     else:
-#                         cart[product] = quantity - 1
-#                 else:
-#                     cart[product] = quantity + 1
-#             else:
-#                 cart[product] = 1
-#         else:
-#             cart = {}
-#             cart[product] = 1
-
-#         # Update the session cart
-#         request.session['cart'] = cart
-
-#         # Get the category ID of the product
-#         product_category = Products.objects.get(id=product).category_id
-
-#         # Redirect to the category page with the updated query
-#         return redirect('category', category_id=product_category)
-
-    
-#     # Get method to redirect the user to the webstore page and display the products and categories
-#     def get(self, request):
-#         cart = request.session.get('cart')
-#         if not cart:
-#             request.session['cart'] = {}
-
-#         categories = Category.objects.all()
-#         categoryID = request.GET.get('category')
-
-#         if categoryID == 'all':
-#             products = Products.objects.all()
-#             is_category_page = True
-#         else:
-#             products = Products.objects.filter(category_id=categoryID)
-#             is_category_page = categoryID is not None
-
-#         data = {
-#             'categories': categories,
-#             'is_category_page': is_category_page,
-#             'products': products
-#         }
-
-#         if is_category_page:
-#             if not products:
-#                 raise Http404("Category not found.")  # Return 404 if products list is empty
-#             return render(request, 'category.html', data)
-#         else:
-#             product_id = request.GET.get('product_id')
-#             if product_id:
-#                 product = Products.objects.get(id=product_id)
-#                 if product:
-#                     data['products'] = [product]
-#                     return render(request, 'index.html', data)
-
-#             return render(request, 'index.html', data)
-
-
-# Index View class that handles the main page and cart updates
+# The Index class handles cart updates and displays all products on the webstore page.
 class Index(View):
     # Post method to handle cart updates (add/remove product)
     def post(self, request):
@@ -154,6 +82,8 @@ class Index(View):
 
 
 
+# This is a class-based view that displays products belonging to a specific category and raises a 404
+# error if the category is not found.
 class CategoryView(View):
     def get(self, request, category_id):
         cart = request.session.get('cart')
@@ -180,6 +110,8 @@ class CategoryView(View):
 
 
 # ProductView class to handle the individual product page and cart updates for that product
+# The ProductView class handles GET and POST requests for individual product pages, including updating
+# the cart.
 class ProductView(View):
     def get(self, request):
         product_id = request.GET.get('id')

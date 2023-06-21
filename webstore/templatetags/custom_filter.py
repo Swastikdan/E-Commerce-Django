@@ -1,4 +1,3 @@
-
    
 # The above code defines two custom filters for Django templates, one to format a number as currency
 # and another to multiply two numbers.

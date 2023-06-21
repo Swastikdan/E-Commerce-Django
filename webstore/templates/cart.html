@@ -2,121 +2,146 @@
 {% block content %} 
 {% load cart %} 
 {% load custom_filter %}
-
-
 <div class="bg-white py-6 sm:py-8 lg:py-12 min-h-screen dark:bg-gray-900">
   <div class="mx-auto max-w-screen-lg px-4 md:px-8">
     <div class="mb-6 sm:mb-10 lg:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl dark:text-white"> Your Cart </h2>
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl dark:text-white">
+        Your Cart
+      </h2>
     </div>
     {% if products %}
-    <div class="mb-6 flex flex-col gap-4 sm:mb-8 md:gap-6"> 
-      {% for product in products %} 
-     
-      <div class="flex flex-wrap  gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
-        <a class="group relative block overflow-hidden bg-gray-100 h-56 w-40">
-          <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}" class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-        </a>
+    <div class="mb-6 flex flex-col gap-4 sm:mb-8 md:gap-6">
+      {% for product in products %}
+      <div class="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
+        <a class="group relative block overflow-hidden bg-gray-100 h-56 w-40"><img src="{{product.image.url}}"
+            loading="lazy" alt="{{product.name}}"
+            class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /></a>
         <div class="flex flex-1 flex-col justify-between py-4">
           <div>
-            <a href="/product/?id={{product.id}}" class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl dark:text-white">{{product.name}}</a>
-            <span class="block text-gray-500 dark:text-white">{{ product.category.name }}</span>
+            <a href="/product/?id={{product.id}}"
+              class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl dark:text-white">{{product.name}}</a><span
+              class="block text-gray-500 dark:text-white">{{ product.category.name }}</span>
           </div>
           <div>
-            <span class="mb-1 block font-bold text-gray-800 md:text-lg dark:text-white">{{product.price|currency}}</span>
-            <span class="flex items-center gap-1 text-sm text-gray-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span
+              class="mb-1 block font-bold text-gray-800 md:text-lg dark:text-white">{{product.price|currency}}</span><span
+              class="flex items-center gap-1 text-sm text-gray-500"><svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg> In stock </span>
+              </svg>In stock</span>
           </div>
         </div>
         <div class="flex w-full justify-between border-t p-4 sm:w-auto sm:border-none sm:pl-0 lg:p-6 lg:pl-0">
-          <div class="flex flex-col items-start gap-2"> {% if product|is_in_cart:request.session.cart %} <div class="flex flex-1 items-center justify-end gap-2">
-              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
+          <div class="flex flex-col items-start gap-2">
+            {% if product|is_in_cart:request.session.cart %}
+            <div class="flex flex-1 items-center justify-end gap-2">
+              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="product" value="{{ product.id }}" />
                 <input type="hidden" name="remove" value="True" />
                 <input type="submit" value="-" class="text-4xl text-black dark:text-white cursor-pointer" />
               </form>
               <div>
-                <label for="Line2Qty" class="sr-only"> Quantity </label>
-                <input type="text" id="disabled-input" aria-label="disabled input" disabled value="{{ product | cart_quantity:request.session.cart }}" id="Line2Qty" class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-md text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none dark:bg-gray-600 dark:text-gray-300" />
+                <label for="Line2Qty" class="sr-only">Quantity</label><input type="text" id="disabled-input"
+                  aria-label="disabled input" disabled="disabled"
+                  value="{{ product | cart_quantity:request.session.cart }}" id="Line2Qty"
+                  class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-md text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none dark:bg-gray-600 dark:text-gray-300" />
               </div>
-              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post"> {% csrf_token %} <input type="hidden" name="product" value="{{ product.id }}" />
+              <form action="{{ request.path }}?id={{ product.id }}" class="col-span-2 cursor-pointer" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="product" value="{{ product.id }}" />
                 <input type="submit" value="+" class="text-4xl text-black dark:text-white cursor-pointer" />
               </form>
-            </div> {% endif %} </div>
+            </div>
+            {% endif %}
+          </div>
           <div class="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
-            <span class="block font-bold text-gray-800 md:text-lg dark:text-white">{{product|price_total:request.session.cart|currency}}</span>
+            <span
+              class="block font-bold text-gray-800 md:text-lg dark:text-white">{{product|price_total:request.session.cart|currency}}</span>
           </div>
         </div>
       </div>
-      <!-- product - end --> {% endfor %} </div>
-    <!-- totals - start -->
+      {% endfor %}
+    </div>
     <div class="flex flex-col items-end gap-4">
       <div class="w-full rounded-lg bg-gray-100 p-4 sm:max-w-xs dark:bg-gray-800">
         <div class="space-y-1">
           <div class="flex justify-between gap-4 text-gray-500">
-            <span class="dark:text-white">Subtotal</span>
-            <span class="dark:text-white">{{products|total_cart_price:request.session.cart|currency}}</span>
+            <span class="dark:text-white">Subtotal</span><span
+              class="dark:text-white">{{products|total_cart_price:request.session.cart|currency}}</span>
           </div>
           <div class="flex justify-between gap-4 text-gray-500">
-            <span class="dark:text-white">Shipping(Free)</span>
-            <span class="line-through dark:text-white">RS 60</span>
+            <span class="dark:text-white">Shipping(Free)</span><span class="line-through dark:text-white">RS 60</span>
           </div>
         </div>
         <div class="mt-4 border-t pt-4">
           <div class="flex items-start justify-between gap-4 text-gray-800">
-            <span class="text-lg font-bold dark:text-white">Total</span>
-            <span class="flex flex-col items-end">
-              <span class="text-lg font-bold dark:text-white">{{products|total_cart_price:request.session.cart}} INR</span>
-              <span class="text-sm text-gray-500 dark:text-gray-400">including GST</span>
-            </span>
+            <span class="text-lg font-bold dark:text-white">Total</span><span class="flex flex-col items-end"><span
+                class="text-lg font-bold dark:text-white">{{products|total_cart_price:request.session.cart}}
+                INR</span><span class="text-sm text-gray-500 dark:text-gray-400">including GST</span></span>
           </div>
         </div>
       </div>
       <div>
-        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base" type="button"> Proceed to checkout </button>
+        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
+          class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+          type="button">
+          Proceed to checkout
+        </button>
       </div>
     </div>
     {% else %}
-<p class="text-center dark:text-white">Oh no! Your cart is currently empty! 🛒 <br><br>  <a class="hover:underline underline-offset-4" href="/webstore">Let's fill it up with some goodies! 🐾</a> </p>
-
-        {% endif %}
-    <!-- totals - end -->
-    <!-- Main modal -->
-    <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full ">
-      <div class="relative max-w-screen w-full max-h-full px-5 ">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
-          <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-200 " data-modal-hide="authentication-modal">
-            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="sr-only">Close modal</span>
+    <p class="text-center dark:text-white">
+      Oh no! Your cart is currently empty! 🛒<br /><br /><a class="hover:underline underline-offset-4"
+        href="/webstore">Let's fill it up with some goodies! 🐾</a>
+    </p>
+    {% endif %}
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative max-w-screen w-full max-h-full px-5">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <button type="button"
+            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-200"
+            data-modal-hide="authentication-modal">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg><span class="sr-only">Close modal</span>
           </button>
-
-          <section class="rounded-xl bg-gray-100 dark:bg-gray-700 ">
+          <section class="rounded-xl bg-gray-100 dark:bg-gray-700">
             <h1 class="sr-only">Checkout</h1>
-            <div class="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2 rounded-xl bg-gray-100 dark:bg-gray-700 ">
-              <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700 py-12 md:py-24  ">
-                <div class="mx-auto max-w-lg space-y-8 px-4 lg:px-8 ">
-                  <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700  py-2">
-                    <p class="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-200 ">{{products|total_cart_price:request.session.cart|currency}}  </p>
-                    <p class="mt-1 text-sm text-gray-600  dark:text-gray-200"> For the purchase of </p>
+            <div
+              class="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2 rounded-xl bg-gray-100 dark:bg-gray-700">
+              <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700 py-12 md:py-24">
+                <div class="mx-auto max-w-lg space-y-8 px-4 lg:px-8">
+                  <div class="bg-gray-100 dark:bg-gray-700 dark:bag-gray-700 py-2">
+                    <p class="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-200">
+                      {{products|total_cart_price:request.session.cart|currency}}
+                    </p>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-200">
+                      For the purchase of
+                    </p>
                   </div>
                   <div>
                     <div class="flow-root">
-                      <ul class="-my-4 divide-y divide-gray-100 ">
-                        {% for product in products %} 
+                      <ul class="-my-4 divide-y divide-gray-100">
+                        {% for product in products %}
                         <li class="flex items-center gap-4 py-4">
-                          <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}" class="h-16 w-16 rounded object-cover" />
+                          <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}}"
+                            class="h-16 w-16 rounded object-cover" />
                           <div>
-                            <h3 class="text-sm text-gray-900 dark:text-gray-200"> {{product.name}} </h3>
+                            <h3 class="text-sm text-gray-900 dark:text-gray-200">
+                              {{product.name}}
+                            </h3>
                             <dl class="mt-0.5 space-y-px text-[10px] text-gray-600 dark:text-gray-300">
                               <div>
                                 <dt class="inline">Category:</dt>
-                                <dd class="inline">{{ product.category.name }}</dd>
+                                <dd class="inline">
+                                  {{ product.category.name }}
+                                </dd>
                               </div>
-
                             </dl>
                           </div>
                         </li>
@@ -128,70 +153,100 @@
               </div>
               <div class="bg-gray-100 dark:bg-gray-800 py-12 md:py-24">
                 <div class="mx-auto max-w-lg px-4 lg:px-8">
-                  <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200 pb-5"> Billing Address </legend>
-                  <form action="/check-out" method="POST" class="grid grid-cols-6 gap-4"> {% csrf_token %} <div class="col-span-3">
-                      <label for="FirstName" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> First Name </label>
-                      <input type="text" id="FirstName" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
+                  <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200 pb-5">
+                    Billing Address
+                  </legend>
+                  <form action="/check-out" method="POST" class="grid grid-cols-6 gap-4">
+                    {% csrf_token %}
+                    <div class="col-span-3">
+                      <label for="FirstName" class="block text-xs font-medium text-gray-700 dark:text-gray-200">First
+                        Name</label><input type="text" id="FirstName"
+                        class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" required />
                     </div>
                     <div class="col-span-3">
-                      <label for="LastName" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Last Name </label>
-                      <input type="text" id="LastName" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
+                      <label for="LastName" class="block text-xs font-medium text-gray-700 dark:text-gray-200">Last
+                        Name</label><input type="text" id="LastName"
+                        class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" required />
                     </div>
                     <div class="col-span-6">
-                      <label for="Phone" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Phone </label>
-                      <input type="tel" name="phone" id="" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required />
+                      <label for="Phone"
+                        class="block text-xs font-medium text-gray-700 dark:text-gray-200">Phone</label><input
+                        type="tel" name="phone" id=""
+                        class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" required />
                     </div>
                     <div class="col-span-6">
-                      <label for="Adress" class="block text-xs font-medium text-gray-700 dark:text-gray-200"> Adress </label>
-                      <textarea name="address" id="" cols="30" rows="2" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" Required></textarea>
+                      <label for="Adress"
+                        class="block text-xs font-medium text-gray-700 dark:text-gray-200">Adress</label><textarea
+                        name="address" id="" cols="30" rows="2"
+                        class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" required></textarea>
                     </div>
                     <fieldset class="col-span-6">
                       <div class="flex text-center space-x-3">
-                        <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200"> Card Details </legend>
+                        <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200">
+                          Card Details
+                        </legend>
                         <button data-tooltip-target="tooltip-default" type="button" class="">
-                          <svg aria-hidden="true" width="15" height="15" class="mx-auto mb-4 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          <svg aria-hidden="true" width="15" height="15"
+                            class="mx-auto mb-4 text-gray-600 dark:text-gray-200" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                           </svg>
                         </button>
                       </div>
-                      <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white  dark:text-gray-200 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"> Fake Credit Card Number <div class="tooltip-arrow" data-popper-arrow></div>
+                      <div id="tooltip-default" role="tooltip"
+                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white dark:text-gray-200 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Fake Credit Card Number
+                        <div class="tooltip-arrow" data-popper-arrow></div>
                       </div>
                       <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
                         <div>
-                          <label for="CardNumber" class="sr-only"> Card Number </label>
-                          <input type="text" id="CardNumber" placeholder="4556 1694 0566 7182" class="relative mt-1 w-full rounded-t-md border-gray-200 focus:z-10 sm:text-sm" disabled />
+                          <label for="CardNumber" class="sr-only">Card Number</label><input type="text" id="CardNumber"
+                            placeholder="4556 1694 0566 7182"
+                            class="relative mt-1 w-full rounded-t-md border-gray-200 focus:z-10 sm:text-sm"
+                            disabled="disabled" />
                         </div>
                         <div class="flex">
                           <div class="flex-1">
-                            <label for="CardExpiry" class="sr-only"> Card Expiry </label>
-                            <input type="text" id="CardExpiry" placeholder="02/26" class="relative w-full rounded-es-md border-gray-200 focus:z-10 sm:text-sm" disabled />
+                            <label for="CardExpiry" class="sr-only">Card Expiry</label><input type="text"
+                              id="CardExpiry" placeholder="02/26"
+                              class="relative w-full rounded-es-md border-gray-200 focus:z-10 sm:text-sm"
+                              disabled="disabled" />
                           </div>
                           <div class="-ms-px flex-1">
-                            <label for="CardCVC" class="sr-only"> Card CVC </label>
-                            <input type="text" id="CardCVC" placeholder="370" class="relative w-full rounded-ee-md border-gray-200 focus:z-10 sm:text-sm" disabled />
+                            <label for="CardCVC" class="sr-only">Card CVC</label><input type="text" id="CardCVC"
+                              placeholder="370"
+                              class="relative w-full rounded-ee-md border-gray-200 focus:z-10 sm:text-sm"
+                              disabled="disabled" />
                           </div>
                         </div>
                       </div>
                     </fieldset>
                     <fieldset class="col-span-6">
-                      <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200"> Country </legend>
+                      <legend class="block text-sm font-medium text-gray-700 dark:text-gray-200">
+                        Country
+                      </legend>
                       <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
                         <div>
-                          <label for="Country" class="sr-only">Country</label>
-                          <select id="Country" class="relative w-full rounded-t-md border-gray-200 focus:z-10 sm:text-sm">
+                          <label for="Country" class="sr-only">Country</label><select id="Country"
+                            class="relative w-full rounded-t-md border-gray-200 focus:z-10 sm:text-sm">
                             <option>India</option>
                             <option>England</option>
                             <option>USA</option>
                           </select>
                         </div>
                         <div>
-                          <label class="sr-only" for="PostalCode"> ZIP/Post Code </label>
-                          <input type="text" id="PostalCode" placeholder="ZIP/Post Code" class="relative w-full rounded-b-md border-gray-200 focus:z-10 sm:text-sm"  Required/>
+                          <label class="sr-only" for="PostalCode">ZIP/Post Code</label><input type="text"
+                            id="PostalCode" placeholder="ZIP/Post Code"
+                            class="relative w-full rounded-b-md border-gray-200 focus:z-10 sm:text-sm" required />
                         </div>
                       </div>
                     </fieldset>
                     <div class="col-span-6">
-                      <button type="submit" class="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg"> Pay Now </button>
+                      <button type="submit"
+                        class="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg">
+                        Pay Now
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -203,5 +258,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}

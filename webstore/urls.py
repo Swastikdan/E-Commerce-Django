@@ -10,7 +10,6 @@ from django.urls import path
 from .middlewares.auth import auth_middleware
 
 urlpatterns = [
-    # path('', Index.as_view(), name='homepage'),
     path('', Index.as_view(), name='homepage_or_webstore'),
     path('signup', Signup.as_view(), name='signup'),
     path('login', Login.as_view(), name='login'),
@@ -30,5 +29,9 @@ urlpatterns = [
 
 ]
 handler404 = custom_404
+# `handler500 = custom_500` is assigning the `custom_500` function from the current module to the
+# `handler500` variable. This is used to specify a custom view function to handle server errors (HTTP
+# 500 responses) in the Django application. When an error occurs, Django will call the `custom_500`
+# function to handle the error and generate an appropriate response.
 handler500 = custom_500
 

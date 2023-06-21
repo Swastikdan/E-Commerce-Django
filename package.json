@@ -4,7 +4,7 @@
   "description": "This is an E-Commerce website project in Django which is currently in-progress. Stay tuned for more updates :)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css": "npx tailwindcss -i ./tailwind.css -o ./static/output.css  --watch"
   },
   "keywords": [],
   "author": "",

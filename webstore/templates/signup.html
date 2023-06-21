@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% block content %}
-<!-- JavaScript function to check if passwords match -->
+{% extends 'base.html' %} 
+{% block content %}
 <script>
   function checkPasswordMatch() {
     var password = document.getElementById("password");
@@ -11,8 +11,6 @@
       confirmPassword.setCustomValidity("");
     }
   }
-
-  // Add event listeners for keyup events on password fields
   document.addEventListener("DOMContentLoaded", function () {
     document
       .getElementById("password")
@@ -22,165 +20,187 @@
       .addEventListener("keyup", checkPasswordMatch);
   });
 </script>
-
-
-  <section class="min-h-[80vh] bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 ">
-    <div class="container flex flex-col  px-6 py-12 mx-auto">
-        <div class="flex-1 items-center lg:-mx-6">
-
-
-            <div class="mt-8  lg:mx-6">
-                <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
-                  <p class="mt-3 text-gray-500 dark:text-gray-300 text-2xl">
-                     Hey there, welcome to Shop Vibe!
-                   </p>
-{% if error %}
-<div id="toast-warning" class="flex items-center w-full max-w-xs pt-5 " role="alert">
-    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-        <span class="sr-only">Warning icon</span>
+<div data-popover id="popover-bottom" role="tooltip"
+  class="absolute z-20 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 right-0 rounded-xl">
+  <div
+    class="relative w-64 border border-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-800 px-4 py-8 sm:px-6 lg:px-8 rounded-xl"
+    aria-modal="true" role="dialog" tabindex="-1">
+    <div class="mt-4 space-y-6">
+      {% if cart_empty %}
+      <ul class="space-y-4 text-center">
+        <p>Your cart is empty.</p>
+        <div class="space-y-4 text-center">
+          <a href="/" id="popover-bottom-close"
+            class="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">Continue
+            shopping</a>
+        </div>
+      </ul>
+      {% else %}
+      <ul class="space-y-4">
+        {% for item in cart_items %}
+        <li class="flex items-center gap-4">
+          <img src="{{ item.image }}" alt="{{ item.name }}" class="h-16 w-16 rounded object-cover" />
+          <div>
+            <h3 class="text-sm text-gray-900 dark:text-white">
+              {{ item.name }}
+            </h3>
+            <dl class="mt-0.5 space-y-px text-[15px] text-gray-600 dark:text-gray-300">
+              <div>
+                <dt class="inline">Price:</dt>
+                <dd class="inline">Rs {{ item.price }}</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="space-y-4 text-center">
+        <a href="/cart"
+          class="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 dark:text-gray-200 transition hover:ring-1 hover:ring-gray-400 font-semibold">View
+          my cart ( {{ request.session.cart.keys|length }} )</a><a href="/" id="popover-bottom-close"
+          class="inline-block text-sm text-gray-500 dark:text-gray-100 underline underline-offset-4 transition hover:text-gray-600 font-semibold">Continue
+          shopping</a>
+      </div>
+      {% endif %}
     </div>
-    <div class="ml-3 text-sm font-normal text-black dark:text-white">{{error}}</div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5  text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5  inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white " data-dismiss-target="#toast-warning" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-</div> {% endif %}
-                  <form action="/signup" method="POST" class="mt-8 grid grid-cols-6 gap-6">
-                    {% csrf_token %} 
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="FirstName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        First Name
-                      </label>
-          
-                      <input type="text" id="FirstName" name="firstname" value="{{values.first_name}}" 
-                        class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" />
-                    </div>
-          
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="LastName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Last Name
-                      </label>
-          
-                      <input type="text" id="LastName" name="lastname" value="{{values.last_name}}" 
-                        class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-                    </div>
-          
-                    <div class="col-span-6">
-                      <label for="Email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Mobile
-                      </label>
-                      <div class="relative">
-                        <input type="tel" id="phone" name="phone"  value="{{values.phone}}"
-                          class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
-                            viewBox="0 0 96.000000 96.000000" preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)" fill="gray" stroke="none">
-                              <path d="M557 864 c-16 -9 -39 -39 -56 -73 -49 -97 -46 -136 15 -194 41 -40
+  </div>
+  <div data-popper-arrow class="bg-gray-200 dark:bg-gray-800 border border-gray-600"></div>
+</div>
+<section
+  class="min-h-[80vh] bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
+  <div class="container flex flex-col px-6 py-12 mx-auto">
+    <div class="flex-1 items-center lg:-mx-6">
+      <div class="mt-8 lg:mx-6">
+        <div
+          class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
+          <p class="mt-3 text-gray-500 dark:text-gray-300 text-2xl">
+            Hey there, welcome to Shop Vibe!
+          </p>
+          {% if error %}
+          <div id="toast-warning" class="flex items-center w-full max-w-xs pt-5" role="alert">
+            <div
+              class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clip-rule="evenodd"></path>
+              </svg><span class="sr-only">Warning icon</span>
+            </div>
+            <div class="ml-3 text-sm font-normal text-black dark:text-white">
+              {{error}}
+            </div>
+            <button type="button"
+              class="ml-auto -mx-1.5 -my-1.5 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white"
+              data-dismiss-target="#toast-warning" aria-label="Close">
+              <span class="sr-only">Close</span><svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          {% endif %}
+          <form action="/signup" method="POST" class="mt-8 grid grid-cols-6 gap-6">
+            {% csrf_token %}
+            <div class="col-span-6 sm:col-span-3">
+              <label for="FirstName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">First
+                Name</label><input type="text" id="FirstName" name="firstname" value="{{values.first_name}}"
+                class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="LastName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Last
+                Name</label><input type="text" id="LastName" name="lastname" value="{{values.last_name}}"
+                class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+            </div>
+            <div class="col-span-6">
+              <label for="Email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Mobile</label>
+              <div class="relative">
+                <input type="tel" id="phone" name="phone" value="{{values.phone}}"
+                  class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" /><span
+                  class="absolute inset-y-0 end-0 grid place-content-center px-4"><svg version="1.0"
+                    xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                    viewBox="0 0 96.000000 96.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)" fill="gray" stroke="none">
+                      <path d="M557 864 c-16 -9 -39 -39 -56 -73 -49 -97 -46 -136 15 -194 41 -40
                                          45 -48 39 -75 -3 -17 -24 -56 -46 -87 -43 -61 -47 -80 -22 -89 23 -9 68 37
                                          103 108 42 83 40 113 -11 161 -60 59 -63 68 -39 122 39 87 61 98 137 64 24
                                          -11 47 -31 55 -48 18 -37 52 -38 56 -1 5 40 -48 94 -111 113 -62 19 -84 18
                                          -120 -1z" />
-                              <path d="M753 638 c-6 -7 -20 -44 -31 -83 -58 -191 -227 -392 -346 -412 -38
+                      <path d="M753 638 c-6 -7 -20 -44 -31 -83 -58 -191 -227 -392 -346 -412 -38
                                          -6 -94 21 -121 60 -22 31 -19 40 25 95 33 43 45 51 77 54 33 3 38 6 38 28 0
                                          23 -4 25 -48 28 -46 3 -51 1 -88 -39 -21 -23 -48 -61 -60 -85 -18 -37 -19 -49
                                          -9 -78 12 -38 76 -101 116 -116 123 -47 309 100 428 337 49 96 73 187 56 208
                                          -15 18 -24 19 -37 3z" />
-                            </g>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="col-span-6">
-                      <label for="Email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Email
-                      </label>
-                      <div class="relative">
-                        <input  type="email" name="email" id="Email" value="{{values.email}}"
-                          class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" />
-                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                          </svg>
-                        </span>
-                      </div>
-
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="Password" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Password
-                      </label>
-                      <div class="relative">
-                        <input type="password" name="password" id="password"
-                          class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" />
-                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-          
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Password Confirmation
-                      </label>
-                      <div class="relative">
-                        <input type="password" name="repeat_password" id="repeat_password" oninput="checkPasswordMatch()" required
-                          class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" />
-                        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-          
-                    <div class="col-span-6">
-                      <p class="text-sm text-gray-500">
-                        By creating an account, you agree to our
-                        
-                          terms and conditions
-               
-                        and
-                        <a href="/privacy-policy" class="text-gray-700 dark:text-gray-400 underline">privacy policy</a>.
-                      </p>
-                    </div>
-          
-                    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-                      <button type="submit"
-                        class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
-                        Create an account
-                      </button>
-          
-                      <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-                        Already have an account?
-                        <a href="/login" class="text-gray-700 dark:text-gray-400 underline">Log in</a>.
-                      </p>
-                    </div>
-                  </form>
-                </div>
+                    </g>
+                  </svg></span>
+              </div>
             </div>
+            <div class="col-span-6">
+              <label for="Email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Email</label>
+              <div class="relative">
+                <input type="email" name="email" id="Email" value="{{values.email}}"
+                  class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" /><span
+                  class="absolute inset-y-0 end-0 grid place-content-center px-4"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg></span>
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="Password" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Password</label>
+              <div class="relative">
+                <input type="password" name="password" id="password"
+                  class="block mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" /><span
+                  class="absolute inset-y-0 end-0 grid place-content-center px-4"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg></span>
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="PasswordConfirmation"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-400">Password Confirmation</label>
+              <div class="relative">
+                <input type="password" name="repeat_password" id="repeat_password" oninput="checkPasswordMatch()"
+                  required
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 dark:text-gray-400 shadow-sm" /><span
+                  class="absolute inset-y-0 end-0 grid place-content-center px-4"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg></span>
+              </div>
+            </div>
+            <div class="col-span-6">
+              <p class="text-sm text-gray-500">
+                By creating an account, you agree to our terms and conditions
+                and<a href="/privacy-policy" class="text-gray-700 dark:text-gray-400 underline">privacy policy</a>.
+              </p>
+            </div>
+            <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+              <button type="submit"
+                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                Create an account
+              </button>
+              <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+                Already have an account?<a href="/login" class="text-gray-700 dark:text-gray-400 underline">Log in</a>.
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </section>
-
-
-
-
-
-
-
-
 {% endblock %}

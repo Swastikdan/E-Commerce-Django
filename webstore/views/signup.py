@@ -18,6 +18,16 @@ class Signup(View):
 
     # Handles POST requests for the signup view
     def post(self, request):
+        """
+        This is a Python function that handles a POST request for user registration, validates the input
+        data, creates a new customer instance, hashes the password, and registers the customer.
+        
+        :param request: The HTTP request object that contains information about the current request, such
+        as the HTTP method, headers, and data
+        :return: The code returns a redirect to the homepage if the customer instance is validated and
+        registered successfully. If validation fails, it returns a render of the signup template with an
+        error message and the values entered by the user.
+        """
         postData = request.POST
         first_name = postData.get('firstname')
         last_name = postData.get('lastname')
@@ -60,6 +70,16 @@ class Signup(View):
 
     # Validate the customer instance, checking for required fields and certain length constraints
     def validateCustomer(self, customer):
+        """
+        This function validates customer information and returns an error message if any of the fields are
+        missing or do not meet the required criteria.
+        
+        :param customer: The customer parameter is an object that contains information about a customer,
+        such as their first name, last name, phone number, password, and email address. The function is
+        designed to validate this information and return an error message if any of the information is
+        missing or does not meet certain criteria
+        :return: an error message if any of the validation checks fail, otherwise it returns None.
+        """
         error_message = None
         if (not customer.first_name):
             error_message = "Please Enter your First Name !!"
