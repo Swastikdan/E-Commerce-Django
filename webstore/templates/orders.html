@@ -55,65 +55,45 @@
 </div>
 <div class="pb-14 pt-5 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto min-h-screen  dark:bg-gray-800 bg-gray-50">
 	<h1 class="text-4xl font-bold dark:text-gray-200 text-gray-800">Your Orders</h1>
-	<div
-		class=" flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+    <div class=" flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
 
-		<div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-			<div class="flex flex-col justify-start items-start px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-				{% if orders %}
-				{% for order in orders %}
-				<div
-					class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full border border-spacing-2 rounded-xl ">
-					<img class=" p-5 rounded-md  w-full md:w-40 h-96 md:h-40  " src="{{ order.product.image.url }}"
-						alt="{{ order.product.name }}" />
-					<div
-						class="  md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ">
-						<div class="w-full flex flex-col justify-start items-start space-y-8 p-5">
-							<h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{{
-								order.product.name }}</h3>
-							<div class="flex justify-start items-start flex-col space-y-2">
-								<p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span
-										class="text-gray-600 dark:text-gray-300">Date: </span> {{ order.date }}</p>
-								<p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span
-										class="text-gray-600 dark:text-gray-300">Address: </span> {{ order.address }}
-								</p>
-								<p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span
-										class="text-gray-600 dark:text-gray-300">Mobile No: </span> {{ order.phone }}
-								</p>
-								{% if order.status %}
-								<p class="text-xs font-semibold leading-none text-green-700 "><span
-										class="text-gray-600 dark:text-gray-300">Order Status: </span> Completed</p>
-								{% else %}
-								<p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span
-										class="text-gray-600 dark:text-gray-300">Order Status: </span> Pending</p>
-								{% endif %}
-							</div>
-						</div>
-						<div class="flex justify-between space-x-8 items-start w-full p-5">
-							<p class="text-base dark:text-white xl:text-lg leading-6 flex flex-col text-center"><span
-									class="text-gray-700 dark:text-gray-300 font-medium ">Price </span> <br> {{
-								order.price|currency }} </p>
-							<p
-								class="text-base dark:text-white xl:text-lg leading-6 text-gray-800 flex flex-col text-center">
-								<span class="text-gray-700 dark:text-gray-300 font-medium ">Quantity </span> <br>{{
-								order.quantity }}
-							</p>
-							<p
-								class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 flex flex-col text-center">
-								<span class="text-gray-700 dark:text-gray-300 font-medium ">Total Price </span> <br>{{
-								order.quantity|multiply:order.price|currency }}
-							</p>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-				{% else %}
-				<div class="text-center">
-					<p class="text-xl md:text-2xl text-gray-950 dark:text-gray-100 py-5"> Hey there! No orders yet? Keep
-						exploring and find your perfect item. Happy shopping! 🛍️😊</p>
-				</div>
-				{% endif %}
-			</div>
+        <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+            <div class="flex flex-col justify-start items-start px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+                {% if orders %}
+                {% for order in orders %}
+                <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full border border-spacing-2 rounded-xl ">
+  
+                        <img  class=" p-5 rounded-md  w-full md:w-40 h-96 md:h-40  " src="{{ order.product.image.url }}" alt="{{ order.product.name }}" />
+
+          
+                    <div class="  md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ">
+                        <div class="w-full flex flex-col justify-start items-start space-y-8 p-5">
+                            <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{{ order.product.name }}</h3>
+                            <div class="flex justify-start items-start flex-col space-y-2">
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Date: </span> {{ order.date }}</p>                             
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Address: </span> {{ order.address }}</p>
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Mobile No: </span> {{ order.phone }}</p>
+                                {% if order.status %}
+                                <p class="text-xs font-semibold leading-none text-green-700 "><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Completed</p>
+                                {% else %}
+                                <p class="text-xs font-semibold dark:text-white leading-none text-gray-800"><span class="text-gray-600 dark:text-gray-300">Order Status: </span> Pending</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="flex justify-between space-x-8 items-start w-full p-5">
+                            <p class="text-base dark:text-white xl:text-lg leading-6 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Price </span> <br> {{ order.price|currency }} </p>
+                            <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Quantity </span> <br>{{ order.quantity }}</p>
+                            <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 flex flex-col text-center"><span class="text-gray-700 dark:text-gray-300 font-medium ">Total Price </span> <br>{{ order.quantity|multiply:order.price|currency }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                    <div class="text-center">
+                        <p class="text-xl md:text-2xl text-gray-950 dark:text-gray-100 py-5"> Hey there! No orders yet? Keep exploring and find your perfect item. Happy shopping! 🛍️😊</p>
+                    </div>
+                {% endif %}
+            </div>
 
 		</div>
 
